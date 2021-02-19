@@ -11,11 +11,19 @@
 |
 */
 
-Route::get('/', function () {return view('user'); });
-Route::get('/login', function () {return view('login'); });
-Route::get('/admin', function () {return view('/admin/beranda'); });
-Route::get('/admin/anggota', function () {return view('/admin/anggota'); });
-Route::get('/admin/anggota/baru', function () {return view('/admin/anggotaBaru'); });
-Route::get('/admin/jadwal', function () {return view('/admin/jadwal'); });
-Route::get('/admin/proker', function () {return view('/admin/proker'); });
-Route::get('/admin/laporan', function () {return view('/admin/laporan'); });
+Route::get('/', 'UserController@index')->name('user');
+Route::get('/ukm', 'UKMController@index')->name('ukm');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+
+Auth::routes();
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('/', 'BerandaController@index')->name('admin');
+    Route::get('/anggota', 'AnggotaController@index');
+    Route::get('/anggota/baru', 'AnggotaBaruController@index');
+    Route::get('/jadwal', function () {return view('/admin/jadwal'); });
+    Route::get('/proker', function () {return view('/admin/proker'); });
+    Route::get('/laporan', function () {return view('/admin/laporan'); });
+});
+
+Route::get('/home', 'HomeController@index')->name('home');

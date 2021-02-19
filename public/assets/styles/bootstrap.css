@@ -7920,6 +7920,12 @@ button.bg-dark:focus {
   margin-bottom: 1rem !important;
 }
 
+.card-size {
+  display: inline-block;
+  width: 255;
+  height: 338;
+}
+
 .ml-3,
 .mx-3 {
   margin-left: 1rem !important;

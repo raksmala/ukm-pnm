@@ -37,24 +37,26 @@
             </div> 
 
             <div class="panel-body">
-                
+            <form method="POST" action="{{ route('login') }}" class="form-horizontal">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="Username">
+                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="Username">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="password" required="" placeholder="Password">
+                        <input class="form-control" type="password" id="password" name="password" required="" placeholder="Password">
                     </div>
                 </div>
                 
                 <div class="form-group text-center m-t-40">
                     <div class="col-xs-12">
-                        <a class="btn btn-pink btn-block text-uppercase waves-effect waves-light" href="{{ url('/admin/') }}">Masuk</a  >
+                        <button type="submit" class="btn btn-pink btn-block text-uppercase waves-effect waves-light"">Masuk</button>
                     </div>
                 </div>
+            </form>
             
             </div>   
             </div>                              
