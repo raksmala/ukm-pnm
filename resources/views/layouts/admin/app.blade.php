@@ -20,6 +20,23 @@
         <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
 
+        <!-- Sweet Alert -->
+        <link href="{{ asset('assets/plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- Plugins css -->
+        <link href="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/clockpicker/css/bootstrap-clockpicker.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/plugins/multiselect/css/multi-select.css') }}"  rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
+
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -45,7 +62,7 @@
                     <div class="menu-extras">
                         <ul class="nav navbar-nav navbar-right pull-right">
                             <li class="dropdown navbar-c-items">
-                                <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ asset('assets/images/da-emp-2.jpg') }}" alt="user-img" class="img-circle"> </a>
+                                <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ asset('assets/images/logo/badminton.png') }}" alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -129,6 +146,38 @@
 
         <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
+
+        <!-- Sweet-Alert  -->
+        <script src="{{ asset('assets/plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
+        <script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
+
+        <!-- plugins js -->
+        <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+     	<script src="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.js') }}"></script>
+     	<script src="{{ asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+     	<script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+     	<script src="{{ asset('assets/plugins/clockpicker/js/bootstrap-clockpicker.min.js') }}"></script>
+     	<script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+        <!-- page js -->
+        <script src="{{ asset('assets/pages/jquery.form-pickers.init.js') }}"></script>
+
+        <script src="{{ asset('assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/switchery/js/switchery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/jquery-quicksearch/jquery.quicksearch.js') }}"></script>
+        <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-select/js/bootstrap-select.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}" type="text/javascript"></script>
+
+        <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/jquery.mockjax.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/jquery.autocomplete.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/countries.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/pages/autocomplete.js') }}"></script>
+
+        <script type="text/javascript" src="{{ asset('assets/pages/jquery.form-advanced.init.js') }}"></script>
 
         <script type="text/javascript">
             jQuery(document).ready(function($) {

@@ -10,9 +10,6 @@
 
 <div class="col-lg-12">
     <div class="card-box table-responsive">
-        <div style="width: 100%; text-align: right; margin-bottom: 10px;">
-            <a href="#" class="on-default edit-row btn btn-success"><i class="fa fa-plus"></i></a>
-        </div>
 
         <table id="datatable" class="table table-striped table-bordered">
             <thead>
@@ -34,12 +31,49 @@
                     <td>21 April 2020</td>
                     <td>Kampus 1 PNM</td>
                     <td>Rendy Aksmala</td>
-                    <td></td><td>Tidak Terlaksana</td><td><a href='#' class='on-default edit-row btn btn-primary' data-toggle='modal' data-target='#add-modal' onclick="SetInput('1', 'Musyawarah Besar', 'Memberikan wadah kepada anggota UKM Futsal untuk membahas tentang AD/ART UKM Taekwondo', '21 April 2020', 'Kampus 1 PNM', 'Seluruh anggota UKM Taekwondo', 'Dihadiri 1/2 N + 1 dari anggota UKM Taekwondo', 'Rendy Aksmala')"><i class='fa fa-pencil'></i></a>
-                        <a href='#' class='on-default delete-row btn btn-danger' data-toggle='modal' data-target='#hapus-modal' onclick="SetInputs('1', 'Musyawarah Besar', 'Memberikan wadah kepada anggota UKM Futsal untuk membahas tentang AD/ART UKM Taekwondo', '21 April 2020', 'Kampus 1 PNM', 'Seluruh anggota UKM Taekwondo', 'Dihadiri 1/2 N + 1 dari anggota UKM Taekwondo', 'Rendy Aksmala')"><i class='fa fa-trash'></i></a>
+                    <td></td>
+                    <td>Tidak Terlaksana</td>
+                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#tambah-modal"><i class='fa fa-pencil'></i></a>
+                        <a href='#' class='on-default delete-row btn btn-danger' id="danger-alert"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>                    
             </tbody>
         </table>
     </div>
 </div>
+
+<div id="tambah-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Data Laporan</h4>
+            </div>
+            <form action="" method="post" role="form" autocomplete="off">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Nama Kegiatan</label>
+                                <input type="text" class="form-control" id="namaKegiatanProker" name="namaKegiatanProker">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Foto</label>
+                                <input type="file" class="filestyle" id="fotoKegiatanProker" name="fotoKegiatanProker">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-info waves-effect waves-light">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- /.modal -->
 @endsection

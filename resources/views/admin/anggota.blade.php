@@ -32,8 +32,8 @@
                     <td>183307050</td>
                     <td>1</td>
                     <td>Teknologi Informasi 4A</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary'><i class='fa fa-pencil'></i></a>
-                        <a href='#' class='on-default delete-row btn btn-danger'><i class='fa fa-trash'></i></a>
+                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#tambah-modal"><i class='fa fa-pencil'></i></a>
+                        <a href='#' class='on-default delete-row btn btn-danger' id="danger-alert"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>               
             </tbody>
@@ -46,64 +46,52 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Modal Content is Responsive</h4>
+                <h4 class="modal-title">Data Anggota</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">NIM</label>
-                            <input type="text" class="form-control" id="NIMAnggota" name="NIMAnggota">
+            <form action="" method="post" role="form" autocomplete="off">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">NIM</label>
+                                <input type="text" class="form-control" id="NIMAnggota" name="NIMAnggota">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="control-label">Nama</label>
+                                <input type="text" class="form-control" id="namaAnggota" name="namaAnggota">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="form-group">
-                            <label class="control-label">Nama</label>
-                            <input type="text" class="form-control" id="namaAnggota" name="namaAnggota">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ukm">Jabatan</label>
+                                <select class="form-control" id="jabatanAnggota" name="jabatanAnggota">
+                                    <option>Ketua</option>
+                                    <option>Wakil Ketua</option>
+                                    <option>Sekretaris I</option>
+                                    <option>Sekretaris II</option>
+                                    <option>Bendahara I</option>
+                                    <option>Bendahara II</option>
+                                    <option>Koordinator</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="field-3" class="control-label">Jabatan</label>
-                            <input type="text" class="form-control" id="field-3" placeholder="Address">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="field-4" class="control-label">City</label>
-                            <input type="text" class="form-control" id="field-4" placeholder="Boston">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="field-5" class="control-label">Country</label>
-                            <input type="text" class="form-control" id="field-5" placeholder="United States">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="field-6" class="control-label">Zip</label>
-                            <input type="text" class="form-control" id="field-6" placeholder="123456">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="prodi">Program Studi</label>
+                                <input type="text" id="prodi" name="prodi" required class="form-control" readonly="">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group no-margin">
-                            <label for="field-7" class="control-label">Personal Info</label>
-                            <textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-info waves-effect waves-light">Simpan</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button>
-            </div>
+            </form>
         </div>
     </div>
 </div><!-- /.modal -->
