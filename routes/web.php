@@ -13,6 +13,8 @@
 
 Route::get('/', 'UserController@index')->name('user');
 Route::get('/ukm', 'UKMController@index')->name('ukm');
+Route::get('/daftar', 'DaftarController@index')->name('daftar');
+Route::get('/kritikSaran', 'KritikSaranController@index')->name('kritikSaran');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
 Auth::routes();
