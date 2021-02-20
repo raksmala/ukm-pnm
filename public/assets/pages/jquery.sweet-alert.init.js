@@ -139,13 +139,14 @@
         //Danger
         $('#danger-alert').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
+                title: "Apakah anda yakin ingin menghapus?",
+                text: "",
                 type: "error",
                 showCancelButton: true,
                 cancelButtonClass: 'btn-white btn-md waves-effect',
+                cancelButtonText: 'Batal',
                 confirmButtonClass: 'btn-danger btn-md waves-effect waves-light',
-                confirmButtonText: 'Danger!'
+                confirmButtonText: 'Hapus'
             });
         });
 
