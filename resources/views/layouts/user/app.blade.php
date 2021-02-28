@@ -15,7 +15,7 @@
     <link href="{{ asset('/assets/styles/main.css') }}" rel="stylesheet">
     <link href="{{ asset('/assets/styles/pages.css') }}" rel="stylesheet">
 
-      <!-- script kalender -->
+    <!-- script kalender -->
     <link href="{{ asset('/assets/scripts/packages/core/main.min.css') }}" rel='stylesheet' />
     <link href="{{ asset('/assets/scripts/packages/daygrid/main.min.css') }}" rel='stylesheet' />
     <link href="{{ asset('/assets/scripts/packages/timegrid/main.min.css') }}" rel='stylesheet' />

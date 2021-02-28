@@ -5,6 +5,7 @@
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#listukm') }}">UKM</a></li>
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#layanan') }}">Layanan</a></li>
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#kontak') }}">Kontak</a></li>
+        <li class="nav-item"><a class="nav-link smooth-scroll" href="#">Login</a></li>
     </ul>
     </div>
 </nav>
