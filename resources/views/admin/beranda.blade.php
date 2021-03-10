@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Beranda</h4>
-        <p class="text-muted page-title-alt">Selamat Datang Admin Badminton</p>
+        <p class="text-muted page-title-alt">Selamat Datang Admin {{ Auth()->user()->name }}</p>
     </div>
 </div>
 

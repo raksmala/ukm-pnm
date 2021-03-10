@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Program Kerja</h4>
-        <p class="text-muted page-title-alt">Program Kerja UKM Badminton</p>
+        <p class="text-muted page-title-alt">Program Kerja UKM {{ Auth()->user()->name }}</p>
     </div>
 </div>
 
@@ -32,7 +32,7 @@
                 <tr>
                     <td>1</td>
                     <td>Musyawarah Besar</td>
-                    <td>Memberikan wadah kepada anggota UKM Futsal untuk membahas tentang AD/ART UKM Taekwondo</td>
+                    <td>Memberikan wadah kepada anggota UKM Badminton untuk membahas tentang AD/ART UKM Badminton</td>
                     <td>21 April 2020</td>
                     <td>Kampus 1 PNM</td>
                     <td>Seluruh anggota UKM Taekwondo</td>

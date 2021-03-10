@@ -74,7 +74,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        
         'mahasiswas' => [
             'driver' => 'eloquent',
             'model' => App\Mahasiswa::class,

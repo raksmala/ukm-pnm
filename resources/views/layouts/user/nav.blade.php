@@ -5,7 +5,23 @@
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#listukm') }}">UKM</a></li>
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#layanan') }}">Layanan</a></li>
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ url('/#kontak') }}">Kontak</a></li>
-        <li class="nav-item"><a class="nav-link smooth-scroll" href="#">Login</a></li>
+        @guest('mahasiswa')
+        <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ route('userLogin') }}">Login</a></li>
+        @endguest
+        @auth('mahasiswa')
+        <li class="nav-item"><a class="nav-link smooth-scroll">{{ Auth::guard('mahasiswa')->user()->NIM }}</a></li>
+        <li class="nav-item">
+            <a class="nav-link smooth-scroll" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </li>
+        @endauth
     </ul>
     </div>
 </nav>

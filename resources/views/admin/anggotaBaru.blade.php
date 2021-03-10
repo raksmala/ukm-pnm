@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Anggota</h4>
-        <p class="text-muted page-title-alt">Anggota Baru UKM Badminton</p>
+        <p class="text-muted page-title-alt">Anggota Baru UKM {{ Auth()->user()->name }}</p>
     </div>
 </div>
 <div class="col-lg-12">

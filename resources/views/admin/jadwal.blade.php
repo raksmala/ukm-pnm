@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Jadwal</h4>
-        <p class="text-muted page-title-alt">Jadwal UKM Badminton</p>
+        <p class="text-muted page-title-alt">Jadwal UKM {{ Auth()->user()->name }}</p>
     </div>
 </div>
 

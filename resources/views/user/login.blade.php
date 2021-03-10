@@ -16,7 +16,8 @@
         <div class="row">
             <div class="col-lg-6" style="margin: auto;">
                 <div class="card-body">
-                    <form action="#">
+                    <form action="{{ route('validasiUser') }}" method="post">
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                         <div class="form-group">
                             <label for="nama">NIM</label>
                             <input type="text" id="NIM" name="NIM" required class="form-control">

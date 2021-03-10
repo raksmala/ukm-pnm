@@ -64,7 +64,7 @@
 
                     <!-- Logo container-->
                     <div class="logo">
-                        <a href="{{ url('/admin/') }}" class="logo">UKM Badminton</a>
+                        <a @if(Auth()->user()->status == 'BEM') href="{{ url('/bem/') }}" @else href="{{ url('/admin/') }}" @endif class="logo">@if(Auth()->user()->status == 'BEM') {{ Auth()->user()->name }} @else UKM {{ Auth()->user()->name }} @endif</a>
                     </div>
                     <!-- End Logo container-->
 
