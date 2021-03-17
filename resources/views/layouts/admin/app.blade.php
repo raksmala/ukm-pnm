@@ -160,8 +160,7 @@
         <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
 
         <!-- Sweet-Alert  -->
-        <script src="{{ asset('assets/plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-        <script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
+        <script src="{{ asset('assets/plugins/bootstrap-sweetalert/sweetalert.min.js') }}"></script>
 
         <!-- plugins js -->
         <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
@@ -257,5 +256,7 @@
             TableManageButtons.init();
 
         </script>
+
+        @yield('scripts')
     </body>
 </html>

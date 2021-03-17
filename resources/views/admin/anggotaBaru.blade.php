@@ -21,17 +21,101 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($anggota as $data)
                 <tr>
-                    <td>1</td>
-                    <td>Rendy Kharisma Aksmala</td>
-                    <td>183307050</td>
-                    <td>Teknologi Informasi 4A</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary'><i class='fa fa-pencil'></i></a>
-                        <a href='#' class='on-default delete-row btn btn-danger'><i class='fa fa-trash'></i></a>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->namaAnggota }}</td>
+                    <td>{{ $data->NIMAnggota }}</td>
+                    <td>{{ $data->programStudiAnggota }}</td>
+                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idAnggota }}', '{{ $data->NIMAnggota }}', '{{ $data->namaAnggota }}', '{{ $data->programStudiAnggota }}', '{{ $data->statusAnggota }}')"><i class='fa fa-pencil'></i></a>
+                        <a href='#' class='on-default delete-row btn btn-danger delete-anggota' idAnggota="{{ $data->idAnggota }}" namaAnggota="{{ $data->namaAnggota }}"><i class='fa fa-trash'></i></a>
                     </td>
-                </tr>               
+                </tr>     
+                @endforeach                
             </tbody>
         </table>
     </div>
 </div>
+
+<div id="edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Data Anggota</h4>
+            </div>
+            <form action="/admin/anggota/baru/update" method="post" role="form" autocomplete="off">
+            {{ csrf_field() }}
+            {{ method_field('PUT') }}
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="hidden" id="editIdAnggota" name="editIdAnggota">
+                                <label class="control-label">NIM</label>
+                                <input type="text" class="form-control" id="editNIMAnggota" name="editNIMAnggota">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label class="control-label">Nama</label>
+                                <input type="text" class="form-control" id="editNamaAnggota" name="editNamaAnggota">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="prodi">Program Studi</label>
+                                <input type="text" id="editProgramStudiAnggota" name="editProgramStudiAnggota" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="ukm">Status</label>
+                                <select class="form-control" id="editStatusAnggota" name="editStatusAnggota">
+                                    <option value="baru">Baru</option>
+                                    <option value="tetap">Tetap</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div><!-- /.modal -->
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    function setEditForm(idAnggota, NIMAnggota, namaAnggota, programStudiAnggota, statusAnggota) {
+        document.getElementById('editIdAnggota').value = idAnggota;
+        document.getElementById('editNIMAnggota').value = NIMAnggota;
+        document.getElementById('editNamaAnggota').value = namaAnggota;
+        document.getElementById('editProgramStudiAnggota').value = programStudiAnggota;
+        document.getElementById('editStatusAnggota').value = statusAnggota;
+    }
+
+    $('.delete-anggota').click(function(){
+        var idAnggota = $(this).attr('idAnggota');
+        var namaAnggota = $(this).attr('namaAnggota');
+        swal({
+            title: "Yakin ?",
+            text: "Menghapus Data Anggota " +namaAnggota+ " ?",
+            icon: "error",
+            buttons: ["Batal", "Hapus"],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/admin/anggota/hapus/" + idAnggota;
+            }
+        });
+        event.preventDefault();
+    });
+</script>
 @endsection

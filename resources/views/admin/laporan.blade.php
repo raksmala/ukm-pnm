@@ -25,55 +25,82 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($proker as $data)
                 <tr>
-                    <td>1</td>
-                    <td>Musyawarah Besar</td>
-                    <td>21 April 2020</td>
-                    <td>Kampus 1 PNM</td>
-                    <td>Rendy Aksmala</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->namaKegiatanProker }}</td>
+                    <td>{{ $data->tanggalKegiatanProker }}</td>
+                    <td>{{ $data->lokasiKegiatanProker }}</td>
+                    <td>{{ $data->pjKegiatanProker }}</td>
+                    @if($data->fotoKegiatanProker != null)
+                    <td><a href="#" data-toggle="modal" data-target="#show-detail-modal-{{ $data->idProgramKerja }}">Detail</a></td>
+                    @else
                     <td></td>
+                    @endif
+                    @if($data->keteranganKegiatanProker == 'terlaksana')
+                    <td>Terlaksana</td>
+                    @else if($data->keteranganKegiatanProker == 'tidakTerlaksana')
                     <td>Tidak Terlaksana</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#tambah-modal"><i class='fa fa-pencil'></i></a>
-                        <a href='#' class='on-default delete-row btn btn-danger' id="danger-alert"><i class='fa fa-trash'></i></a>
+                    @endif
+                    <td>
+                        <form action="/admin/laporan/update/{{ $data->idProgramKerja }}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
+                            <input type="file" class="filestyle" id="fotoKegiatanProker{{ $data->idProgramKerja }}" name="fotoKegiatanProker{{ $data->idProgramKerja }}" data-input="false"data-buttontext="Unggah Foto" data-buttonname="btn-default" onchange="document.getElementById('uploadFoto{{ $data->idProgramKerja }}').click();">
+                            <button type="submit" style="display: none;" id="uploadFoto{{ $data->idProgramKerja }}"></button>
+                        </form>
+                        <a href='#' class='on-default delete-row btn btn-danger delete-proker' idProgramKerja="{{ $data->idProgramKerja }}" namaKegiatanProker="{{ $data->namaKegiatanProker }}"><i class='fa fa-trash'></i></a>
                     </td>
-                </tr>                    
+                </tr>   
+                @endforeach                       
             </tbody>
         </table>
     </div>
 </div>
 
-<div id="tambah-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+@foreach ($proker as $data)
+<div id="show-detail-modal-{{ $data->idProgramKerja }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Data Laporan</h4>
+                <h4 class="modal-title">Detail Foto Kegiatan</h4>
             </div>
-            <form action="" method="post" role="form" autocomplete="off">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="control-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="namaKegiatanProker" name="namaKegiatanProker">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="control-label">Foto</label>
-                                <input type="file" class="filestyle" id="fotoKegiatanProker" name="fotoKegiatanProker">
-                            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <img src="{{ url('') }}/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" alt="Image" style="max-height: 500px; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-info waves-effect waves-light">Simpan</button>
-                </div>
-            </form>
+            </div>
+            <div class="modal-footer">
+                <a href="/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" class="btn btn-info waves-effect waves-light">Unduh Foto</a>
+            </div>
         </div>
     </div>
 </div><!-- /.modal -->
+@endforeach
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $('.delete-proker').click(function(){
+        var idProgramKerja = $(this).attr('idProgramKerja');
+        var namaKegiatanProker = $(this).attr('namaKegiatanProker');
+        swal({
+            title: "Yakin ?",
+            text: "Menghapus Data Program Kerja " +namaKegiatanProker+ " ?",
+            icon: "error",
+            buttons: ["Batal", "Hapus"],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/admin/proker/hapus/" + idProgramKerja;
+            }
+        });
+        event.preventDefault();
+    });
+</script>
 @endsection
