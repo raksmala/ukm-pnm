@@ -10,4 +10,9 @@ class Jadwal extends Model
     protected $primaryKey = "idJadwal";
 
     protected $fillable = ['UKM_idUKM', 'namaKegiatan', 'tanggalAwal', 'tanggalAkhir'];
+
+    public function ukm()
+    {
+        return $this->belongsTo('App\UKM', 'UKM_idUKM');
+    }
 }

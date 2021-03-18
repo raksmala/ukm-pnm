@@ -21,12 +21,14 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($jadwal as $data)
                 <tr>
-                    <td>1</td>
-                    <td>Taekwondo</td>
-                    <td>Musyawarah Besar</td>
-                    <td>2020-02-11 s/d 2020-02-11</td>
-                </tr>          
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->ukm->namaUKM }}</td>
+                    <td>{{ $data->namaKegiatan }}</td>
+                    <td>{{ $data->tanggalAwal }} s/d {{ $data->tanggalAkhir }}</td>
+                </tr>  
+                @endforeach                  
             </tbody>
         </table>
     </div>

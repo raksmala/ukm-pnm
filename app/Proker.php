@@ -10,4 +10,9 @@ class Proker extends Model
     protected $primaryKey = "idProgramKerja";
 
     protected $fillable = ['UKM_idUKM', 'namaKegiatanProker', 'tujuanKegiatanProker', 'tanggalKegiatanProker', 'lokasiKegiatanProker', 'sasaranKegiatanProker', 'tuKegiatanProker', 'pjKegiatanProker', 'fotoKegiatanProker', 'keteranganKegiatanProker'];
+
+    public function ukm()
+    {
+        return $this->belongsTo('App\UKM', 'UKM_idUKM');
+    }
 }
