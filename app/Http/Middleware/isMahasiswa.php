@@ -16,14 +16,14 @@ class isMahasiswa
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::Mahasiswa()->NIM != null) {    
+        if(Auth::guard('mahasiswa')->user('NIM') != null) {    
             return $next($request);
-        } else if(Auth::check() && Auth::User()->status == 'ukm') {
+        } else if(Auth::User('status') == 'ukm') {
             return redirect()->route('admin');
-        } else if(Auth::check() && Auth::User()->status == 'BEM') {
+        } else if(Auth::User('status') == 'BEM') {
             return redirect()->route('bem');
         } else {
-            return redirect()->route('user');
+            return redirect()->route('userLogin');
         }
     }
 }

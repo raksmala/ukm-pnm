@@ -30,7 +30,7 @@ class AnggotaBaruController extends Controller
         $anggota->programStudiAnggota = $request->editProgramStudiAnggota;
         $anggota->statusAnggota = $request->editStatusAnggota;
         if($request->editStatusAnggota == 'tetap') {
-            $anggota->jabatanAnggota = 'Anggota';
+            $anggota->jabatanAnggota = '9';
         }
         $anggota->save();
         return back()->with('success', "Anggota dengan id " .$request->editIdAnggota. " terupdate");

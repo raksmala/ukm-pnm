@@ -10,4 +10,9 @@ class Informasi extends Model
     protected $primaryKey = "idInformasi";
 
     protected $fillable = ['UKM_idUKM', 'isiInformasi'];
+    
+    public function ukm()
+    {
+        return $this->belongsTo('App\UKM', 'UKM_idUKM');
+    }
 }

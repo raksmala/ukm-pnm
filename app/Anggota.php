@@ -10,4 +10,9 @@ class Anggota extends Model
     protected $primaryKey = "idAnggota";
 
     protected $fillable = ['UKM_idUKM', 'namaAnggota', 'NIMAnggota', 'jabatanAnggota', 'programStudiAnggota', 'statusAnggota'];
+
+    public function ukm()
+    {
+        return $this->belongsTo('App\UKM', 'UKM_idUKM');
+    }
 }

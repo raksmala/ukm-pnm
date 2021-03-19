@@ -27,7 +27,7 @@ class AnggotaController extends Controller
             'UKM_idUKM' => Auth()->user()->UKM_idUKM,
     		'namaAnggota' => $request->namaAnggota,
     		'NIMAnggota' => $request->NIMAnggota,
-    		'jabatanAnggota' => $request->jabatanAnggota,
+    		'jabatanAnggota' => $this->jabatan($request->jabatanAnggota),
     		'programStudiAnggota' => $request->programStudiAnggota,
             'statusAnggota' => 'tetap'
     	]);
@@ -48,7 +48,7 @@ class AnggotaController extends Controller
         $anggota = Anggota::find($request->editIdAnggota);
         $anggota->namaAnggota = $request->editNamaAnggota;
         $anggota->NIMAnggota = $request->editNIMAnggota;
-        $anggota->jabatanAnggota = $request->editJabatanAnggota;
+        $anggota->jabatanAnggota = $this->jabatan($request->editJabatanAnggota);
         $anggota->programStudiAnggota = $request->editProgramStudiAnggota;
         $anggota->save();
         return back()->with('success', "Anggota dengan id " .$request->editIdAnggota. " terupdate");

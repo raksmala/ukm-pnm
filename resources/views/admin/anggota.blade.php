@@ -31,7 +31,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->namaAnggota }}</td>
                     <td>{{ $data->NIMAnggota }}</td>
-                    <td>{{ $data->jabatanAnggota }}</td>
+                    <td>{{ ConvertJabatan::convertJabatan($data->jabatanAnggota) }}</td>
                     <td>{{ $data->programStudiAnggota }}</td>
                     <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idAnggota }}', '{{ $data->NIMAnggota }}', '{{ $data->namaAnggota }}', '{{ $data->jabatanAnggota }}', '{{ $data->programStudiAnggota }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-anggota' idAnggota="{{ $data->idAnggota }}" namaAnggota="{{ $data->namaAnggota }}"><i class='fa fa-trash'></i></a>

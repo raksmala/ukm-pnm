@@ -8070,6 +8070,11 @@ button.bg-dark:focus {
   padding-bottom: 1rem !important;
 }
 
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .pl-3,
 .px-3 {
   padding-left: 1rem !important;

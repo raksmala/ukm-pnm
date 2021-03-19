@@ -14,9 +14,9 @@
 Route::auth();
 
 Route::get('/', 'UserController@index')->name('user');
-Route::get('/ukm', 'UKMController@index')->name('ukm');
+Route::post('/ukm', 'UKMController@index')->name('ukm');
 Route::get('/kritikSaran', 'KritikSaranController@index')->name('kritikSaran');
-Route::get('/daftar', 'DaftarController@index')->name('daftar')->middleware('auth');
+Route::get('/daftar', 'DaftarController@index')->name('daftar')->middleware('mahasiswa');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/login/user', 'UserLoginController@showLoginForm')->name('userLogin');
 Route::post('/login/user', 'UserLoginController@login')->name('validasiUser');
