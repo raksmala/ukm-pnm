@@ -35,4 +35,9 @@ class UKM extends Model
     {
         return $this->hasOne('App\Informasi', 'UKM_idUKM');
     }
+
+    public function kritikSaran()
+    {
+        return $this->hasMany('App\KritikSaran', 'UKM_idUKM');
+    }
 }

@@ -17,42 +17,26 @@
             <div class="col-lg-6" style="margin: auto;">
                 <div class="card-body">
                     <h4 class="m-t-0 header-title text-center" style="margin-bottom: 3rem;"><b>Form Kritik & Saran</b></h4>
-                    <form action="#">
+                    <form action="/kritikSaran/tambah" method="post" role="form" autocomplete="off">
+                    {{ csrf_field() }}
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" id="nama" name="nama" required placeholder="Kosongi jika ingin sebagai Anonim" class="form-control">
+                            <input type="text" id="namaMahasiswa" name="namaMahasiswa" placeholder="Kosongi jika ingin sebagai Anonim" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="ukm">Sasaran</label>
-                            <select class="form-control">
-                                <option>Badan Eksekutif Mahasiswa</option>
-                                <option>Badminton</option>
-                                <option>Basket</option>
-                                <option>Cakra</option>
-                                <option>Futsal</option>
-                                <option>G-Plasma</option>
-                                <option>Pencak Silat</option>
-                                <option>Kewirausahaan</option>
-                                <option>Resimen Mahasiswa</option>
-                                <option>Musican</option>
-                                <option>Niknema</option>
-                                <option>Paduan Suara</option>
-                                <option>Pals</option>
-                                <option>Pramuka</option>
-                                <option>Teater Stupa</option>
-                                <option>Taekwondo</option>
-                                <option>Tari</option>
-                                <option>UKKI</option>
-                                <option>Voli</option>
+                            <select class="form-control" id="idUKM" name="idUKM">
+                                @foreach($ukm as $data)
+                                <option value="{{ $data->idUKM }}">{{ $data->namaUKM }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="kritik">Kritik & Saran</label>
-                            <textarea class="form-control" rows="5"></textarea>
+                            <textarea class="form-control" rows="5" id="isiKritikSaran" name="isiKritikSaran"></textarea>
                         </div>
-
                         <div class="form-group text-right m-b-0">
-                            <button class="btn btn-primary waves-effect waves-light" type="submit">Kirim</button>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Kirim</button>
                             <button type="reset" class="btn btn-default waves-effect waves-light m-l-5">Batal</button>
                         </div>
                     </form>

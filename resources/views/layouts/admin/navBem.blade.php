@@ -15,6 +15,9 @@
                 <li class="has-submenu">
                     <a href="{{ url('/bem/laporan') }}"><i class="md md-assignment-turned-in"></i>Laporan UKM</a>
                 </li>
+                <li class="has-submenu">
+                    <a href="{{ url('/bem/kritikSaran') }}"><i class="md md-archive"></i>Kritik & Saran</a>
+                </li>
             </ul>
             <!-- End navigation menu        -->
         </div>

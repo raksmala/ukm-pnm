@@ -16,7 +16,9 @@ Route::auth();
 Route::get('/', 'UserController@index')->name('user');
 Route::post('/ukm', 'UKMController@index')->name('ukm');
 Route::get('/kritikSaran', 'KritikSaranController@index')->name('kritikSaran');
+Route::post('/kritikSaran/tambah', 'KritikSaranController@tambah');
 Route::get('/daftar', 'DaftarController@index')->name('daftar')->middleware('mahasiswa');
+Route::post('/daftar/tambah', 'DaftarController@tambah')->middleware('mahasiswa');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/login/user', 'UserLoginController@showLoginForm')->name('userLogin');
 Route::post('/login/user', 'UserLoginController@login')->name('validasiUser');
@@ -49,6 +51,7 @@ Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/jadwal', 'BEM\JadwalController@index');
     Route::get('/proker', 'BEM\ProkerController@index');
     Route::get('/laporan', 'BEM\LaporanController@index');
+    Route::get('/kritikSaran', 'BEM\KritikSaranController@index');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
