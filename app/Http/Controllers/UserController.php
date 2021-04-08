@@ -9,8 +9,7 @@ class UserController extends Controller
 {
     public function index() 
     {
-        $ukm = UKM::all();
-        dd($ukm);
+        $ukm = UKM::where([['idUKM', '!=', '1']])->get();
         return view('/user/user', ['ukm' => $ukm]);
     }
 }
