@@ -3,7 +3,7 @@
 <div data-aos="fade-right" data-aos-duration="1000" style="color: #ffffff; text-align: center; margin-top: 8rem;">
     <div class="container">
         <div class="col-md-12 col-sm-12 px-0 mx-0">
-            <img @if($ukm->user['foto'] != null) src="{{ url('') }}/assets/images/logo/{{ $ukm->user['foto'] }}" @else src="{{ url('') }}/assets/images/logo/km.png" @endif style="width: 250px; height: 250px;"></img>
+            <img @if($ukm->user['foto'] != null) src="{{ secure_url('') }}/assets/images/logo/{{ $ukm->user['foto'] }}" @else src="{{ secure_url('') }}/assets/images/logo/km.png" @endif style="width: 250px; height: 250px;"></img>
             <h3 class="display-4">UKM {{ $ukm->namaUKM }}</h3>
         </div>
     </div>

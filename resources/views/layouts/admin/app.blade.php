@@ -64,14 +64,14 @@
 
                     <!-- Logo container-->
                     <div class="logo">
-                        <a @if(Auth()->user()->status == 'BEM') href="{{ url('/bem/') }}" @else href="{{ url('/admin/') }}" @endif class="logo">@if(Auth()->user()->status == 'BEM') {{ Auth()->user()->name }} @else UKM {{ Auth()->user()->name }} @endif</a>
+                        <a @if(Auth()->user()->status == 'BEM') href="{{ secure_url('/bem/') }}" @else href="{{ secure_url('/admin/') }}" @endif class="logo">@if(Auth()->user()->status == 'BEM') {{ Auth()->user()->name }} @else UKM {{ Auth()->user()->name }} @endif</a>
                     </div>
                     <!-- End Logo container-->
 
                     <div class="menu-extras">
                         <ul class="nav navbar-nav navbar-right pull-right">
                             <li class="dropdown navbar-c-items">
-                                <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img @if(Auth()->user()->foto != null) src="{{ url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" @else src="{{ url('') }}/assets/images/logo/km.png" @endif alt="user-img" class="img-circle"> </a>
+                                <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img @if(Auth()->user()->foto != null) src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" @else src="{{ secure_url('') }}/assets/images/logo/km.png" @endif alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('logout') }}"

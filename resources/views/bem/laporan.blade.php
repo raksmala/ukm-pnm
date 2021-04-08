@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <img src="{{ url('') }}/upload/{{ $data->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" alt="Image" style="max-height: 500px; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="{{ secure_url('') }}/upload/{{ $data->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" alt="Image" style="max-height: 500px; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
                         </div>
                     </div>
                 </div>

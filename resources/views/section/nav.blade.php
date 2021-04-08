@@ -4,27 +4,27 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu">
                 <li class="has-submenu">
-                    <a href="{{ url('/admin/') }}"><i class="md md-home"></i>Beranda</a>
+                    <a href="{{ secure_url('/admin/') }}"><i class="md md-home"></i>Beranda</a>
                 </li>
                 <li class="has-submenu">
                     <a href="#"><i class="md md-group"></i>Anggota</a>
                     <ul class="submenu">
                         <li>
-                            <a href="{{ url('/admin/anggota') }}">Anggota Tetap</a>
+                            <a href="{{ secure_url('/admin/anggota') }}">Anggota Tetap</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/anggota/baru') }}">Anggota Baru</a>
+                            <a href="{{ secure_url('/admin/anggota/baru') }}">Anggota Baru</a>
                         </li>
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ url('/admin/jadwal') }}"><i class="md md-event-note"></i>Jadwal</a>
+                    <a href="{{ secure_url('/admin/jadwal') }}"><i class="md md-event-note"></i>Jadwal</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ url('/admin/proker') }}"><i class="md md-assignment"></i>Program Kerja</a>
+                    <a href="{{ secure_url('/admin/proker') }}"><i class="md md-assignment"></i>Program Kerja</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ url('/admin/laporan') }}"><i class="md md-assignment-turned-in"></i>Laporan</a>
+                    <a href="{{ secure_url('/admin/laporan') }}"><i class="md md-assignment-turned-in"></i>Laporan</a>
                 </li>
             </ul>
             <!-- End navigation menu        -->

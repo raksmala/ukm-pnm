@@ -21,7 +21,7 @@
       @foreach($datas as $data)
       <div class="col-md-4">
         <div class="card mb-3" data-aos="flip-left" style="width: 350px; height: 300px;">
-          <div class="card-body mt-4 mb-1 text-center"><img @if($data->user['foto'] != null) src="{{ url('') }}/assets/images/logo/{{ $data->user['foto'] }}" @else src="{{ url('') }}/assets/images/logo/km.png" @endif style="width: 120px; height: 120px; margin-bottom:20px;'">
+          <div class="card-body mt-4 mb-1 text-center"><img @if($data->user['foto'] != null) src="{{ secure_url('') }}/assets/images/logo/{{ $data->user['foto'] }}" @else src="{{ secure_url('') }}/assets/images/logo/km.png" @endif style="width: 120px; height: 120px; margin-bottom:20px;'">
             <form action="/ukm" method="post">
             {{ csrf_field() }}
               <input type="hidden" id="idUKM" name="idUKM" value="{{ $data->idUKM }}">
@@ -44,10 +44,10 @@
         <div class="col-lg-3 col-md-6">
         </div>
         <div class="col-lg-3 col-md-6">
-          <div class="card mb-3" href="{{ url('/daftar') }}">
+          <div class="card mb-3" href="{{ secure_url('/daftar') }}">
             <div class="card-body py-5" data-aos="zoom-in" data-aos-duration="1000">
               <div class="text-primary"><i class="pb-3 fas fa-users fa-3x"></i>
-                <a href="{{ url('/daftar') }}">
+                <a href="{{ secure_url('/daftar') }}">
                   <p class="font-weight-bold">Daftar UKM</p>
                 </a>
               </div>
@@ -59,7 +59,7 @@
           <div class="card mb-3">
             <div class="card-body py-5" data-aos="zoom-in" data-aos-duration="1500">
               <div class="text-primary"><i class="pb-3 fas fa-edit fa-3x"></i>
-                <a href="{{ url('/kritikSaran') }}">
+                <a href="{{ secure_url('/kritikSaran') }}">
                   <p class="font-weight-bold">Kritik & Saran</p>
                 </a>
               </div>
