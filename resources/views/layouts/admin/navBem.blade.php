@@ -7,6 +7,9 @@
                     <a href="{{ url('/bem/') }}"><i class="md md-home"></i>Beranda</a>
                 </li>
                 <li class="has-submenu">
+                    <a href="{{ url('/bem/ukm') }}"><i class="md md-people"></i>Unit Kegiatan Mahasiswa</a>
+                </li>
+                <li class="has-submenu">
                     <a href="{{ url('/bem/jadwal') }}"><i class="md md-event-note"></i>Jadwal UKM</a>
                 </li>
                 <li class="has-submenu">

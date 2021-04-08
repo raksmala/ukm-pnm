@@ -18,18 +18,39 @@ class BerandaController extends Controller
         $proker = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana']])->get();
         $proker = count($proker);
 
-        $tanggal = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana'], ['tanggalKegiatanProker', '>=', date('Y-m-d')]])->orderBy('tanggalKegiatanProker')->first();
-        $tanggal = explode('-', $tanggal->tanggalKegiatanProker);
-        $tahun = $tanggal[0];
-        $bulan = (int)$tanggal[1] - 1;
-        $hari = $tanggal[2];
-        $namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        $bulan = $namaBulan[$bulan];
-        $tanggal = "$hari $bulan $tahun";
+        if($anggota != null && $proker != null)
+        {
+            $tanggal = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana'], ['tanggalKegiatanProker', '>=', date('Y-m-d')]])->orderBy('tanggalKegiatanProker')->first();
+            $tanggal = explode('-', $tanggal->tanggalKegiatanProker);
+            $tahun = $tanggal[0];
+            $bulan = (int)$tanggal[1] - 1;
+            $hari = $tanggal[2];
+            $namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            $bulan = $namaBulan[$bulan];
+            $tanggal = "$hari $bulan $tahun";
+        } else {
+            $anggota = '0';
+            $proker = '0';
+            $tanggal = 'Tidak Ada Kegiatan';
+        }
 
         $informasi = Informasi::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM]])->first();
 
         return view('/admin/beranda', ['proker' => $proker, 'anggota' => $anggota, 'tanggal' => $tanggal, 'informasi' => $informasi]);
+    }
+
+    function tambah(Request $request)
+    {
+        $this->validate($request,[
+    		'isiInformasi' => 'required'
+    	]);
+
+        Informasi::create([
+            'UKM_idUKM' => Auth()->user()->UKM_idUKM,
+            'isiInformasi' => $request->isiInformasi
+    	]);
+
+        return redirect('admin/beranda');
     }
 
     function update(Request $request) 

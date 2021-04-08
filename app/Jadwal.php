@@ -15,4 +15,9 @@ class Jadwal extends Model
     {
         return $this->belongsTo('App\UKM', 'UKM_idUKM');
     }
+
+    public function detailJadwal()
+    {
+        return $this->hasMany('App\DetailJadwal', 'idJadwal');
+    }
 }

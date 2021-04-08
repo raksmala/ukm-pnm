@@ -25,6 +25,7 @@ Route::post('/login/user', 'UserLoginController@login')->name('validasiUser');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
     Route::get('/', 'Admin\BerandaController@index')->name('admin');
+    Route::post('/info/tambah', 'Admin\BerandaController@tambah');
     Route::put('/info/update', 'Admin\BerandaController@update');
     Route::get('/anggota', 'Admin\AnggotaController@index');
     Route::post('/anggota/tambah', 'Admin\AnggotaController@tambah');
@@ -47,6 +48,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
 
 Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/', 'BEM\BerandaController@index')->name('bem');
+    Route::get('/ukm', 'BEM\UKMController@index');
+    Route::post('/ukm/tambah', 'BEM\UKMController@tambah');
+    Route::put('/ukm/update', 'BEM\UKMController@update');
+    Route::get('/ukm/hapus/{id}', 'BEM\UKMController@hapus');
     Route::get('/anggota', 'BEM\AnggotaController@index');
     Route::get('/jadwal', 'BEM\JadwalController@index');
     Route::get('/proker', 'BEM\ProkerController@index');

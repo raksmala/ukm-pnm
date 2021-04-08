@@ -32,22 +32,41 @@
     </div>
 </div>
 
-<form action="/admin/info/update" method="post" role="form" autocomplete="off">
-    {{ csrf_field() }}
-    {{ method_field('PUT') }}
-    <div class="row">
-        <div class="form-group">
-        <input type="hidden" id="idInformasi" name="idInformasi" value="{{ $informasi->idInformasi }}">
-            <label class="col-md-2 control-label"><p style="text-align: left;">Deskripsi UKM</p></label>
-            <div class="col-md-5">
-                <textarea class='form-control' id='isiInformasi' name='isiInformasi' rows='10'>{{ $informasi->isiInformasi }}</textarea>                        
+@if ($informasi != null)
+    <form action="/admin/info/update" method="post" role="form" autocomplete="off">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
+        <div class="row">
+            <div class="form-group">
+            <input type="hidden" id="idInformasi" name="idInformasi" value="{{ $informasi->idInformasi }}">
+                <label class="col-md-2 control-label"><p style="text-align: left;">Deskripsi UKM</p></label>
+                <div class="col-md-5">
+                    <textarea class='form-control' id='isiInformasi' name='isiInformasi' rows='10'>{{ $informasi->isiInformasi }}</textarea>                        
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <button type="submit" class="btn btn-inverse btn-rounded waves-effect waves-light" style="text-align: left; margin: 10px 20px 20px 10px;">Simpan</button>
         </div>
-        <button type="submit" class="btn btn-inverse btn-rounded waves-effect waves-light" style="text-align: left; margin: 10px 20px 20px 10px;">Simpan</button>
-    </div>
-</form>
+    </form>
+@else
+    <form action="/admin/info/tambah" method="post" role="form" autocomplete="off">
+        {{ csrf_field() }}
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-2 control-label"><p style="text-align: left;">Deskripsi UKM</p></label>
+                <div class="col-md-5">
+                    <textarea class='form-control' id='isiInformasi' name='isiInformasi' rows='10'></textarea>                        
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <button type="submit" class="btn btn-inverse btn-rounded waves-effect waves-light" style="text-align: left; margin: 10px 20px 20px 10px;">Simpan</button>
+        </div>
+    </form>
+@endif
 @endsection
