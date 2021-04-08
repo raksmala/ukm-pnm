@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/km.png') }}">
+    <link rel="shortcut icon" href="{{ secure_asset('assets/images/logo/km.png') }}">
     <title>UKM Politeknik Negeri Madiun</title>
     <meta name="description" content="A Digital Agency Website landing page template built by TemplateFlip.com"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
