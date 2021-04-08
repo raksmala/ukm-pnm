@@ -6,15 +6,15 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="{{ asset('/assets/images/logo/km.png') }}">
+        <link rel="shortcut icon" href="{{ secure_asset('/assets/images/logo/km.png') }}">
         <title>UKM Politeknik Negeri Madiun</title>
 
-        <link href="{{ asset('/assets/styles/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/assets/styles/core.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/assets/styles/components.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/assets/styles/icons.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/assets/styles/pages.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/assets/styles/responsive.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/core.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/components.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/pages.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ secure_asset('/assets/styles/responsive.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,7 +23,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="{{ asset('/assets/js/modernizr.min.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/modernizr.min.js') }}"></script>
         
     </head>
     <body>
@@ -72,19 +72,19 @@
         </script>
 
         <!-- jQuery  -->
-        <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('/assets/js/detect.js') }}"></script>
-        <script src="{{ asset('/assets/js/fastclick.js') }}"></script>
-        <script src="{{ asset('/assets/js/jquery.slimscroll.js') }}"></script>
-        <script src="{{ asset('/assets/js/jquery.blockUI.js') }}"></script>
-        <script src="{{ asset('/assets/js/waves.js') }}"></script>
-        <script src="{{ asset('/assets/js/wow.min.js') }}"></script>
-        <script src="{{ asset('/assets/js/jquery.nicescroll.js') }}"></script>
-        <script src="{{ asset('/assets/js/jquery.scrollTo.min.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.min.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/detect.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/fastclick.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.slimscroll.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.blockUI.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/waves.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/wow.min.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.nicescroll.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.scrollTo.min.js') }}"></script>
 
-        <script src="{{ asset('/assets/js/jquery.core.js') }}"></script>
-        <script src="{{ asset('/assets/js/jquery.app.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.core.js') }}"></script>
+        <script src="{{ secure_asset('/assets/js/jquery.app.js') }}"></script>
 	
 	</body>
 </html>
