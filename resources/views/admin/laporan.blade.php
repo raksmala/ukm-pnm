@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" class="btn btn-info waves-effect waves-light">Unduh Foto</a>
+                <a href="/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" target="_blank" class="btn btn-info waves-effect waves-light">Unduh Foto</a>
             </div>
         </div>
     </div>
