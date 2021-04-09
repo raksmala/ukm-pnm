@@ -83,7 +83,7 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if(auth('mahasiswa')->attempt(['username' => $request->username, 'password' => $request->password])) {
+        if(auth('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return redirect()->secure('/admin');
         }
 
