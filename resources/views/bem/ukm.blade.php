@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->namaUKM }}</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}', '{{ $data->user()->email }}', '{{ $data->user()->username }}', '{{ $data->user()->foto }}')"><i class='fa fa-pencil'></i></a>
+                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}', '{{ $data->user->email }}', '{{ $data->user->username }}', '{{ $data->user->foto }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-ukm' idUKM="{{ $data->idUKM }}" namaUKM="{{ $data->namaUKM }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>  
