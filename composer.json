@@ -42,5 +42,9 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true
-    }
+    },
+    "warmup": [
+        "php artisan config:cache",
+        "php artisan route:cache"
+    ],
 }
