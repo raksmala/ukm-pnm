@@ -70,13 +70,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <img src="{{ secure_url('') }}/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" alt="Image" style="max-height: 500px; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
+                            <img src="{{ secure_url('') }}/upload/{{ $data->fotoKegiatanProker }}" alt="Image" style="max-height: 500px; max-width: 500px; display: block; margin-left: auto; margin-right: auto;">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="/upload/{{ Auth()->user()->UKM_idUKM }}/{{ $data->fotoKegiatanProker }}" target="_blank" class="btn btn-info waves-effect waves-light">Unduh Foto</a>
+                <a href="/upload/{{ $data->fotoKegiatanProker }}" target="_blank" class="btn btn-info waves-effect waves-light">Unduh Foto</a>
             </div>
         </div>
     </div>
