@@ -16,9 +16,9 @@ class isBEM
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::User()->status == 'BEM') {    
+        if(Auth::User()->status == 'BEM') {    
             return $next($request);
-        } else if(Auth::check() && Auth::User()->status == 'UKM') {
+        } else if(Auth::User()->status == 'UKM') {
             return redirect()->secure('/admin');
         } else {
             return redirect()->secure('/');
