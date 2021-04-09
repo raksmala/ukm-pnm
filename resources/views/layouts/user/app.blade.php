@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ secure_asset('assets/images/logo/km.png') }}">
     <title>UKM Politeknik Negeri Madiun</title>
-    <meta name="description" content="A Digital Agency Website landing page template built by TemplateFlip.com"/>
+    <meta name="description" content="Unit Kegiatan Mahasiswa Politeknik Negeri Madiun"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" rel="stylesheet">
     <link href="{{ secure_asset('/assets/css/aos.css') }}" rel="stylesheet">
