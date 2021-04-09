@@ -26,7 +26,7 @@ class UserLoginController extends Controller
         ]);
 
         if(auth('mahasiswa')->attempt(['NIM' => $request->NIM, 'password' => $request->password])) {
-            return redirect()->route('user');
+            return redirect()->secure('/');
         }
 
         return redirect()->back()->withInput($request->only('NIM', 'remember'));
