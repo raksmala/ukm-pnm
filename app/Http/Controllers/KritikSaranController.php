@@ -33,6 +33,6 @@ class KritikSaranController extends Controller
     		'isiKritikSaran' => $request->isiKritikSaran
     	]);
 
-        return redirect('kritikSaran');
+        return redirect()->secure('kritikSaran');
     }
 }
