@@ -20,6 +20,7 @@ Route::post('/kritikSaran/tambah', 'KritikSaranController@tambah');
 Route::get('/daftar', 'DaftarController@index')->name('daftar')->middleware('mahasiswa');
 Route::post('/daftar/tambah', 'DaftarController@tambah')->middleware('mahasiswa');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('validasiLogin');
 Route::get('/login/user', 'UserLoginController@showLoginForm')->name('userLogin');
 Route::post('/login/user', 'UserLoginController@login')->name('validasiUser');
 

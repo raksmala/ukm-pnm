@@ -75,4 +75,18 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
     }
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if(auth('admin.UKM')->attempt([$this->username => $request->username, 'password' => $request->password])) {
+            return redirect()->secure('/admin');
+        }
+
+        return redirect()->back()->withInput($request->only('NIM', 'remember'));
+    }
 }
