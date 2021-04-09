@@ -19,9 +19,9 @@ class isUKM
         if(Auth::check() && Auth::User()->status == 'UKM') {    
             return $next($request);
         } else if(Auth::check() && Auth::User()->status == 'BEM') {
-            return redirect()->route('bem');
+            return redirect()->secure()->route('bem');
         } else {
-            return redirect()->route('user');
+            return redirect()->secure()->route('user');
         }
     }
 }
