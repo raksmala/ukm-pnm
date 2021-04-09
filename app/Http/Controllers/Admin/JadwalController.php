@@ -32,7 +32,7 @@ class JadwalController extends Controller
     		'tanggalAkhir' => $tanggalAkhir[2]."-".$tanggalAkhir[0]."-".$tanggalAkhir[1],
     	]);
 
-        return redirect('admin/jadwal');
+        return redirect()->secure('admin/jadwal');
     }
 
     public function update(Request $request)

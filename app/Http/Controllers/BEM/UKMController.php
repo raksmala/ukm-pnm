@@ -33,7 +33,7 @@ class UKMController extends Controller
             'status' => 'UKM'
         ]);
 
-        return redirect('bem/ukm');
+        return redirect()->secure('bem/ukm');
     }
 
     public function update(Request $request)

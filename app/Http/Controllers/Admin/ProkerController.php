@@ -40,7 +40,7 @@ class ProkerController extends Controller
             'keteranganKegiatanProker' => 'belumTerlaksana'
     	]);
 
-        return redirect('admin/proker');
+        return redirect()->secure('admin/proker');
     }
 
     public function update(Request $request)

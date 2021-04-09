@@ -50,7 +50,7 @@ class BerandaController extends Controller
             'isiInformasi' => $request->isiInformasi
     	]);
 
-        return redirect('admin/beranda');
+        return redirect()->secure('admin/beranda');
     }
 
     function update(Request $request) 

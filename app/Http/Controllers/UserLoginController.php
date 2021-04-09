@@ -29,6 +29,6 @@ class UserLoginController extends Controller
             return redirect()->route('user');
         }
 
-        return redirect()->back()->withInput($request->only('NIM', 'remember'));
+        return redirect()->secure()->back()->withInput($request->only('NIM', 'remember'));
     }
 }

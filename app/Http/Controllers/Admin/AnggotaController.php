@@ -32,7 +32,7 @@ class AnggotaController extends Controller
             'statusAnggota' => 'tetap'
     	]);
 
-        return redirect('admin/anggota');
+        return redirect()->secure('admin/anggota');
     }
 
     public function update(Request $request)
