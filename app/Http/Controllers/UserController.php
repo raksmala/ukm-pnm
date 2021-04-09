@@ -10,14 +10,13 @@ class UserController extends Controller
 {
     public function index() 
     {
-        $ukm = UKM::where([['idUKM', '!=', '1']])->get();
+        // $ukm = UKM::where([['idUKM', '!=', '1']])->get();
         try{
             DB::Connection()->getPdo();
-            $tables = DB::select('SHOW TABLES');
-            foreach($tables as $table)
-            {
-                foreach ($table as $key => $value)
-                    echo $value;
+            $ukm = DB::select('select * from ukm where idUKM != 1');
+            foreach ($ukm as $data) {
+                echo $data;
+                echo "";
             }
             die('Terhubung');
         } catch (\Exception $e) {
