@@ -89,4 +89,13 @@ class LoginController extends Controller
 
         return redirect()->back()->withInput($request->only('NIM', 'remember'));
     }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
+    }
 }

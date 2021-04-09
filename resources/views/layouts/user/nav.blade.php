@@ -11,13 +11,13 @@
         @auth('mahasiswa')
         <li class="nav-item"><a class="nav-link smooth-scroll">{{ Auth::guard('mahasiswa')->user()->NIM }}</a></li>
         <li class="nav-item">
-            <a class="nav-link smooth-scroll" href="{{ route('logout') }}"
+            <a class="nav-link smooth-scroll" href="{{ secure_url('/logout') }}"
                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                 Logout
             </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ secure_url('/logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
         </li>

@@ -74,13 +74,13 @@
                                 <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img @if(Auth()->user()->foto != null) src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" @else src="{{ secure_url('') }}/assets/images/logo/km.png" @endif alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a href="{{ secure_url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ secure_url('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
