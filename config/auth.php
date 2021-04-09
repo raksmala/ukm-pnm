@@ -50,11 +50,6 @@ return [
             'driver' => 'session',
             'provider' => 'mahasiswas',
         ],
-
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ]
     ],
 
     /*
@@ -83,11 +78,6 @@ return [
         'mahasiswas' => [
             'driver' => 'eloquent',
             'model' => App\Mahasiswa::class,
-        ],
-
-        'users' => [
-            'driver' => 'eloquent',
-            'table' => App\User::class,
         ],
     ],
 
