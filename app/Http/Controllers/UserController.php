@@ -13,6 +13,7 @@ class UserController extends Controller
         $ukm = UKM::where([['idUKM', '!=', '1']])->get();
         try{
             DB::Connection()->getPdo();
+            die('Terhubung dengan database.');
         } catch (\Exception $e) {
             die('Tidak terhubung dengan database. Error:'.$e);
         }
