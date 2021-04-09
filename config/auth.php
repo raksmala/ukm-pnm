@@ -51,7 +51,7 @@ return [
             'provider' => 'mahasiswas',
         ],
 
-        'user' => [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'users',
         ]
