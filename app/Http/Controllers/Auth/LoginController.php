@@ -79,11 +79,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required|string',
+            'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        if(auth('mahasiswa')->attempt([$this->username => $request->username, 'password' => $request->password])) {
+        if(auth('mahasiswa')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return redirect()->secure('/admin');
         }
 
