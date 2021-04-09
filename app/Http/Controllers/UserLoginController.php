@@ -20,6 +20,10 @@ class UserLoginController extends Controller
 
     public function login(Request $request)
     {
+        $this->guard()->logout();
+        $request->session()->invalidate();
+        return $this->loggedOut($request) ?: redirect()->secure('/');
+
         $this->validate($request, [
             'NIM' => 'required',
             'password' => 'required'
