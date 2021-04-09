@@ -59,4 +59,10 @@ Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/kritikSaran', 'BEM\KritikSaranController@index');
 });
 
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
