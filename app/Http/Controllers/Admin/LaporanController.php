@@ -23,11 +23,7 @@ class LaporanController extends Controller
 
         $foto = $request->file("fotoKegiatanProker$idProgramKerja");
         $namaFoto = Auth()->user()->UKM_idUKM.'-'.$idProgramKerja.'.'.$foto->getClientOriginalExtension();
-        $pathUpload = 'upload/'.Auth()->user()->UKM_idUKM.'/';
-        if(!Storage::disk('local')->exists($pathUpload))
-        {
-            Storage::makeDirectory($pathUpload, 0777, true, true);
-        }
+        $pathUpload = 'upload/';
 
         $foto->move($pathUpload, $namaFoto);
         $proker = Proker::find($idProgramKerja);
