@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->namaUKM }}</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}')"><i class='fa fa-pencil'></i></a>
+                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}', '{{ $data->email }}', '{{ $data->username }}', '{{ $data->foto }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-ukm' idUKM="{{ $data->idUKM }}" namaUKM="{{ $data->namaUKM }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>  
@@ -130,9 +130,12 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    function setEditForm(idUKM, namaUKM) {
+    function setEditForm(idUKM, namaUKM, email, username, foto) {
         document.getElementById('editIdUKM').value = idUKM;
         document.getElementById('editNamaUKM').value = namaUKM;
+        document.getElementById('editEmail').value = email;
+        document.getElementById('editUsername').value = username;
+        document.getElementById('editFoto').value = foto;
     }
     
     $('.delete-ukm').click(function(){
