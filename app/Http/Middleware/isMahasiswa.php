@@ -22,8 +22,8 @@ class isMahasiswa
             return redirect()->secure('/admin');
         } else if(Auth::User('status') == 'BEM') {
             return redirect()->secure('/bem');
-        } else {
-            return redirect()->secure('/login/user');
-        }
+        } 
+        
+        return redirect()->secure('/login/user');
     }
 }
