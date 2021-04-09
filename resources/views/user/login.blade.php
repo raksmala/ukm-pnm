@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-6" style="margin: auto;">
                 <div class="card-body">
-                    <form action="{{ route('validasiUser') }}" method="post">
+                    <form action="{{ secure_url('/login/user') }}" method="post">
                         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                         <div class="form-group">
                             <label for="nama">NIM</label>
@@ -25,6 +25,9 @@
                         <div class="form-group">
                             <label for="kritik">Password</label>
                             <input type="password" id="password" name="password" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="akun">Hubungi Admin BEM jika tidak memiliki akun.</label>
                         </div>
 
                         <div class="form-group text-right m-b-0">

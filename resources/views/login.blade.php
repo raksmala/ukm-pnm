@@ -37,7 +37,7 @@
             </div> 
 
             <div class="panel-body">
-            <form method="POST" action="{{ route('login') }}" class="form-horizontal">
+            <form method="POST" action="{{ secure_url('/login') }}" class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group ">
                     <div class="col-xs-12">
