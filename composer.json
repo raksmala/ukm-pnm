@@ -37,6 +37,10 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
+        ],
+        "warmup": [
+            "php artisan config:cache",
+            "php artisan route:cache"
         ]
     },
     "config": {
