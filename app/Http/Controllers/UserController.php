@@ -14,10 +14,7 @@ class UserController extends Controller
         try{
             DB::Connection()->getPdo();
             $ukm = DB::select('select * from ukm where idUKM != 1');
-            foreach ($ukm as $data) {
-                echo $data;
-                echo "";
-            }
+            print_r($ukm);
             die('Terhubung');
         } catch (\Exception $e) {
             die('Tidak terhubung dengan database. Error:'.$e);
