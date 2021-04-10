@@ -23,7 +23,7 @@ class BerandaController extends Controller
         {
             $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
             if($tanggal != null) {
-                $tanggal = explode('-', $tanggal['tanggalKegiatanProker']);
+                $tanggal = explode('-', $tanggal['tanggalAwal']);
                 $tahun = $tanggal[0];
                 $bulan = (int)$tanggal[1] - 1;
                 $hari = $tanggal[2];
