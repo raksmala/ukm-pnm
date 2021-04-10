@@ -15,12 +15,12 @@ class UserLoginController extends Controller
 
     public function showLoginForm() 
     {
+        Auth::logout();
         return view('/user/login');
     }
 
     public function login(Request $request)
     {
-        Auth::logout();
 
         $this->validate($request, [
             'NIM' => 'required',
