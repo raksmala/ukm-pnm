@@ -19,24 +19,23 @@ class BerandaController extends Controller
         $proker = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana']])->get();
         $proker = count($proker);
 
-        if($anggota != null && $proker != null)
+        if($anggota == null && $proker == null)
         {
-            $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
-            if($tanggal != null) {
-                $tanggal = explode('-', $tanggal['tanggalAwal']);
-                $tahun = $tanggal[0];
-                $bulan = (int)$tanggal[1] - 1;
-                $hari = $tanggal[2];
-                $namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-                $bulan = $namaBulan[$bulan];
-                $tanggal = "$hari $bulan $tahun";
-            } else {
-                $tanggal = "Tidak ada Kegiatan";
-            }
-        } else {
             $anggota = '0';
             $proker = '0';
-            $tanggal = 'Tidak Ada Kegiatan';
+        }
+
+        $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
+        if($tanggal != null) {
+            $tanggal = explode('-', $tanggal['tanggalAwal']);
+            $tahun = $tanggal[0];
+            $bulan = (int)$tanggal[1] - 1;
+            $hari = $tanggal[2];
+            $namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            $bulan = $namaBulan[$bulan];
+            $tanggal = "$hari $bulan $tahun";
+        } else {
+            $tanggal = "Tidak ada Kegiatan";
         }
 
         $informasi = Informasi::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM]])->first();
