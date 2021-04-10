@@ -18,14 +18,17 @@ class BerandaController extends Controller
 
         $proker = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana']])->get();
         $proker = count($proker);
+        
+        $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
 
-        if($anggota == null && $proker == null)
+        if($anggota == null)
         {
             $anggota = '0';
+        }
+        if($proker == null)
+        {
             $proker = '0';
         }
-
-        $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
         if($tanggal != null) {
             $tanggal = explode('-', $tanggal['tanggalAwal']);
             $tahun = $tanggal[0];
