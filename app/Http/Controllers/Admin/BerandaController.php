@@ -20,7 +20,7 @@ class BerandaController extends Controller
 
         if($anggota != null && $proker != null)
         {
-            $tanggal = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana'], ['tanggalKegiatanProker', '>=', date('Y-m-d')]])->orderBy('tanggalKegiatanProker')->first();
+            $tanggal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->orderBy('tanggalAwal')->first();
             if($tanggal != null) {
                 $tanggal = explode('-', $tanggal['tanggalKegiatanProker']);
                 $tahun = $tanggal[0];
