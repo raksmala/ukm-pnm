@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Anggota;
 use App\Proker;
+use App\Jadwal;
 use App\Informasi;
 
 class BerandaController extends Controller
