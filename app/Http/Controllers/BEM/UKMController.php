@@ -42,13 +42,8 @@ class UKMController extends Controller
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
     		'editEmail' => 'required',
-    		'editUsername' => 'required',
-    		'editFoto' => 'required'
+    		'editUsername' => 'required'
     	]);
-
-        $foto = $request->file("editFoto");
-        $namaFoto = $request->editIdUKM.'.'.$foto->getClientOriginalExtension();
-        $pathUpload = 'assets/images/logo/';
 
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;
@@ -58,8 +53,13 @@ class UKMController extends Controller
         {
             $user->password = bcrypt($request->editPassword);
         }
-        $foto->move($pathUpload, $namaFoto);
-        $user->foto = $namaFoto;
+        if($request->editFoto) {
+            $foto = $request->file("editFoto");
+            $namaFoto = $request->editIdUKM.'.'.$foto->getClientOriginalExtension();
+            $pathUpload = 'assets/images/logo/';
+            $foto->move($pathUpload, $namaFoto);
+            $user->foto = $namaFoto;
+        }
         $user->save();
         return back()->with('success', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
     }
