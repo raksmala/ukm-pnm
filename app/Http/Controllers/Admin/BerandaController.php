@@ -21,7 +21,7 @@ class BerandaController extends Controller
         if($anggota != null && $proker != null)
         {
             $tanggal = Proker::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['keteranganKegiatanProker', 'belumTerlaksana'], ['tanggalKegiatanProker', '>=', date('Y-m-d')]])->orderBy('tanggalKegiatanProker')->first();
-            $tanggal = explode('-', $tanggal->tanggalKegiatanProker);
+            $tanggal = explode('-', $tanggal['tanggalKegiatanProker']);
             $tahun = $tanggal[0];
             $bulan = (int)$tanggal[1] - 1;
             $hari = $tanggal[2];
