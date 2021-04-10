@@ -16,11 +16,13 @@ class isUKM
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::User()->status == 'UKM') {    
-            return $next($request);
-        } else if(Auth::User()->status == 'BEM') {
-            return redirect()->secure('/bem');
-        } 
+        if(Auth::User() != null){
+            if(Auth::User()->status == 'UKM') {    
+                return $next($request);
+            } else if(Auth::User()->status == 'BEM') {
+                return redirect()->secure('/bem');
+            } 
+        }
         
         return redirect()->secure('/');
     }
