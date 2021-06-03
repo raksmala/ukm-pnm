@@ -16,18 +16,30 @@
         <div class="row">
             <div class="col-lg-6" style="margin: auto;">
                 <div class="card-body">
-                    <form action="{{ secure_url('/login/user') }}" method="post">
+                    <form action="{{ secure_url('/register') }}" method="post">
                         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                         <div class="form-group">
                             <label for="nama">NIM</label>
                             <input type="text" id="NIM" name="NIM" required class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" id="nama" name="nama" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Program Studi</label>
+                            <input type="text" id="programStudi" name="programStudi" required class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Username</label>
+                            <input type="text" id="username" name="username" required class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="kritik">Password</label>
                             <input type="password" id="password" name="password" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="akun">Hubungi Admin BEM jika tidak memiliki akun.</label>
+                            <label for="akun">Sudah memiliki akun? Login disini.</label>
                         </div>
 
                         <div class="form-group text-right m-b-0">
@@ -42,4 +54,14 @@
     </div>
   </div>
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    funtion setProgramStudi(){
+        var NIM = $('#NIM').value();
+        var tahun = NIM.substr(0,2);
+        var prodi = NIM.substr(2,4);
+        console.log(tahun+" | "+prodi);
+    }
+</script>
 @endsection
