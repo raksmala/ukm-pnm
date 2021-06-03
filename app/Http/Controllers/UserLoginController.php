@@ -40,7 +40,7 @@ class UserLoginController extends Controller
             'NIM' => $request->NIM,
             'name' => $request->nama,
             'programStudi' => $request->programStudi,
-            'password' => bcrypt($request->password);
+            'password' => bcrypt($request->password)
         ]);
 
         return redirect()->secure('user');
