@@ -79,6 +79,8 @@
             var prodi = "Teknologi Informasi";
         } else if(prodi == 3308) {
             var prodi = "Teknik Perkeretaapian";
+        } else {
+            var prodi = "(Program Studi)";
         }
         $('#programStudi').val(prodi+ " " +tahun);
     }
