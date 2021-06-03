@@ -7,7 +7,7 @@
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ secure_url('/#kontak') }}">Kontak</a></li>
         @guest('mahasiswa')
         <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ secure_url('/login/user') }}">Login</a></li>
-        <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ secure_url('/register') }}">Daftar</a></li>
+        <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ secure_url('/register') }}">Register</a></li>
         @endguest
         @auth('mahasiswa')
         <li class="nav-item"><a class="nav-link smooth-scroll">{{ Auth::guard('mahasiswa')->user()->NIM }}</a></li>
