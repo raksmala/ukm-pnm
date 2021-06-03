@@ -16,8 +16,10 @@ class Mahasiswa extends Authenticatable
      *
      * @var array
      */
+    protected $table = "mahasiswas";
+    protected $primaryKey = "id";
     protected $fillable = [
-        'NIM', 'name', 'password'
+        'NIM', 'password', 'name', 'programStudi'
     ];
 
     /**
