@@ -1,8 +1,10 @@
 @extends('layouts.user.app')
 @section('contentTop')
 @if(session('message'))
-  <script>
-    toastr.success("{{ session('message') }}");
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.Notification.autoHideNotify('info', 'top left', 'Anda Berhasil Login');
+    });
   </script>
 @endif
 <div class="da-home-page-text" data-aos="fade-right" data-aos-duration="1000">
