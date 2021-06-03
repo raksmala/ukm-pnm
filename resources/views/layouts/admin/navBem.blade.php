@@ -10,7 +10,15 @@
                     <a href="{{ secure_url('/bem/ukm') }}"><i class="md md-people"></i>Unit Kegiatan Mahasiswa</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ secure_url('/bem/jadwal') }}"><i class="md md-event-note"></i>Jadwal UKM</a>
+                    <a href="#"><i class="md md-event-note"></i>Jadwal UKM</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ secure_url('/bem/jadwal') }}">Jadwal Mendatang</a>
+                        </li>
+                        <li>
+                            <a href="{{ secure_url('/bem/jadwal/lama') }}">Jadwal Terlewat</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="has-submenu">
                     <a href="{{ secure_url('/bem/proker') }}"><i class="md md-assignment"></i>Program Kerja UKM</a>
