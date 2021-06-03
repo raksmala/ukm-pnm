@@ -35,7 +35,7 @@
                             <input type="password" id="password" name="password" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="akun">Sudah memiliki akun? Login disini.</label>
+                            <label for="akun">Sudah memiliki akun? <a href="{{ secure_url('/login/user') }}">Login disini.</a></label>
                         </div>
 
                         <div class="form-group text-right m-b-0">

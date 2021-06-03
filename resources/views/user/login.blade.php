@@ -27,7 +27,7 @@
                             <input type="password" id="password" name="password" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="akun">Belum memiliki akun? Daftar disini.</label>
+                            <label for="akun">Belum memiliki akun? <a href="{{ secure_url('/register') }}">Daftar disini.</a></label>
                         </div>
 
                         <div class="form-group text-right m-b-0">
