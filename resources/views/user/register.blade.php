@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" id="nama" name="nama" required class="form-control">
+                            <input type="text" id="nama" name="nama" required onClick="setProgramStudi()" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="nama">Program Studi</label>
