@@ -59,9 +59,28 @@
 <script type="text/javascript">
     function setProgramStudi(){
         var NIM = $('#NIM').val();
-        var tahun = NIM.substr(0,2);
+        var tahun = "20" +NIM.substr(0,2)+ "";
         var prodi = NIM.substr(2,4);
-        console.log(tahun+" | "+prodi);
+        if(prodi == 3101) {
+            var prodi = "Administrasi Bisnis";
+        } else if(prodi == 3106) {
+            var prodi = "Bahasa Inggris";
+        } else if(prodi == 3202) {
+            var prodi = "Komputerisasi Akuntansi";
+        }  else if(prodi == 3209) {
+            var prodi = "Akuntansi";
+        } else if(prodi == 3303) {
+            var prodi = "Mesin Otomotif";
+        } else if(prodi == 3304) {
+            var prodi = "Teknik Komputer Kontrol";
+        } else if(prodi == 3305) {
+            var prodi = "Teknik Listrik";
+        } else if(prodi == 3307) {
+            var prodi = "Teknologi Informasi";
+        } else if(prodi == 3308) {
+            var prodi = "Teknik Perkeretaapian";
+        }
+        $('#programStudi').val(tahun+ " " +prodi);
     }
 </script>
 @endsection
