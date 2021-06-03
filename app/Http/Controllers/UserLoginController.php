@@ -28,7 +28,20 @@ class UserLoginController extends Controller
 
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'NIM' => 'required',
+            'password' => 'required'
+        ]);
 
+        if(auth('mahasiswa')->attempt(['NIM' => $request->NIM, 'password' => $request->password])) {
+            return redirect()->secure('/');
+        }
+
+        return redirect()->back()->withInput($request->only('NIM', 'remember'));
+    }
+
+    public function register(Request $request)
+    {
         $this->validate($request, [
             'NIM' => 'required',
             'nama' => 'required',
@@ -44,20 +57,5 @@ class UserLoginController extends Controller
         ]);
 
         return redirect()->secure('user');
-    }
-
-    public function register(Request $request)
-    {
-
-        $this->validate($request, [
-            'NIM' => 'required',
-            'password' => 'required'
-        ]);
-
-        if(auth('mahasiswa')->attempt(['NIM' => $request->NIM, 'password' => $request->password])) {
-            return redirect()->secure('/');
-        }
-
-        return redirect()->back()->withInput($request->only('NIM', 'remember'));
     }
 }
