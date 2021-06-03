@@ -3,7 +3,7 @@
 <div data-aos="fade-right" data-aos-duration="1000" style="color: #ffffff; text-align: center; margin-top: 12rem;">
     <div class="container">
         <div class="col-md-12 col-sm-12 px-0 mx-0">
-            <h3 class="display-3">Login</h3>
+            <h3 class="display-3">Register Mahasiswa</h3>
         </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
         } else if(prodi == 3308) {
             var prodi = "Teknik Perkeretaapian";
         }
-        $('#programStudi').val(tahun+ " " +prodi);
+        $('#programStudi').val(prodi+ " " +tahun);
     }
 </script>
 @endsection
