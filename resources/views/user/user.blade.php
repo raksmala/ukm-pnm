@@ -3,7 +3,7 @@
 @if(session('message'))
   <script type="text/javascript">
     $(document).ready(function(){
-      $.Notification.autoHideNotify('info', 'top left', 'Anda Berhasil Login');
+      $.Notification.notify('info', 'top left', 'Anda Berhasil Login');
     });
   </script>
 @endif
