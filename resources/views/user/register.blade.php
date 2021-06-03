@@ -58,7 +58,7 @@
 @section('script')
 <script type="text/javascript">
     function setProgramStudi(){
-        var NIM = $('#NIM').value();
+        var NIM = $('#NIM').val();
         var tahun = NIM.substr(0,2);
         var prodi = NIM.substr(2,4);
         console.log(tahun+" | "+prodi);
