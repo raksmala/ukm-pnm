@@ -31,10 +31,6 @@
                             <input type="text" id="programStudi" name="programStudi" required class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="nama">Username</label>
-                            <input type="text" id="username" name="username" required class="form-control">
-                        </div>
-                        <div class="form-group">
                             <label for="kritik">Password</label>
                             <input type="password" id="password" name="password" required class="form-control">
                         </div>
@@ -43,7 +39,7 @@
                         </div>
 
                         <div class="form-group text-right m-b-0">
-                            <button class="btn btn-primary waves-effect waves-light" type="submit">Masuk</button>
+                            <button class="btn btn-primary waves-effect waves-light" type="submit">Daftar</button>
                             <button type="reset" class="btn btn-default waves-effect waves-light m-l-5">Batal</button>
                         </div>
                     </form>
