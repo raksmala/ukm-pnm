@@ -18,7 +18,16 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ secure_url('/admin/jadwal') }}"><i class="md md-event-note"></i>Jadwal</a>
+                    <a href="#"><i class="md md-event-note"></i>Jadwal</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ secure_url('/admin/jadwal') }}">Jadwal Mendatang</a>
+                        </li>
+                        <li>
+                            <a href="{{ secure_url('/admin/jadwal/lama') }}">Jadwal Terlewat</a>
+                        </li>
+                    </ul>
+                    <a href=""><i class="md md-event-note"></i>Jadwal</a>
                 </li>
                 <li class="has-submenu">
                     <a href="{{ secure_url('/admin/proker') }}"><i class="md md-assignment"></i>Program Kerja</a>

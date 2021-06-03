@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
     Route::get('/anggota/baru', 'Admin\AnggotaBaruController@index');
     Route::put('/anggota/baru/update', 'Admin\AnggotaBaruController@update');
     Route::get('/jadwal', 'Admin\JadwalController@index');
+    Route::get('/jadwal/lama', 'Admin\JadwalController@lama');
     Route::post('/jadwal/tambah', 'Admin\JadwalController@tambah');
     Route::put('/jadwal/update', 'Admin\JadwalController@update');
     Route::get('/jadwal/hapus/{id}', 'Admin\JadwalController@hapus');

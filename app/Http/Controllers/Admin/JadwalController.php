@@ -13,6 +13,12 @@ class JadwalController extends Controller
         $jadwal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '>=', date('Y-m-d')]])->get();
         return view('/admin/jadwal', ['jadwal' => $jadwal]);
     }
+
+    public function lama() 
+    {
+        $jadwal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '<', date('Y-m-d')]])->get();
+        return view('/admin/jadwal', ['jadwal' => $jadwal]);
+    }
     
     public function tambah(Request $request)
     {
