@@ -17,6 +17,6 @@ class JadwalController extends Controller
     public function lama() 
     {
         $jadwal = Jadwal::select('*')->where([['UKM_idUKM', '!=', '1'], ['tanggalAwal', '<', date('Y-m-d')]])->get();
-        return view('/bem/jadwal', ['jadwal' => $jadwal]);
+        return view('/bem/jadwal/lama', ['jadwal' => $jadwal]);
     }
 }

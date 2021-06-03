@@ -57,6 +57,7 @@ Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/ukm/hapus/{id}', 'BEM\UKMController@hapus');
     Route::get('/anggota', 'BEM\AnggotaController@index');
     Route::get('/jadwal', 'BEM\JadwalController@index');
+    Route::get('/jadwal/lama', 'BEM\JadwalController@lama');
     Route::get('/proker', 'BEM\ProkerController@index');
     Route::get('/laporan', 'BEM\LaporanController@index');
     Route::get('/kritikSaran', 'BEM\KritikSaranController@index');
