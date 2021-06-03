@@ -89,6 +89,12 @@
     <script src="{{ secure_asset('/assets/scripts/packages/daygrid/main.min.js') }}"></script>
     <script src="{{ secure_asset('/assets/scripts/packages/timegrid/main.min.js') }}"></script>
 
+    <!-- Tost-->
+    <script src="{{ secure_asset('/assets/libs/jquery-toast-plugin/jquery.toast.min.js') }}"></script>
+
+    <!-- toastr init js-->
+    <script src="{{ secure_asset('/assets/js/pages/toastr.init.js') }}"></script>
+
     <!-- App core js -->
     <script src="{{ secure_asset('/assets/js/jquery.core.js') }}"></script>
     <script src="{{ secure_asset('/assets/js/jquery.app.js') }}"></script>

@@ -31,15 +31,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="nim">NIM</label>
-                                <input type="text" id="NIM" name="NIM" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->NIM }}">
+                                <input type="text" id="NIM" name="NIM" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->NIM }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" id="namaMahasiswa" name="namaMahasiswa" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->name }}">
+                                <input type="text" id="namaMahasiswa" name="namaMahasiswa" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->name }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="prodi">Program Studi</label>
-                                <input type="text" id="programStudi" name="programStudi" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->programStudi }}">
+                                <input type="text" id="programStudi" name="programStudi" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->programStudi }}" readonly>
                             </div>
 
                             <div class="form-group text-right m-b-0">

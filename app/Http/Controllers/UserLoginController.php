@@ -34,7 +34,7 @@ class UserLoginController extends Controller
         ]);
 
         if(auth('mahasiswa')->attempt(['NIM' => $request->NIM, 'password' => $request->password])) {
-            return redirect()->secure('/');
+            return redirect()->back()->with('message', 'Anda Berhasil Login!');
         }
 
         return redirect()->back()->withInput($request->only('NIM', 'remember'));
@@ -56,6 +56,6 @@ class UserLoginController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->secure('user');
+        return redirect()->secure('login');
     }
 }

@@ -1,5 +1,10 @@
 @extends('layouts.user.app')
 @section('contentTop')
+@if(session('message'))
+  <script type="text/javascript">
+    toastr.info("{{ session('message') }}");
+  </script>
+@endif
 <div class="da-home-page-text" data-aos="fade-right" data-aos-duration="1000">
     <div class="container">
         <div class="col-md-10 col-sm-12 px-0 mx-0">
