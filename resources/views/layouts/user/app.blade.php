@@ -95,6 +95,10 @@
     <!-- toastr init js-->
     <script src="{{ secure_asset('/assets/js/pages/toastr.init.js') }}"></script>
 
+    <!-- Notification js -->
+    <script src="{{ secure_asset('/assets/plugins/notifyjs/js/notify.js') }}"></script>
+    <script src="{{ secure_asset('/assets/plugins/notifications/notify-metro.js') }}"></script>
+
     <!-- App core js -->
     <script src="{{ secure_asset('/assets/js/jquery.core.js') }}"></script>
     <script src="{{ secure_asset('/assets/js/jquery.app.js') }}"></script>

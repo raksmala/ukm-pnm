@@ -2,7 +2,7 @@
 @section('contentTop')
 @if(session('message'))
   <script type="text/javascript">
-    toastr.info("{{ session('message') }}");
+    $.Notification.autoHideNotify('info', 'top left', {{ session('message') }},'');
   </script>
 @endif
 <div class="da-home-page-text" data-aos="fade-right" data-aos-duration="1000">
