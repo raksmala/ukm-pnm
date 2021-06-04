@@ -11,18 +11,7 @@
     <div class="col-md-4 col-lg-3">
         <div class="profile-detail card-box">
             <div>
-                <img src="assets/images/users/avatar-2.jpg" class="img-circle" alt="profile-image">
-                <ul class="list-inline status-list m-t-20">
-                    <li>
-                        <h3 class="text-primary m-b-5">456</h3>
-                        <p class="text-muted">Followings</p>
-                    </li>
-
-                    <li>
-                        <h3 class="text-success m-b-5">5864</h3>
-                        <p class="text-muted">Followers</p>
-                    </li>
-                </ul>
+                <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 <button type="button" class="btn btn-pink btn-custom btn-rounded waves-effect waves-light">Follow</button>
             </div>
         </div>
