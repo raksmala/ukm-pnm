@@ -20,7 +20,7 @@ class isUKM
             if(Auth::User()->status == 'UKM') {    
                 return $next($request);
             } else if(Auth::User()->status == 'BEM') {
-                return redirect()->secure('/bem');
+                return redirect()->secure('/bem')->with('message', 'Anda Berhasil Login!');
             } 
         }
         

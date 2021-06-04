@@ -19,9 +19,9 @@ class isMahasiswa
         if(Auth::guard('mahasiswa')->user('NIM') != null) {    
             return $next($request);
         } else if(Auth::User('status') == 'ukm') {
-            return redirect()->secure('/admin');
+            return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
         } else if(Auth::User('status') == 'BEM') {
-            return redirect()->secure('/bem');
+            return redirect()->secure('/bem')->with('message', 'Anda Berhasil Login!');
         } 
         
         return redirect()->secure('/login/user');
