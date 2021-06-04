@@ -84,7 +84,7 @@ class LoginController extends Controller
         ]);
 
         if(auth('web')->attempt(['username' => $request->username, 'password' => $request->password])) {
-            return redirect()->secure('/admin');
+            return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
         }
 
         return redirect()->back()->withInput($request->only('NIM', 'remember'));

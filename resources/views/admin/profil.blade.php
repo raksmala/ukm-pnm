@@ -50,8 +50,9 @@
                         <input type="text" class="form-control" id="editPassword" name="editPassword" placeholder="Kosongi jika tidak ingin merubah/menambah password">
                     </div>
                 </div>
-                
-                <button type="submit" style="margin-right: auto;" class="btn btn-white btn-custom btn-rounded waves-effect waves-light">Simpan</button>
+                <div style="margin-right: auto;">
+                    <button type="submit" class="btn btn-white btn-custom btn-rounded waves-effect waves-light">Simpan</button>
+                </div>
             </form>
         </div>
     </div>

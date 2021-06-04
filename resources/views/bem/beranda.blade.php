@@ -1,5 +1,12 @@
 @extends('layouts.admin.app')
 @section('content')
+@if(session('message'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
+    });
+  </script>
+@endif
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
