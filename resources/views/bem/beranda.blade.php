@@ -3,6 +3,7 @@
 @if(Session::has('message'))
   <script type="text/javascript">
     $(document).ready(function(){
+        console.log("Berhasil masuk bem");
       $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
     });
   </script>
