@@ -13,6 +13,8 @@
             <div style="text-align: center;">
                 <div class="row">
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
+                </div>
+                <div class="row">
                     <button type="button" class="btn btn-pink btn-custom btn-rounded waves-effect waves-light">Follow</button>
                 </div>
             </div>
