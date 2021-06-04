@@ -18,8 +18,10 @@ class isUKM
     {
         if(Auth::User() != null){
             if(Auth::User()->status == 'UKM') {    
-                return $next($request)->with('message', 'Anda Berhasil Login!');
+                return $next($request);
             } else if(Auth::User()->status == 'BEM') {
+                print_r('tes bem masuk');
+                exit;
                 return redirect()->secure('/bem')->with('message', 'Anda Berhasil Login!');
             } 
         }

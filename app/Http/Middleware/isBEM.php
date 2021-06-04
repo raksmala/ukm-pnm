@@ -18,7 +18,7 @@ class isBEM
     {
         if(Auth::User() != null){
             if(Auth::User()->status == 'BEM') {    
-                return $next($request)->with('message', 'Anda Berhasil Login!');
+                return $next($request);
             } else if(Auth::User()->status == 'UKM') {
                 return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
             }
