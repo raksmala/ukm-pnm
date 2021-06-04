@@ -76,10 +76,10 @@
                                     <li><a @if(Auth()->user()->status == 'BEM') href="{{ secure_url('/bem/profil') }}" @else href="{{ secure_url('/admin/profil') }}" @endif><i class="ti-user text-custom m-r-10"></i>Profile</a></li>
                                     <li class="divider"></li>
                                     <li>
-                                        <i class="ti-power-off text-danger m-r-10"></i>
                                         <a href="{{ secure_url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                            <i class="ti-power-off text-danger m-r-10"></i>
                                             Logout
                                         </a>
 
