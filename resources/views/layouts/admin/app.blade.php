@@ -73,7 +73,10 @@
                             <li class="dropdown navbar-c-items">
                                 <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img @if(Auth()->user()->foto != null) src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" @else src="{{ secure_url('') }}/assets/images/logo/km.png" @endif alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
+                                    <li><a @if(Auth()->user()->status == 'BEM') href="{{ secure_url('/bem/profil') }}" @else href="{{ secure_url('/admin/profil') }}" @endif><i class="ti-user text-custom m-r-10"></i>Profile</a></li>
+                                    <li class="divider"></li>
                                     <li>
+                                        <i class="ti-power-off text-danger m-r-10"></i>
                                         <a href="{{ secure_url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

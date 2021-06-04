@@ -29,6 +29,7 @@ Route::post('/register', 'UserLoginController@register')->name('validasiRegister
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
     Route::get('/', 'Admin\BerandaController@index')->name('admin');
+    Route::get('/profil', 'Admin\ProfilController@index')->name('adminProfil');
     Route::post('/info/tambah', 'Admin\BerandaController@tambah');
     Route::put('/info/update', 'Admin\BerandaController@update');
     Route::get('/anggota', 'Admin\AnggotaController@index');
@@ -53,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
 
 Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/', 'BEM\BerandaController@index')->name('bem');
+    Route::get('/profil', 'BEM\ProfilController@index')->name('bemProfil');
     Route::get('/ukm', 'BEM\UKMController@index');
     Route::post('/ukm/tambah', 'BEM\UKMController@tambah');
     Route::put('/ukm/update', 'BEM\UKMController@update');
