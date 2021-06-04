@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-@if(session('message'))
+@if(Session::has('message'))
   <script type="text/javascript">
     $(document).ready(function(){
       $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
