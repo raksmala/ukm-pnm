@@ -11,7 +11,7 @@ class ProfilController extends Controller
 {
     public function index() 
     {
-        $ukm = UKM::select('*')->where([['idUKM', '!=', '1'],  ['idUKM', Auth()->user()->UKM_idUKM]])->get();
+        $ukm = UKM::select('*')->where([['idUKM', '!=', '1'],  ['idUKM', Auth()->user()->UKM_idUKM]])->first();
         return view('/admin/profil', ['ukm' => $ukm]);
     }
     
