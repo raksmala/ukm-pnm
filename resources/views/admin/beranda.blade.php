@@ -1,13 +1,5 @@
 @extends('layouts.admin.app')
 @section('content')
-@if(Session::has('message'))
-  <script type="text/javascript">
-    $(document).ready(function(){
-        console.log("Berhasil masuk ukm");
-      $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
-    });
-  </script>
-@endif
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
@@ -76,5 +68,15 @@
             <button type="submit" class="btn btn-inverse btn-rounded waves-effect waves-light" style="text-align: left; margin: 10px 20px 20px 10px;">Simpan</button>
         </div>
     </form>
+@endif
+@endsection
+@section('scripts')
+@if(Session::has('message'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+        console.log("Berhasil masuk ukm");
+      $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
+    });
+  </script>
 @endif
 @endsection

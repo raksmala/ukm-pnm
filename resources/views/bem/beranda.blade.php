@@ -1,13 +1,5 @@
 @extends('layouts.admin.app')
 @section('content')
-@if(Session::has('message'))
-  <script type="text/javascript">
-    $(document).ready(function(){
-        console.log("Berhasil masuk bem");
-      $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
-    });
-  </script>
-@endif
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
@@ -32,4 +24,14 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+@if(Session::has('message'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+        console.log("Berhasil masuk bem");
+      $.Notification.autoHideNotify('success', 'bottom right', 'Anda Berhasil Login');
+    });
+  </script>
+@endif
 @endsection
