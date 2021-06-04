@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-white btn-custom btn-rounded waves-effect waves-light">Simpan</button>
+                <button type="submit" style="margin-right: auto;" class="btn btn-white btn-custom btn-rounded waves-effect waves-light">Simpan</button>
             </form>
         </div>
     </div>
