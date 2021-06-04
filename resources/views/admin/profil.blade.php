@@ -14,7 +14,7 @@
                 <div class="row">
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 10px;">
                     <button type="button" class="btn btn-pink btn-custom btn-rounded waves-effect waves-light">Follow</button>
                 </div>
             </div>
