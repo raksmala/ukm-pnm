@@ -3,7 +3,7 @@
 @if(session('message'))
   <script type="text/javascript">
     $(document).ready(function(){
-      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('message') !!}");
+      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('message') !!}", "{{ Auth::guard('mahasiswa')->user()->NIM }}");
     });
   </script>
 @endif
