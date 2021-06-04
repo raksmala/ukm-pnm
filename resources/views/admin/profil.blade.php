@@ -11,8 +11,10 @@
     <div class="col-md-4 col-lg-3">
         <div class="profile-detail card-box">
             <div style="text-align: center;">
-                <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
-                <button type="button" class="btn btn-pink btn-custom btn-rounded waves-effect waves-light">Follow</button>
+                <div class="row">
+                    <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
+                    <button type="button" class="btn btn-pink btn-custom btn-rounded waves-effect waves-light">Follow</button>
+                </div>
             </div>
         </div>
     </div>
