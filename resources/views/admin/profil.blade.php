@@ -22,7 +22,7 @@
     </div>
     <div class="col-lg-9 col-md-8">
         <div class="card-box">
-            <form action="/admin/profil/update" method="post" role="form" autocomplete="off">
+            <form action="/admin/profil/update" class="form-horizontal" method="post" role="form" autocomplete="off">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
                 <div class="form-group">
