@@ -57,7 +57,7 @@ class ProfilController extends Controller
         $ukm = UKM::where([['idUKM', $request->editIdUKM]])->first();
         $ukm->namaUKM = $request->editNamaUKM;
         $ukm->save();
-        return redirect()->secure('admin/profil')->with('sukses', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
+        return redirect()->secure('admin/profil')->with('sukses', "Data Profil UKM " .$ukm->namaUKM. " terupdate");
     }
 
     public function hapus($idUKM)

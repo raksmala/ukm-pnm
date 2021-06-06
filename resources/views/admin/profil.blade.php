@@ -62,7 +62,7 @@
 @if(Session::has('sukses'))
   <script type="text/javascript">
     $(document).ready(function(){
-      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('message') !!}");
+      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('sukses') !!}");
     });
   </script>
 @endif
