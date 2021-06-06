@@ -40,7 +40,7 @@ class ApiController extends Controller
         $login = User::where([['username', $request->username]])->first();
 
         if($login) {
-            $result["success"] = "1";
+            $result["success"] = true;
             $result["message"] = "success";
             
             $result["user"] = array(
@@ -52,7 +52,7 @@ class ApiController extends Controller
             error_log("Login Android Sukses");
             echo json_encode($result);
         } else {
-            $result["success"] = "0";
+            $result["success"] = false;
             $result["message"] = "error gagal login";
 
             error_log("Login Android Gagal");
