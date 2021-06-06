@@ -22,6 +22,8 @@ class LaporanController extends Controller
     	]);
 
         $foto = $request->file("fotoKegiatanProker$idProgramKerja");
+        var_dump($foto);
+        die;
         $namaFoto = Auth()->user()->UKM_idUKM.'-'.$idProgramKerja.'.'.$foto->getClientOriginalExtension();
         $pathUpload = 'upload/';
 
