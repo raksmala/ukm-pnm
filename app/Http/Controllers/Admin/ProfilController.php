@@ -62,10 +62,10 @@ class ProfilController extends Controller
     
     public function logo(Request $request) {
         $this->validate($request,[
-    		'uploadLogo' => 'required'
+    		"logo" => 'required'
     	]);
 
-        $foto = $request->file("uploadLogo");
+        $foto = $request->file("logo");
         $namaFoto = Auth()->user()->UKM_idUKM.'.'.$foto->getClientOriginalExtension();
         $pathUpload = 'assets/images/logo/';
 
@@ -73,6 +73,8 @@ class ProfilController extends Controller
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->foto = $namaFoto;
         $user->save();
+
+        return back()->with('sukses', "Logo UKM " .$ukm->namaUKM. " terupdate");
 	}
 
     public function hapus($idUKM)

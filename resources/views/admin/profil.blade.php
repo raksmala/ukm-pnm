@@ -18,8 +18,8 @@
                     <form action="/admin/profil/logo" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
-                        <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" data-buttontext="Unggah Logo" data-buttonname="btn-primary" onchange="document.getElementById('submitLogo').click();">
-                        <button type="submit" style="display: none;" id="submitLogo"></button>
+                        <input type="file" class="filestyle" id="logo" name="logo" data-buttontext="Unggah Logo" data-buttonname="btn-primary" onchange="document.getElementById('uploadLogo').click();">
+                        <button type="submit" style="display: none;" id="uploadLogo"></button>
                     </form>
                 </div>
             </div>
