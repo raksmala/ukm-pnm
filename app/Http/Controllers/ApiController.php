@@ -50,8 +50,9 @@ class ApiController extends Controller
         
                     error_log("Login Android Sukses");
                     echo json_encode($result);
+                } else {
+                    error_log("Password Tidak Cocok");
                 }
-                error_log("Password Tidak Cocok");
             }
         } else {
             $result["success"] = "0";
