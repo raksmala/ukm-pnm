@@ -41,7 +41,7 @@ class ApiController extends Controller
 
         if($login) {
             $result["success"] = true;
-            $result["message"] = "success";
+            $result["message"] = "Login Sukses";
             
             $result["user"] = array(
                 'idUKM' => $login->UKM_idUKM,
@@ -50,17 +50,13 @@ class ApiController extends Controller
             );
 
             error_log("Login Sukses");
-            $response->write(json_encode($result));
-
-            return $response->withStatus(200);
+            echo json_encode($result)->withStatus(200);
         } else {
             $result["success"] = false;
-            $result["message"] = "error gagal login";
+            $result["message"] = "Login Gagal";
 
             error_log("Login Gagal");
-            $response->write(json_encode($result));
-
-            return $response->withStatus(200);
+            echo json_encode($result)->withStatus(200);
         }
     }
 }
