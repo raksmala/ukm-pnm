@@ -36,9 +36,9 @@ class ApiController extends Controller
 
     public function loginAndroid(Request $request)
     {
-        $login = User::where([['username', $request->username], ['password', bcrypt($request->password)]])->first();
+        $login = User::where([['username', $request->username], ['password', bcrypt($request->password)]])->get();
 
-        if($login) {
+        if(count($login) > 0) {
             $result["success"] = "1";
             $result["message"] = "success";
             
