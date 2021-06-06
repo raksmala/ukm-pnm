@@ -37,28 +37,18 @@ class ApiController extends Controller
 
     public function loginAndroid(Request $request)
     {
-        $login = User::where([['username', $request->username]])->get();
+        $login = User::where([['username', $request->username]])->first();
 
         if(count($login) > 0) {
-            foreach($login as $data){
-                if(Hash::check($data->password, $request->password)) {
-                    $result["success"] = "1";
-                    $result["message"] = "success";
-                    
-                    $result["idUKM"] = $data->UKM_idUKM;
-                    $result["name"] = $data->name;
-                    $result["foto"] = $data->foto;
-        
-                    error_log("Login Android Sukses");
-                    echo json_encode($result);
-                } else {
-                    $result["success"] = "0";
-                    $result["message"] = "error password tidak cocok";
-        
-                    error_log("Password Tidak Cocok");
-                    echo json_encode($result);
-                }
-            }
+            $result["success"] = "1";
+            $result["message"] = "success";
+            
+            $result["idUKM"] = $data->UKM_idUKM;
+            $result["name"] = $data->name;
+            $result["foto"] = $data->foto;
+
+            error_log("Login Android Sukses");
+            echo json_encode($result);
         } else {
             $result["success"] = "0";
             $result["message"] = "error gagal login";
