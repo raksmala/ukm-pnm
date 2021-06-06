@@ -93,12 +93,6 @@ $(document).ready(function(){
 </script>
 @endif
 <script>
-    $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-    });
-
     var $uploadCrop;
 
     function readFile(input) {
