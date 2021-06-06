@@ -64,7 +64,8 @@ class ProfilController extends Controller
     		'uploadLogo' => 'required'
     	]);
 		$data = $request->uploadLogo;
-
+        var_dump($request->post());
+        die;
 		$image_array_1 = explode(';', $data);
 		$image_array_2 = explode(',', $image_array_1[1]);
 
