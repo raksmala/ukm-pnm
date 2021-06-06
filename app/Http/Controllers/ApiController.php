@@ -38,7 +38,7 @@ class ApiController extends Controller
     {
         $login = User::where([['username', $request->username], ['password', bcrypt($request->password)]])->first();
 
-        if(count($login) > 0) {
+        if($login) {
             $result["success"] = "1";
             $result["message"] = "success";
             
