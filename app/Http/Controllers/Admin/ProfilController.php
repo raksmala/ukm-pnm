@@ -44,6 +44,8 @@ class ProfilController extends Controller
     		'editEmail' => 'required',
     		'editUsername' => 'required'
     	]);
+        print_r($request);
+        exit;
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;
         $user->email = $request->editEmail;
@@ -53,7 +55,7 @@ class ProfilController extends Controller
             $user->password = bcrypt($request->editPassword);
         }
         $user->save();
-        
+
         $ukm = UKM::where([['idUKM', $request->editIdUKM]])->first();
         $ukm->namaUKM = $request->editNamaUKM;
         $ukm->save();
