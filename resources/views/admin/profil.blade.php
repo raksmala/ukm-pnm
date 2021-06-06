@@ -15,7 +15,7 @@
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <input type="file" style="display:none" id="upload" name="upload" accept="image/*">
+                    <input type="file" style="display:none;" visibility="hidden" id="upload" name="upload" accept="image/*">
                     <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('upload').click();">Upload</button>
                 </div>
             </div>

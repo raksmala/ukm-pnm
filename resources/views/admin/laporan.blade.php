@@ -46,7 +46,7 @@
                         <form action="/admin/laporan/update/{{ $data->idProgramKerja }}" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
-                            <input type="file" class="filestyle" id="fotoKegiatanProker{{ $data->idProgramKerja }}" name="fotoKegiatanProker{{ $data->idProgramKerja }}" data-input="false"data-buttontext="Unggah Foto" data-buttonname="btn-default" onchange="document.getElementById('uploadFoto{{ $data->idProgramKerja }}').click();">
+                            <input type="file" class="filestyle" id="fotoKegiatanProker{{ $data->idProgramKerja }}" name="fotoKegiatanProker{{ $data->idProgramKerja }}" data-input="false" data-buttontext="Unggah Foto" data-buttonname="btn-default" onchange="document.getElementById('uploadFoto{{ $data->idProgramKerja }}').click();">
                             <button type="submit" style="display: none;" id="uploadFoto{{ $data->idProgramKerja }}"></button>
                         </form>
                         <a href='#' class='on-default delete-row btn btn-danger delete-proker' idProgramKerja="{{ $data->idProgramKerja }}" namaKegiatanProker="{{ $data->namaKegiatanProker }}"><i class='fa fa-trash'></i></a>
