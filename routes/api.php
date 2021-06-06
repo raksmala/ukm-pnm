@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 
 Route::post('detailJadwal', 'ApiController@get_all_jadwal');
 Route::post('detailJadwal/tambah', 'ApiController@tambah');
+Route::post('loginAndroid', 'ApiController@loginAndroid');

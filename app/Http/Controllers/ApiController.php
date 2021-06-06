@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DetailJadwal;
 use App\Jadwal;
+use App\UKM;
+use App\User;
 
 class ApiController extends Controller
 {
@@ -30,5 +32,26 @@ class ApiController extends Controller
             'message' => 'Data Undangan Disimpan',
             'namaUndangan' => $request->namaUndangan
         ], 200);
+    }
+
+    public function loginAndroid(Request $request)
+    {
+        $login = User::where([['username', $request->username], ['password', bcrypt($request->password)]])->first();
+
+        if(count($login) > 0) {
+            $result["success"] = "1";
+            $result["message"] = "success";
+            
+            $result["idUKM"] = $login->UKM_idUKM;
+            $result["name"] = $login->name;
+            $result["foto"] = $login->foto;
+
+            echo json_encode($result);
+        } else {
+            $result["success"] = "0";
+            $result["message"] = "error";
+            
+            echo json_encode($result);
+        }
     }
 }
