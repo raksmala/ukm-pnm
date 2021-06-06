@@ -43,9 +43,9 @@ class ApiController extends Controller
             $result["success"] = "1";
             $result["message"] = "success";
             
-            $result["idUKM"] = $data->UKM_idUKM;
-            $result["name"] = $data->name;
-            $result["foto"] = $data->foto;
+            $result["idUKM"] = $login->UKM_idUKM;
+            $result["name"] = $login->name;
+            $result["foto"] = $login->foto;
 
             error_log("Login Android Sukses");
             echo json_encode($result);
