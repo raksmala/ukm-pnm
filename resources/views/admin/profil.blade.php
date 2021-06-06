@@ -22,7 +22,9 @@
                             <input type="file" class="form-control" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="document.getElementById('submitLogo').click();">
                         </div>
                         <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
-                        <button type="submit" id="submitLogo" name="submitLogo">
+                        <div style="display:none;">
+                            <button type="submit" id="submitLogo" name="submitLogo">
+                        </div>
                     </form>
                 </div>
             </div>
