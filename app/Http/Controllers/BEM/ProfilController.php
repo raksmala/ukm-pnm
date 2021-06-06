@@ -4,6 +4,8 @@ namespace App\Http\Controllers\BEM;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\UKM;
+use App\User;
 
 class ProfilController extends Controller
 {
