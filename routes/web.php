@@ -30,7 +30,7 @@ Route::post('/register', 'UserLoginController@register')->name('validasiRegister
 Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
     Route::get('/', 'Admin\BerandaController@index')->name('admin');
     Route::get('/profil', 'Admin\ProfilController@index')->name('adminProfil');
-    Route::get('/profil/update', 'Admin\ProfilController@update');
+    Route::post('/profil/update', 'Admin\ProfilController@update');
     Route::post('/info/tambah', 'Admin\BerandaController@tambah');
     Route::put('/info/update', 'Admin\BerandaController@update');
     Route::get('/anggota', 'Admin\AnggotaController@index');
