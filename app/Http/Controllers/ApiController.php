@@ -46,11 +46,13 @@ class ApiController extends Controller
             $result["name"] = $login->name;
             $result["foto"] = $login->foto;
 
+            console.log("Login Android Sukses");
             echo json_encode($result);
         } else {
             $result["success"] = "0";
             $result["message"] = "error";
-            
+
+            console.log("Login Android Gagal");
             echo json_encode($result);
         }
     }
