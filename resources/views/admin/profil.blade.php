@@ -18,13 +18,8 @@
                     <form action="/admin/profil/logo" class="form-horizontal" method="post" role="form" autocomplete="off">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
-                        <div style="display:none;">
-                            <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="setTimeout(function(){document.getElementById('submitLogo').click();}, 1000);">
-                        </div>
-                        <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
-                        <div style="display:none;">
-                            <button type="submit" id="submitLogo" name="submitLogo">
-                        </div>
+                        <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" accept="image/*" onchange="document.getElementById('submitLogo').click();">
+                        <button type="submit" style="display: none;" id="submitLogo" name="submitLogo"></button>
                     </form>
                 </div>
             </div>
