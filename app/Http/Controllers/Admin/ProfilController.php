@@ -74,7 +74,7 @@ class ProfilController extends Controller
         $user->foto = $namaFoto;
         $user->save();
 
-        return back()->with('sukses', "Logo UKM " .$ukm->namaUKM. " terupdate");
+        return redirect()->secure('admin/profil')->with('sukses', "Logo UKM " .$user->name. " terupdate");
 	}
 
     public function hapus($idUKM)
