@@ -38,8 +38,8 @@ class ProfilController extends Controller
 
     public function update(Request $request)
     {
-        print_r($request);
-        exit;
+        var_dump($request);
+        die;
         $this->validate($request,[
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
