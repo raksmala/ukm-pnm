@@ -33,7 +33,7 @@ class ProfilController extends Controller
             'status' => 'UKM'
         ]);
 
-        return redirect()->secure('bem/ukm');
+        return redirect()->secure('admin/profil');
     }
 
     public function update(Request $request)
@@ -57,7 +57,7 @@ class ProfilController extends Controller
         $ukm = UKM::where([['idUKM', $request->editIdUKM]])->first();
         $ukm->namaUKM = $request->editNamaUKM;
         $ukm->save();
-        return back()->with('sukses', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
+        return redirect()->secure('admin/profil')->with('sukses', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
     }
 
     public function hapus($idUKM)
