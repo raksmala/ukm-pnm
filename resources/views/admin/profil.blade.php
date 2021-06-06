@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Nama UKM</label>
                     <div class="col-md-10">
-                        <input type="hidden" id="editIdUKM" name="editIdUKM" value="{{ $ukm->editIdUKM }}">
+                        <input type="hidden" id="editIdUKM" name="editIdUKM" value="{{ $ukm->idUKM }}">
                         <input type="text" class="form-control" id="editNamaUKM" name="editNamaUKM" value={{ $ukm->namaUKM }}>
                     </div>
                 </div>
