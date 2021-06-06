@@ -15,11 +15,17 @@
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <form action="/admin/profil/logo" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
+                    <form action="/admin/profil/logo" class="form-horizontal" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
-                        <input type="file" class="filestyle" id="logo" name="logo" data-buttontext="Unggah Logo" data-buttonname="btn-primary" onchange="document.getElementById('uploadLogo').click();">
-                        <button type="submit" style="display: none;" id="uploadLogo"></button>
+                        <div style="display:none;">
+                            <input type="hidden" id="editIdUKM" name="editIdUKM" value="{{ $ukm->idUKM }}">
+                            <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="document.getElementById('submitLogo').click();">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
+                        <div style="display:none;">
+                            <button type="submit" id="submitLogo" name="submitLogo"></button>
+                        </div>
                     </form>
                 </div>
             </div>
