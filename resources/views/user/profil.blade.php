@@ -3,7 +3,7 @@
 @if(session('sukses'))
   <script type="text/javascript">
     $(document).ready(function(){
-      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('message') !!}");
+      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
     });
   </script>
 @endif
