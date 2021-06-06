@@ -38,14 +38,14 @@ class ProfilController extends Controller
 
     public function update(Request $request)
     {
+        print_r($request);
+        exit;
         $this->validate($request,[
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
     		'editEmail' => 'required',
     		'editUsername' => 'required'
     	]);
-        print_r($request);
-        exit;
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;
         $user->email = $request->editEmail;
