@@ -28,11 +28,10 @@ class ApiController extends Controller
     		'prodi' => $request->prodi
     	]);
 
-        return response([
-            'status' => 'OK',
-            'message' => 'Data Undangan Disimpan',
-            'namaUndangan' => $request->namaUndangan
-        ], 200);
+        $result['status'] = "OK";
+        $result['message'] = "Data Undangan Disimpan";
+        $result['namaUndangan'] = $request->namaUndangan;
+        return response($result, 200);
     }
 
     public function loginAndroid(Request $request)
