@@ -1,5 +1,12 @@
 @extends('layouts.admin.app')
 @section('content')
+@if(Session::has('sukses'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('sukses') !!}");
+    });
+  </script>
+@endif
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
@@ -59,11 +66,4 @@
 </div>
 @endsection
 @section('scripts')
-@if(Session::has('sukses'))
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('sukses') !!}");
-    });
-  </script>
-@endif
 @endsection
