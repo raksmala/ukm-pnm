@@ -9,7 +9,7 @@ class ProfilController extends Controller
 {
     public function index() 
     {
-        $mahasiswa = Mahasiswa::select('*')->where([['NIM', '{{ Auth::guard('mahasiswa')->user()->NIM }}']])->first();
+        $mahasiswa = Mahasiswa::select('*')->where([['NIM', "{{ Auth::guard('mahasiswa')->user()->NIM }}"]])->first();
         return view('/user/profil', ['mahasiswa' => $mahasiswa]);
     }
 
