@@ -11,6 +11,7 @@
         @endguest
         @auth('mahasiswa')
         <li class="nav-item"><a class="nav-link smooth-scroll">{{ Auth::guard('mahasiswa')->user()->NIM }}</a></li>
+        <li class="nav-item"><a class="nav-link smooth-scroll" href="{{ secure_url('/profil') }}">Profil</a></li>
         <li class="nav-item">
             <a class="nav-link smooth-scroll" href="{{ secure_url('/logout') }}"
                 onclick="event.preventDefault();
