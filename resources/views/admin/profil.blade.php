@@ -63,7 +63,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
         console.log("Berhasil edit profil ukm");
-      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('sukses') !!}");
+      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
     });
   </script>
 @endif
