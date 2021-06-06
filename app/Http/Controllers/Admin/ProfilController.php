@@ -59,6 +59,21 @@ class ProfilController extends Controller
         $ukm->save();
         return redirect()->secure('admin/profil')->with('sukses', "Data Profil UKM " .$ukm->namaUKM. " terupdate");
     }
+    public function logo(Request $request) {
+		$data = $request->image;
+
+		$image_array_1 = explode(';', $data);
+		$image_array_2 = explode(',', $image_array_1[1]);
+
+		$data = base64_decode($image_array_2[1]);
+		$imageName = Auth()->user()->UKM_idUKM.'.png';
+		file_put_contents("{{ URL::to('/') }}assets/images/logo/".$imageName, $data);
+		// unlink("{{ URL::to('/') }}assets/images/logo/".$this->session->userdata('logo'));
+
+        $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
+        $user->foto = $imageName;
+        $user->save();
+	}
 
     public function hapus($idUKM)
     {

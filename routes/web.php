@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
     Route::get('/', 'Admin\BerandaController@index')->name('admin');
     Route::get('/profil', 'Admin\ProfilController@index')->name('adminProfil');
     Route::put('/profil/update', 'Admin\ProfilController@update');
+    Route::post('/profil/logo', 'Admin\ProfilController@logo');
     Route::post('/info/tambah', 'Admin\BerandaController@tambah');
     Route::put('/info/update', 'Admin\BerandaController@update');
     Route::get('/anggota', 'Admin\AnggotaController@index');
