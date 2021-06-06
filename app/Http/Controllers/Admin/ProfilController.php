@@ -59,13 +59,12 @@ class ProfilController extends Controller
         $ukm->save();
         return redirect()->secure('admin/profil')->with('sukses', "Data Profil UKM " .$ukm->namaUKM. " terupdate");
     }
+
     public function logo(Request $request) {
         $this->validate($request,[
     		'uploadLogo' => 'required'
     	]);
 		$data = $request->uploadLogo;
-        var_dump($request->post());
-        die;
 		$image_array_1 = explode(';', $data);
 		$image_array_2 = explode(',', $image_array_1[1]);
 
