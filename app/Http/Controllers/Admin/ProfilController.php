@@ -64,19 +64,14 @@ class ProfilController extends Controller
         $this->validate($request,[
     		'uploadLogo' => 'required'
     	]);
-		$data = $request->uploadLogo;
-        var_dump($request->post());
-        die;
-		$image_array_1 = explode(';', $data);
-		$image_array_2 = explode(',', $image_array_1[1]);
 
-		$data = base64_decode($image_array_2[1]);
-		$imageName = Auth()->user()->UKM_idUKM.'.png';
-		file_put_contents("{{ URL::to('/') }}assets/images/logo/".$imageName, $data);
-		// unlink("{{ URL::to('/') }}assets/images/logo/".$this->session->userdata('logo'));
+        $foto = $request->file("uploadLogo");
+        $namaFoto = Auth()->user()->UKM_idUKM.'.'.$foto->getClientOriginalExtension();
+        $pathUpload = 'assets/images/logo/';
 
+        $foto->move($pathUpload, $namaFoto);
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
-        $user->foto = $imageName;
+        $user->foto = $namaFoto;
         $user->save();
 	}
 
