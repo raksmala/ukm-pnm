@@ -44,7 +44,7 @@ class ApiController extends Controller
             $result["message"] = "Login Sukses";
             
             $result["user"] = array(
-                'idUKM' => $login->UKM_idUKM,
+                'id' => $login->UKM_idUKM,
                 'name' => $login->name,
                 'foto' => $login->foto
             );
