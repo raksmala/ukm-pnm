@@ -66,8 +66,6 @@ class ProfilController extends Controller
     	]);
 
         $foto = $request->file("uploadLogo");
-        var_dump($request->post());
-        die;
         $namaFoto = Auth()->user()->UKM_idUKM.'.'.$foto->getClientOriginalExtension();
         $pathUpload = 'assets/images/logo/';
 
