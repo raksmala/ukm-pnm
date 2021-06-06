@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jadwal;
+use App\DetailJadwal;
 
 class JadwalController extends Controller
 {
@@ -64,5 +65,12 @@ class JadwalController extends Controller
     {
         Jadwal::find($idJadwal)->delete();
         return back()->with('success', "Data Jadwal dengan id " .$idJadwal. " terhapus");
+    }
+
+    public function detail($idJadwal)
+    {
+        $jadwal = Jadwal::find($idJadwal);
+        $detailJadwal = DetailJadwal::where([['idJadwal', $idJadwal]])->get();
+        return view('/admin/detail', ['detailJadwal' => $detailJadwal, 'jadwal' => $jadwal]);
     }
 }
