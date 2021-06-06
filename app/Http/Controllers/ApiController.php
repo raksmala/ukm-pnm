@@ -50,13 +50,13 @@ class ApiController extends Controller
             );
 
             error_log("Login Sukses");
-            echo json_encode($result);
+            return response($result, 200);
         } else {
             $result["success"] = false;
             $result["message"] = "Login Gagal";
 
             error_log("Login Gagal");
-            echo json_encode($result);
+            return response($result, 200);
         }
     }
 }
