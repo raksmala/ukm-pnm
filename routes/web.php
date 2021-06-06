@@ -57,6 +57,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.UKM'], function() {
 Route::group(['prefix' => 'bem', 'middleware' => 'admin.BEM'], function() {
     Route::get('/', 'BEM\BerandaController@index')->name('bem');
     Route::get('/profil', 'BEM\ProfilController@index')->name('bemProfil');
+    Route::put('/profil/update', 'BEM\ProfilController@update');
+    Route::put('/profil/logo', 'BEM\ProfilController@logo');
     Route::get('/ukm', 'BEM\UKMController@index');
     Route::post('/ukm/tambah', 'BEM\UKMController@tambah');
     Route::put('/ukm/update', 'BEM\UKMController@update');
