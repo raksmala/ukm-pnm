@@ -49,14 +49,18 @@ class ApiController extends Controller
                 'foto' => $login->foto
             );
 
-            error_log("Login Android Sukses");
-            echo json_encode($result);
+            error_log("Login Sukses");
+            $response->write(json_encode($result));
+
+            return $response->withStatus(200);
         } else {
             $result["success"] = false;
             $result["message"] = "error gagal login";
 
-            error_log("Login Android Gagal");
-            echo json_encode($result);
+            error_log("Login Gagal");
+            $response->write(json_encode($result));
+
+            return $response->withStatus(200);
         }
     }
 }
