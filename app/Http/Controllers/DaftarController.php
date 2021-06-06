@@ -31,6 +31,6 @@ class DaftarController extends Controller
             'statusAnggota' => 'baru'
         ]);
     
-        return redirect()->secure();
+        return redirect()->secure('/');
     }
 }

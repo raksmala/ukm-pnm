@@ -56,6 +56,6 @@ class UserLoginController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->secure('login');
+        return redirect()->secure('login/user');
     }
 }
