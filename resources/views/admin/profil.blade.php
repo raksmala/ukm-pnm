@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Password</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="editPassword" name="editPassword" placeholder="Kosongi jika tidak ingin merubah/menambah password">
+                        <input type="password" class="form-control" id="editPassword" name="editPassword" placeholder="Kosongi jika tidak ingin merubah/menambah password">
                     </div>
                 </div>
                 <div style="text-align: right;">

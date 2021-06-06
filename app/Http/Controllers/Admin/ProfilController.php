@@ -44,33 +44,19 @@ class ProfilController extends Controller
     		'editEmail' => 'required',
     		'editUsername' => 'required'
     	]);
-
-        $ukm = UKM::find($request->editIdUKM);
-
-        if(!$request->editPassword) {
-            $request->editPassword = $ukm->user()->password;
+        $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
+        $user->name = $request->editNamaUKM;
+        $user->email = $request->editEmail;
+        $user->username = $request->editUsername;
+        if($request->editPassword != null) 
+        {
+            $user->password = bcrypt($request->editPassword);
         }
-        $user = $ukm->user()
-            ->update([
-                'name' => $request->editNamaUKM,
-                'username' => $request->editUsername,
-                'email' => $request->editEmail,
-                'password' => bcrypt($request->editPassword)
-            ]);
-        $ukmDetail = UKM::where('idUKM', $request->editIdUKM)
-            ->update([
-                'namaUKM' => $request->editNamaUKM
-            ]);
-
-        // $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
-        // $user->name = $request->editNamaUKM;
-        // $user->email = $request->editEmail;
-        // $user->username = $request->editUsername;
-        // if($request->editPassword != null) 
-        // {
-        //     $user->password = bcrypt($request->editPassword);
-        // }
-        // $user->save();
+        $user->save();
+        
+        $ukm = UKM::where([['idUKM', $request->editIdUKM]])->first();
+        $ukm->namaUKM = $request->editNamaUKM;
+        $ukm->save();
         return back()->with('sukses', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
     }
 
