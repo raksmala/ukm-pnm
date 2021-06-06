@@ -27,6 +27,11 @@ $.notify.addStyle("metro", {
             "background-color": "#e6eaed",
             "border": "1px solid #ddd"
         },
+        success2: {
+            "color": "#fafafa !important",
+            "background-color": "#81c868",
+            "border": "1px solid #33b86c"
+        },
         info: {
             "color": "#fafafa !important",
             "background-color": "#34d3eb",

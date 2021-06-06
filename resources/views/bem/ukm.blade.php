@@ -42,7 +42,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Data Kegiatan</h4>
+                <h4 class="modal-title">Data Unit Kegiatan Mahasiswa</h4>
             </div>
             <form action="/bem/ukm/tambah" method="post" role="form" autocomplete="off">
             {{ csrf_field() }}
@@ -70,7 +70,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Data Kegiatan</h4>
+                <h4 class="modal-title">Data Unit Kegiatan Mahasiswa</h4>
             </div>
             <form action="/bem/ukm/update" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
             {{ csrf_field() }}

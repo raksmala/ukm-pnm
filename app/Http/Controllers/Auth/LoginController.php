@@ -96,6 +96,6 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect()->secure('/');
+        return $this->loggedOut($request) ?: redirect()->secure('/')->with('logout', 'Anda Telah Logout!');
     }
 }

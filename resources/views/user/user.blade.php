@@ -7,6 +7,13 @@
     });
   </script>
 @endif
+@if(session('logout'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('logout') !!}");
+    });
+  </script>
+@endif
 <div class="da-home-page-text" data-aos="fade-right" data-aos-duration="1000">
     <div class="container">
         <div class="col-md-10 col-sm-12 px-0 mx-0">

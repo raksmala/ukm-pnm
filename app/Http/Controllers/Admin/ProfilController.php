@@ -45,28 +45,38 @@ class ProfilController extends Controller
     		'editUsername' => 'required'
     	]);
 
-        $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
-        $user->name = $request->editNamaUKM;
-        $user->email = $request->editEmail;
-        $user->username = $request->editUsername;
-        if($request->editPassword != null) 
-        {
-            $user->password = bcrypt($request->editPassword);
+        $ukm = UKM::find($request->editIdUKM);
+
+        if(!$request->editPassword) {
+            $request->editPassword = $ukm->user()->password;
         }
-        if($request->editFoto) {
-            $foto = $request->file("editFoto");
-            $namaFoto = $request->editIdUKM.'.'.$foto->getClientOriginalExtension();
-            $pathUpload = 'assets/images/logo/';
-            $foto->move($pathUpload, $namaFoto);
-            $user->foto = $namaFoto;
-        }
-        $user->save();
-        return back()->with('success', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
+        $user = $ukm->user()
+            ->update([
+                'name' => $request->editNamaUKM,
+                'username' => $request->editUsername,
+                'email' => $request->editEmail,
+                'password' => bcrypt($request->editPassword)
+            ]);
+        $ukmDetail = UKM::where('idUKM', $request->editIdUKM)
+            ->update([
+                'namaUKM' => $request->editNamaUKM
+            ]);
+
+        // $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
+        // $user->name = $request->editNamaUKM;
+        // $user->email = $request->editEmail;
+        // $user->username = $request->editUsername;
+        // if($request->editPassword != null) 
+        // {
+        //     $user->password = bcrypt($request->editPassword);
+        // }
+        // $user->save();
+        return back()->with('sukses', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
     }
 
     public function hapus($idUKM)
     {
         UKM::find($idUKM)->delete();
-        return back()->with('success', "Data UKM dengan id " .$idUKM. " terhapus");
+        return back()->with('sukses', "Data UKM dengan id " .$idUKM. " terhapus");
     }
 }

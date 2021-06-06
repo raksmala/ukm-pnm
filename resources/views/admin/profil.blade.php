@@ -58,3 +58,12 @@
     </div>
 </div>
 @endsection
+@section('scripts')
+@if(Session::has('sukses'))
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.Notification.autoHideNotify('success2', 'bottom right', "{!! Session::get('message') !!}");
+    });
+  </script>
+@endif
+@endsection
