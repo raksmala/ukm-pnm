@@ -126,7 +126,7 @@ $(document).ready(function(){
         enableExif: true
     });
 
-    $('#upload').on('change', function () { readFile(this); });
+    $('#upload').on('change', function () { readFile.call(this); });
     $('.upload-result').on('click', function (event) {
         $uploadCrop.croppie('result', {
             type: 'canvas',
