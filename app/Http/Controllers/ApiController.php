@@ -20,7 +20,6 @@ class ApiController extends Controller
     public function tambah(Request $request)
     {
         date_default_timezone_set('Asia/Jakarta');
-        $nama = $request->namaUndangan;
 
         DetailJadwal::create([
             'idJadwal' => $request->idJadwal,
@@ -32,7 +31,7 @@ class ApiController extends Controller
         return response([
             'status' => 'OK',
             'message' => 'Data Undangan Disimpan',
-            'namaUndangan' => $nama
+            'namaUndangan' => $request->namaUndangan
         ], 200);
     }
 
