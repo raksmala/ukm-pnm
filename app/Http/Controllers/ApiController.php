@@ -40,7 +40,7 @@ class ApiController extends Controller
 
         if(count($login) > 0) {
             foreach($login as $data){
-                if(Hash::check($data->password, $request->password))
+                if(Hash::check($data->password, $request->password)) {
                     $result["success"] = "1";
                     $result["message"] = "success";
                     
