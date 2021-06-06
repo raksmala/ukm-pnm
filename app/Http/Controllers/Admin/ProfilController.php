@@ -62,10 +62,10 @@ class ProfilController extends Controller
     
     public function logo(Request $request) {
         $this->validate($request,[
-    		"logo" => 'required'
+    		"uploadLogo" => 'required'
     	]);
 
-        $foto = $request->file("logo");
+        $foto = $request->file("uploadLogo");
         $namaFoto = Auth()->user()->UKM_idUKM.'.'.$foto->getClientOriginalExtension();
         $pathUpload = 'assets/images/logo/';
 
