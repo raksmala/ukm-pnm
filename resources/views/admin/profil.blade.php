@@ -18,8 +18,10 @@
                     <form action="/admin/profil/update" class="form-horizontal" method="post" role="form" autocomplete="off">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
-                        <input type="file" class="form-control" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*">
-                        <button type="submit" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light">Upload</button>
+                        <div style="display:none;">
+                            <input type="file" class="form-control" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
                     </form>
                 </div>
             </div>
