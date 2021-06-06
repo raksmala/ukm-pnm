@@ -15,7 +15,7 @@
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <form action="/admin/profil/logo" class="form-horizontal" method="post" role="form" autocomplete="off">
+                    <form action="/admin/profil/logo" class="form-horizontal" method="post" role="form" autocomplete="off" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                         <div style="display:none;">
