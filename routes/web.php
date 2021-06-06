@@ -19,6 +19,8 @@ Route::get('/kritikSaran', 'KritikSaranController@index')->name('kritikSaran');
 Route::post('/kritikSaran/tambah', 'KritikSaranController@tambah');
 Route::get('/daftar', 'DaftarController@index')->name('daftar')->middleware('mahasiswa');
 Route::post('/daftar/tambah', 'DaftarController@tambah')->middleware('mahasiswa');
+Route::get('/profil', 'ProfilController@index')->name('profil')->middleware('mahasiswa');
+Route::put('/profil/update', 'ProfilController@update')->middleware('mahasiswa');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('validasiLogin');

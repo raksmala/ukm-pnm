@@ -14,27 +14,6 @@ class ProfilController extends Controller
         $ukm = UKM::select('*')->where([['idUKM', '1']])->first();
         return view('/bem/profil', ['ukm' => $ukm]);
     }
-    
-    public function tambah(Request $request)
-    {
-        $this->validate($request,[
-    		'namaUKM' => 'required',
-    	]);
-
-        UKM::create([
-    		'namaUKM' => $request->namaUKM
-    	]);
-
-        $idUKM = UKM::select('idUKM')->where([['namaUKM', $request->namaUKM]])->first();
-
-        User::create([
-            'UKM_idUKM' => $idUKM['idUKM'],
-            'name' => $request->namaUKM,
-            'status' => 'UKM'
-        ]);
-
-        return redirect()->secure('bem/profil');
-    }
 
     public function update(Request $request)
     {
@@ -76,10 +55,4 @@ class ProfilController extends Controller
 
         return redirect()->secure('bem/profil')->with('sukses', "Logo " .$user->name. " terupdate");
 	}
-
-    public function hapus($idUKM)
-    {
-        UKM::find($idUKM)->delete();
-        return back()->with('sukses', "Data UKM dengan id " .$idUKM. " terhapus");
-    }
 }
