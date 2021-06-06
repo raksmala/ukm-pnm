@@ -46,6 +46,10 @@
         <link href="{{ secure_asset('assets/plugins/datatables/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ secure_asset('assets/plugins/datatables/fixedColumns.dataTables.min.css') }}" rel="stylesheet" type="text/css"/>
 
+        <!-- Croppie -->
+        <link href="{{ secure_asset('assets/croppie/croppie.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ secure_asset('assets/croppie/demo/demo.css') }}" rel="stylesheet" type="text/css"/>
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -223,6 +227,9 @@
         <script src="{{ secure_asset('assets/plugins/datatables/dataTables.fixedColumns.min.js') }}"></script>
 
         <script src="{{ secure_asset('assets/pages/datatables.init.js') }}"></script>
+
+        <script src="{{ secure_asset('assets/croppie/croppie.js') }}"></script>
+        <script src="{{ secure_asset('assets/croppie/demo/demo.js') }}"></script>
 
         <script type="text/javascript">
             jQuery(document).ready(function($) {
