@@ -14,7 +14,7 @@
                 <div class="row">
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
-                <div class="row" style="margin-top: 10px;">
+                <div class="row" style="margin-top: 10px; text-align: center;">
                     <input type="file" class="filestyle" data-btnClass="btn-primary" data-badge="false" data-input="false" id="upload" name="upload" accept="image/*" data-text="Upload">
                 </div>
             </div>
@@ -92,7 +92,13 @@ $(document).ready(function(){
 });
 </script>
 @endif
-<script>
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+
     var $uploadCrop;
 
     function readFile(input) {
