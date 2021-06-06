@@ -15,8 +15,7 @@
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <input type="file" style="display:none;" visibility="hidden" id="upload" name="upload" accept="image/*">
-                    <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('upload').click();">Upload</button>
+                    <input type="file" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" id="upload" name="upload" accept="image/*" data-text="Upload">
                 </div>
             </div>
         </div>
@@ -134,7 +133,7 @@ $(document).ready(function(){
             size: 'viewport'
         }).then(function (response) {
             $.ajax({
-                url:"{{ URL::to('/') }}profil/logo",
+                url:"{{ URL::to('/') }}/profil/logo",
                 type:"POST",
                 data:{"image": response},
                 success:function(data) {
