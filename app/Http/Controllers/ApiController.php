@@ -47,7 +47,7 @@ class ApiController extends Controller
                 'idUKM' => $login->UKM_idUKM,
                 'name' => $login->name,
                 'foto' => $login->foto
-            )
+            );
 
             error_log("Login Android Sukses");
             echo json_encode($result);
