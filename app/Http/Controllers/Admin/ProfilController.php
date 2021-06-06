@@ -60,7 +60,10 @@ class ProfilController extends Controller
         return redirect()->secure('admin/profil')->with('sukses', "Data Profil UKM " .$ukm->namaUKM. " terupdate");
     }
     public function logo(Request $request) {
-		$data = $request->image;
+        $this->validate($request,[
+    		'uploadLogo' => 'required'
+    	]);
+		$data = $request->uploadLogo;
 
 		$image_array_1 = explode(';', $data);
 		$image_array_2 = explode(',', $image_array_1[1]);

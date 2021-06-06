@@ -14,8 +14,13 @@
                 <div class="row">
                     <img src="{{ secure_url('') }}/assets/images/logo/{{ Auth()->user()->foto }}" class="img-circle" alt="profile-image">
                 </div>
-                <div class="row" style="margin-top: 10px; justify-content: center;">
-                    <input type="file" class="filestyle" data-btnClass="btn-primary" data-badge="false" data-input="false" id="upload" name="upload" accept="image/*" data-text="Upload">
+                <div class="row" style="margin-top: 10px;">
+                    <form action="/admin/profil/update" class="form-horizontal" method="post" role="form" autocomplete="off">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+                        <input type="file" class="form-control" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*">
+                        <button type="submit" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light">Upload</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -57,94 +62,14 @@
         </div>
     </div>
 </div>
-<div id="uploadImageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Crop &amp; Upload Logo Profil</h4>
-                <button type="button" class="close" data-dismiss="modal" >
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="upload-demo-wrap">
-                            <div id="upload-demo"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success upload-result">Crop &amp; Upload</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 @section('scripts')
 @if(Session::has('sukses'))
-<script type="text/javascript">
-$(document).ready(function(){
-    console.log("Berhasil edit profil ukm");
-    $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
-});
-</script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        console.log("Berhasil edit profil ukm");
+      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
+    });
+  </script>
 @endif
-<script>
-    var $uploadCrop;
-
-    function readFile(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            $('#uploadImageModal').modal('show');
-            reader.onload = function (e) {
-                $('.upload-demo').addClass('ready');
-                $uploadCrop.croppie('bind', {
-                    url: e.target.result
-                }).then(function(){
-                    console.log('jQuery bind complete');
-                });
-                
-            }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-        else {
-            swal("Sorry - you're browser doesn't support the FileReader API");
-        }
-    }
-
-    $uploadCrop = $('#upload-demo').croppie({
-        viewport: {
-            width: 200,
-            height: 200,
-            type: 'square'
-        },
-        enableExif: true
-    });
-
-    $('#upload').on('change', function () { readFile.call(this); });
-    $('.upload-result').on('click', function (event) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (response) {
-            $.ajax({
-                url:"{{ URL::to('/') }}/profil/logo",
-                type:"POST",
-                data:{"image": response},
-                success:function(data) {
-                    $('#uploadImageModal').modal('hide');
-                    setTimeout(function(){
-                        location.reload();
-                    }, 2000);
-                }
-            });
-        });
-        reader.readAsDataURL(this.files[0]);
-    });
-</script>
 @endsection
