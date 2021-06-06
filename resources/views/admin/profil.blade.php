@@ -19,7 +19,7 @@
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                         <div style="display:none;">
-                            <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="document.getElementById('submitLogo').click();">
+                            <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="setTimeout(function(){document.getElementById('submitLogo').click();}, 1000);">
                         </div>
                         <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
                         <div style="display:none;">
