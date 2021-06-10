@@ -19,4 +19,11 @@ class JadwalController extends Controller
         $jadwal = Jadwal::select('*')->where([['UKM_idUKM', '!=', '1'], ['tanggalAwal', '<', date('Y-m-d')]])->get();
         return view('/bem/jadwal', ['jadwal' => $jadwal]);
     }
+
+    public function detail($idJadwal)
+    {
+        $jadwal = Jadwal::find($idJadwal);
+        $detailJadwal = DetailJadwal::where([['idJadwal', $idJadwal]])->get();
+        return view('/bem/detail', ['detailJadwal' => $detailJadwal, 'jadwal' => $jadwal]);
+    }
 }

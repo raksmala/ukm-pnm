@@ -18,6 +18,7 @@
                     <th>Nama UKM</th>
                     <th>Nama Kegiatan</th>
                     <th>Tanggal</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                     <td>{{ $data->ukm->namaUKM }}</td>
                     <td>{{ $data->namaKegiatan }}</td>
                     <td>{{ $data->tanggalAwal }} s/d {{ $data->tanggalAkhir }}</td>
+                    <td>
+                        <a href="{{ secure_url('/bem/jadwal/detail/'.$data->idJadwal) }}" class='on-default edit-row btn btn-primary' target="_blank"><i class='fa fa-info'></i></a>
+                    </td>
                 </tr>  
                 @endforeach                  
             </tbody>
