@@ -43,7 +43,7 @@
                     <div class="col-xs-12">
                         <input class="form-control" type="text" id="username" name="username" placeholder="Username">
                         @if ($errors->has('username'))
-                            <strong style="text-color:tomato;">{{ $errors->first('username') }}</strong>
+                            <strong style="color:red;">{{ $errors->first('username') }}</strong>
                         @endif
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                     <div class="col-xs-12">
                         <input class="form-control" type="password" id="password" name="password" placeholder="Password">
                         @if ($errors->has('password'))
-                            <strong style="text-color:tomato;">{{ $errors->first('password') }}</strong>
+                            <strong style="color:red;">{{ $errors->first('password') }}</strong>
                         @endif
                     </div>
                 </div>
