@@ -173,8 +173,11 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    @if (count($errors) > 0)
+    @if ($errors->has('NIMAnggota') || $errors->has('namaAnggota') || $errors->has('jabatanAnggota') || $errors->has('programStudiAnggota'))
         $('#tambah-modal').modal('show');
+    @endif
+    @if ($errors->has('editNIMAnggota') || $errors->has('editNamaAnggota') || $errors->has('editJabatanAnggota') || $errors->has('editProgramStudiAnggota'))
+        $('#edit-modal').modal('show');
     @endif
     function setEditForm(idAnggota, NIMAnggota, namaAnggota, jabatanAnggota, programStudiAnggota) {
         document.getElementById('editIdAnggota').value = idAnggota;

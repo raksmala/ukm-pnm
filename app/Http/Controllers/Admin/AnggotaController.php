@@ -38,7 +38,7 @@ class AnggotaController extends Controller
             'statusAnggota' => 'tetap'
     	]);
 
-        return redirect()->secure('admin/anggota');
+        return back()->with('success', "Berhasil menambahkan anggota dengan NIM " .$request->NIMAnggota. "");
     }
 
     public function update(Request $request)
@@ -49,6 +49,12 @@ class AnggotaController extends Controller
     		'editNamaAnggota' => 'required',
     		'editJabatanAnggota' => 'required',
     		'editProgramStudiAnggota' => 'required'
+        ], [
+            'editNIMAnggota.required' => 'Kolom NIM Wajib Diisi!',
+            'editNIMAnggota.exists' => 'NIM Sudah Terdaftar!',
+            'editNamaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
+            'editJabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
+            'editProgramStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
         ]);
 
         $anggota = Anggota::find($request->editIdAnggota);
@@ -57,12 +63,12 @@ class AnggotaController extends Controller
         $anggota->jabatanAnggota = $this->jabatan($request->editJabatanAnggota);
         $anggota->programStudiAnggota = $request->editProgramStudiAnggota;
         $anggota->save();
-        return back()->with('success', "Anggota dengan id " .$request->editIdAnggota. " terupdate");
+        return back()->with('success', "Data anggota berhasil diupdate");
     }
 
     public function hapus($idAnggota)
     {
         Anggota::find($idAnggota)->delete();
-        return back()->with('success', "Data anggota id " .$idAnggota. " terhapus");
+        return back()->with('success', "Data anggota berhasil dihapus");
     }
 }
