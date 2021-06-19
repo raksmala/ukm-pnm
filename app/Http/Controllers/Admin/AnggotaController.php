@@ -17,11 +17,17 @@ class AnggotaController extends Controller
     public function tambah(Request $request)
     {
         $this->validate($request,[
-    		'NIMAnggota' => 'required',
+    		'NIMAnggota' => 'required|exists:anggota,NIMAnggota',
     		'namaAnggota' => 'required',
     		'jabatanAnggota' => 'required',
     		'programStudiAnggota' => 'required'
-    	]);
+    	], [
+            'NIMAnggota.required' => 'Kolom NIM Wajib Diisi!',
+            'NIMAnggota.exists' => 'NIM Sudah Terdaftar!',
+            'namaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
+            'jabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
+            'programStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
+        ]);
 
         Anggota::create([
             'UKM_idUKM' => Auth()->user()->UKM_idUKM,

@@ -58,12 +58,18 @@
                             <div class="form-group">
                                 <label class="control-label">NIM</label>
                                 <input type="text" class="form-control" id="NIMAnggota" name="NIMAnggota">
+                                @if ($errors->has('NIMAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('NIMAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">
                                 <label class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="namaAnggota" name="namaAnggota">
+                                @if ($errors->has('namaAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('namaAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -81,12 +87,18 @@
                                     <option>Koordinator</option>
                                     <option>Anggota</option>
                                 </select>
+                                @if ($errors->has('jabatanAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('jabatanAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="prodi">Program Studi</label>
                                 <input type="text" id="programStudiAnggota" name="programStudiAnggota" required class="form-control">
+                                @if ($errors->has('programStudiAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('programStudiAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
