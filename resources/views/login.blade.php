@@ -41,7 +41,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" id="username" name="username" placeholder="Username">
+                        <input class="form-control" type="text" id="username" name="username" placeholder="Username" autocomplete="off">
                         @if ($errors->has('username'))
                             <strong style="color:white;">{{ $errors->first('username') }}</strong>
                         @endif

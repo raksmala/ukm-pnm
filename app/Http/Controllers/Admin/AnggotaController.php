@@ -22,11 +22,11 @@ class AnggotaController extends Controller
     		'jabatanAnggota' => 'required',
     		'programStudiAnggota' => 'required'
     	], [
-            'NIMAnggota.required' => 'Kolom NIM Wajib Diisi!',
+            'NIMAnggota.required' => 'NIM Wajib Diisi!',
             'NIMAnggota.unique' => 'NIM Sudah Terdaftar!',
-            'namaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
-            'jabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
-            'programStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
+            'namaAnggota.required' => 'Nama Wajib Diisi!',
+            'jabatanAnggota.required' => 'Jabatan Wajib Diisi!',
+            'programStudiAnggota.required' => 'Program Studi Wajib Diisi!'
         ]);
 
         Anggota::create([
