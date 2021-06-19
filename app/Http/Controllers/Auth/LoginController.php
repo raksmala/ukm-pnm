@@ -90,7 +90,7 @@ class LoginController extends Controller
             return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
         }
 
-        return redirect('login');
+        return redirect()->secure('login');
     }
 
     public function logout(Request $request)
