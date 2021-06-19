@@ -179,14 +179,6 @@
         });
     @endif
     @if ($errors->has('NIMAnggota') || $errors->has('namaAnggota') || $errors->has('jabatanAnggota') || $errors->has('programStudiAnggota'))
-        var nim = $errors->has('NIMAnggota');
-        var nama = $errors->has('namaAnggota');
-        var jabatan = $errors->has('jabatanAnggota');
-        var prodi = $errors->has('programStudiAnggota');
-        console.log(nim);
-        console.log(nama);
-        console.log(jabatan);
-        console.log(prodi);
         $('#tambah-modal').modal('show');
     @endif
     @if ($errors->has('editNIMAnggota') || $errors->has('editNamaAnggota') || $errors->has('editJabatanAnggota') || $errors->has('editProgramStudiAnggota'))
