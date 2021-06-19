@@ -172,6 +172,13 @@
 </div><!-- /.modal -->
 @endsection
 @section('scripts')
+@if ($errors->has('NIMAnggota') ||$errors->has('namaAnggota') ||$errors->has('jabatanAnggota') ||$errors->has('programStudiAnggota'))
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tambah-modal').modal(show);
+    });
+</script>
+@endif
 <script type="text/javascript">
     function setEditForm(idAnggota, NIMAnggota, namaAnggota, jabatanAnggota, programStudiAnggota) {
         document.getElementById('editIdAnggota').value = idAnggota;
