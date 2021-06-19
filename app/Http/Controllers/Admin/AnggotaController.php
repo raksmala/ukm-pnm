@@ -16,8 +16,7 @@ class AnggotaController extends Controller
 
     public function tambah(Request $request)
     {
-        
-        var_dump($this->validate($request,[
+        $this->validate($request,[
     		'NIMAnggota' => 'required|exists:anggota,NIMAnggota',
     		'namaAnggota' => 'required',
     		'jabatanAnggota' => 'required',
@@ -28,8 +27,7 @@ class AnggotaController extends Controller
             'namaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
             'jabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
             'programStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
-        ]));
-        die;
+        ]);
 
         Anggota::create([
             'UKM_idUKM' => Auth()->user()->UKM_idUKM,
