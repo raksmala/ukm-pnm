@@ -91,6 +91,18 @@
 
         <script src="{{ secure_asset('/assets/js/jquery.core.js') }}"></script>
         <script src="{{ secure_asset('/assets/js/jquery.app.js') }}"></script>
+        
+        <!-- Notification js -->
+        <script src="{{ secure_asset('/assets/plugins/notifyjs/js/notify.js') }}"></script>
+        <script src="{{ secure_asset('/assets/plugins/notifications/notify-metro.js') }}"></script>
 	
+        @if(Session::has('failLogin'))
+        <script type="text/javascript">
+            $(document).ready(function(){
+                console.log("Berhasil masuk ukm");
+            $.Notification.autoHideNotify('error', 'bottom right', "{!! Session::get('failLogin') !!}");
+            });
+        </script>
+        @endif
 	</body>
 </html>

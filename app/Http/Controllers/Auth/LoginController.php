@@ -90,7 +90,7 @@ class LoginController extends Controller
             return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
         }
 
-        return redirect()->secure('login');
+        return redirect()->secure('login')->with('failLogin', 'Username atau Password salah');
     }
 
     public function logout(Request $request)
