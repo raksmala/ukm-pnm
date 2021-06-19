@@ -54,7 +54,7 @@
             {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">NIM</label>
                                 <input type="text" class="form-control" id="NIMAnggota" name="NIMAnggota">
@@ -63,7 +63,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="namaAnggota" name="namaAnggota">
@@ -124,14 +124,14 @@
             {{ method_field('PUT') }}
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" id="editIdAnggota" name="editIdAnggota">
                                 <label class="control-label">NIM</label>
                                 <input type="text" class="form-control" id="editNIMAnggota" name="editNIMAnggota">
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="editNamaAnggota" name="editNamaAnggota">
