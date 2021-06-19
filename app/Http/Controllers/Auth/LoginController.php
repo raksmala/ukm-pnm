@@ -80,7 +80,7 @@ class LoginController extends Controller
     {
         $message = array(
             'username.required' => 'Kolom Username Wajib Diisi!',
-            'password.required~' => 'Kolom Password Wajib Diisi!'
+            'password.required' => 'Kolom Password Wajib Diisi!'
         );
         $this->validate($request, [
             'username' => 'required|string',
