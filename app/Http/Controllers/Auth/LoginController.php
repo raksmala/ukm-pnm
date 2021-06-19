@@ -78,14 +78,13 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $message = array(
-            'username.required' => 'Kolom Username Wajib Diisi!',
-            'password.required' => 'Kolom Password Wajib Diisi!'
-        );
         $this->validate($request, [
             'username' => 'required|string',
             'password' => 'required|string',
-        ], $message);
+        ], [
+            'username.required' => 'Kolom Username Wajib Diisi!',
+            'password.required' => 'Kolom Password Wajib Diisi!'
+        ]);
 
         if(auth('web')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
