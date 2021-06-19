@@ -179,7 +179,10 @@
         });
     @endif
     @if ($errors->has('NIMAnggota') || $errors->has('namaAnggota') || $errors->has('jabatanAnggota') || $errors->has('programStudiAnggota'))
-        console.log($errors);
+        console.log($errors->has('NIMAnggota'));
+        console.log($errors->has('namaAnggota'));
+        console.log($errors->has('jabatanAnggota'));
+        console.log($errors->has('programStudiAnggota'));
         $('#tambah-modal').modal('show');
     @endif
     @if ($errors->has('editNIMAnggota') || $errors->has('editNamaAnggota') || $errors->has('editJabatanAnggota') || $errors->has('editProgramStudiAnggota'))
