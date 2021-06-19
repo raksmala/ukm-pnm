@@ -91,7 +91,7 @@ class LoginController extends Controller
             return redirect()->secure('/admin')->with('message', 'Anda Berhasil Login!');
         }
 
-        return redirect()->back()->withInput($request->only('NIM', 'remember'));
+        return redirect('login');
     }
 
     public function logout(Request $request)
