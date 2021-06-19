@@ -41,13 +41,13 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="Username">
+                        <input class="form-control" type="text" id="username" name="username" placeholder="Username">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="password" id="password" name="password" required="" placeholder="Password">
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Password">
                     </div>
                 </div>
                 
