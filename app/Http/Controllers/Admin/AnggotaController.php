@@ -51,7 +51,6 @@ class AnggotaController extends Controller
     		'editProgramStudiAnggota' => 'required'
         ], [
             'editNIMAnggota.required' => 'Kolom NIM Wajib Diisi!',
-            'editNIMAnggota.exists' => 'NIM Sudah Terdaftar!',
             'editNamaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
             'editJabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
             'editProgramStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
