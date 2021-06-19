@@ -173,6 +173,11 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
     @if ($errors->has('NIMAnggota') || $errors->has('namaAnggota') || $errors->has('jabatanAnggota') || $errors->has('programStudiAnggota'))
         $('#tambah-modal').modal('show');
     @endif
