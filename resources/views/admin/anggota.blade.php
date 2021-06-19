@@ -129,12 +129,18 @@
                                 <input type="hidden" id="editIdAnggota" name="editIdAnggota">
                                 <label class="control-label">NIM</label>
                                 <input type="text" class="form-control" id="editNIMAnggota" name="editNIMAnggota">
+                                @if ($errors->has('editNIMAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editNIMAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="editNamaAnggota" name="editNamaAnggota">
+                                @if ($errors->has('editNamaAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editNamaAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -152,12 +158,18 @@
                                     <option value="Koordinator">Koordinator</option>
                                     <option value="Anggota">Anggota</option>
                                 </select>
+                                @if ($errors->has('editJabatanAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editJabatanAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="prodi">Program Studi</label>
                                 <input type="text" id="editProgramStudiAnggota" name="editProgramStudiAnggota" class="form-control">
+                                @if ($errors->has('editProgramStudiAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editProgramStudiAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>

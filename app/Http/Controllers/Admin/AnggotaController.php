@@ -50,10 +50,10 @@ class AnggotaController extends Controller
     		'editJabatanAnggota' => 'required',
     		'editProgramStudiAnggota' => 'required'
         ], [
-            'editNIMAnggota.required' => 'Kolom NIM Wajib Diisi!',
-            'editNamaAnggota.required' => 'Kolom Anggota Wajib Diisi!',
-            'editJabatanAnggota.required' => 'Kolom Jabatan Wajib Diisi!',
-            'editProgramStudiAnggota.required' => 'Kolom Program Studi Wajib Diisi!'
+            'editNIMAnggota.required' => 'NIM Wajib Diisi!',
+            'editNamaAnggota.required' => 'Nama Wajib Diisi!',
+            'editJabatanAnggota.required' => 'Jabatan Wajib Diisi!',
+            'editProgramStudiAnggota.required' => 'Program Studi Wajib Diisi!'
         ]);
 
         $anggota = Anggota::find($request->editIdAnggota);
