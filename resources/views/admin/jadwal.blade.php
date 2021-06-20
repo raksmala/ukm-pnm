@@ -33,7 +33,7 @@
                     <td>{{ $data->tanggalAwal }} s/d {{ $data->tanggalAkhir }}</td>
                     <td>
                         <a href="{{ secure_url('/admin/jadwal/detail/'.$data->idJadwal) }}" class='on-default edit-row btn btn-primary' target="_blank"><i class='fa fa-info'></i></a>
-                        <a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idJadwal }}', '{{ $data->namaKegiatan }}', '{{ $data->tanggalAwal }}', '{{ $data->tanggalAkhir }}', '{{ $data->lokasiKegiatanProker }}', '{{ $data->sasaranKegiatanProker }}', '{{ $data->tuKegiatanProker }}', '{{ $data->pjKegiatanProker }}', '{{ $data->keteranganKegiatanProker }}')"><i class='fa fa-pencil'></i></a>
+                        <a href='#' id="edit" class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idJadwal }}', '{{ $data->namaKegiatan }}', '{{ $data->tanggalAwal }}', '{{ $data->tanggalAkhir }}', '{{ $data->lokasiKegiatanProker }}', '{{ $data->sasaranKegiatanProker }}', '{{ $data->tuKegiatanProker }}', '{{ $data->pjKegiatanProker }}', '{{ $data->keteranganKegiatanProker }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-jadwal' idJadwal="{{ $data->idJadwal }}" namaKegiatan="{{ $data->namaKegiatan }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>  
