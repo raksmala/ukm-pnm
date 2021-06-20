@@ -75,7 +75,12 @@
                                 </div>
                                 @if ($errors->has('tanggalAwal'))
                                     @if ($errors->has('tanggalAkhir'))
-                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }} dan {{ $errors->first('tanggalAkhir') }}</strong>
+                                        <div class="col-md-7">
+                                            <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                        <div>
+                                        <div class="col-md-5">
+                                            <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
+                                        <div>
                                     @else
                                         <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
                                     @endif
