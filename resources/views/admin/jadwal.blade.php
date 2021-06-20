@@ -10,9 +10,12 @@
 
 <div class="col-lg-12">
     <div class="card-box table-responsive">
+        @if($btnTambah == false)
+        @elseif
         <div style="width: 100%; text-align: right; margin-bottom: 10px;">
             <a href="#" class="on-default edit-row btn btn-success" data-toggle="modal" data-target="#tambah-modal"><i class="fa fa-plus"></i></a>
         </div>
+        @endif
 
         <table id="datatable" class="table table-striped table-bordered">
             <thead>
