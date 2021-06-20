@@ -47,7 +47,7 @@
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                             <input type="file" class="filestyle" id="fotoKegiatanProker{{ $data->idProgramKerja }}" name="fotoKegiatanProker{{ $data->idProgramKerja }}" data-input="false" data-buttontext="Unggah Foto" data-buttonname="btn-default" onchange="document.getElementById('uploadFoto{{ $data->idProgramKerja }}').click();">
-                            <button type="submit" style="display: none;" id="uploadFoto{{ $data->idProgramKerja }}" onclick="window.idTemp={{ $data->idProgramKerja }};"></button>
+                            <button type="submit" style="display: none;" id="uploadFoto{{ $data->idProgramKerja }}"></button>
                         </form>
                         <a href='#' class='on-default delete-row btn btn-danger delete-proker' idProgramKerja="{{ $data->idProgramKerja }}" namaKegiatanProker="{{ $data->namaKegiatanProker }}"><i class='fa fa-trash'></i></a>
                     </td>
@@ -85,9 +85,8 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    const id = window.idTemp;
-    @if ($errors->has("fotoKegiatanProker"+id+""))
-        $.Notification.autoHideNotify('error', 'bottom right', '{{ $errors->first() }}');
+    @if (count($errors->all()) > 0)
+        $.Notification.autoHideNotify('error', 'bottom right', '{{ $errors->all() }}');
     @endif
     $('.delete-proker').click(function(){
         var idProgramKerja = $(this).attr('idProgramKerja');
