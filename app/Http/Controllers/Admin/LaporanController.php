@@ -18,8 +18,11 @@ class LaporanController extends Controller
     public function update($idProgramKerja, Request $request)
     {
         $this->validate($request,[
-    		"fotoKegiatanProker$idProgramKerja" => 'required'
-    	]);
+    		"fotoKegiatanProker$idProgramKerja" => 'required|image'
+    	], [
+            'fotoKegiatanProker.required' => 'Foto Kegiatan Wajib Diupload!',
+            'fotoKegiatanProker.image' => 'Format foto tidak valid!'
+        ]);
 
         $foto = $request->file("fotoKegiatanProker$idProgramKerja");
         $namaFoto = Auth()->user()->UKM_idUKM.'-'.$idProgramKerja.'.'.$foto->getClientOriginalExtension();
@@ -30,7 +33,7 @@ class LaporanController extends Controller
         $proker->fotoKegiatanProker = $namaFoto;
         $proker->save();
 
-        return back()->with('success', "Data Laporan Program Kerja dengan id " .$idProgramKerja. " terupdate");
+        return back()->with('success', "Data laporan program kerja berhasil diupdate");
     }
 
     public function hapus($idProgramKerja)
@@ -43,6 +46,6 @@ class LaporanController extends Controller
         }
         $proker->delete();
         
-        return back()->with('success', "Data Laporan Program Kerja dengan id " .$idProgramKerja. " terhapus");
+        return back()->with('success', "Data laporan program kerja berhasil dihapus");
     }
 }

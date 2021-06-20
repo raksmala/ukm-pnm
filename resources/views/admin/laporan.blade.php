@@ -85,6 +85,11 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if ($errors->has('fotoKegiatanProker'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('error', 'bottom right', "{{ $errors->first('fotoKegiatanProker') }}");
+        });
+    @endif
     $('.delete-proker').click(function(){
         var idProgramKerja = $(this).attr('idProgramKerja');
         var namaKegiatanProker = $(this).attr('namaKegiatanProker');
