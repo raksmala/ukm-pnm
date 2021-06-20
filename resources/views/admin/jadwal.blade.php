@@ -74,9 +74,12 @@
                                     <input type="text" class="form-control" id="end" name="tanggalAkhir">
                                 </div>
                                 @if ($errors->has('tanggalAwal'))
-                                    <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
-                                @endif
-                                @if ($errors->has('tanggalAkhir'))
+                                    @if ($errors->has('tanggalAkhir'))
+                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }} dan {{ $errors->first('tanggalAkhir') }}</strong>
+                                    @else
+                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                    @endif
+                                @else
                                     <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
                                 @endif
                             </div>
