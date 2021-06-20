@@ -86,7 +86,7 @@
 @section('scripts')
 <script type="text/javascript">
     @if (count($errors->all()) > 0)
-        $.Notification.autoHideNotify('error', 'bottom right', '{{ $errors->all() }}');
+        $.Notification.autoHideNotify('error', 'bottom right', '{{ $errors->first() }}');
     @endif
     $('.delete-proker').click(function(){
         var idProgramKerja = $(this).attr('idProgramKerja');
