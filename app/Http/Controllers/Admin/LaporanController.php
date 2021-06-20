@@ -17,11 +17,12 @@ class LaporanController extends Controller
 
     public function update($idProgramKerja, Request $request)
     {
+        $fotoProgramKerja = "fotoKegiatanProker".$idProgramKerja;
         $this->validate($request,[
-    		"fotoKegiatanProker$idProgramKerja" => 'required|image'
+    		$fotoProgramKerja => 'required|image'
     	], [
-            'fotoKegiatanProker.required' => 'Foto Kegiatan Wajib Diupload!',
-            'fotoKegiatanProker.image' => 'Format foto tidak valid!'
+            $fotoProgramKerja.".required" => 'Foto Kegiatan Wajib Diupload!',
+            $fotoProgramKerja.".image" => 'Format foto tidak valid!'
         ]);
 
         $foto = $request->file("fotoKegiatanProker$idProgramKerja");
