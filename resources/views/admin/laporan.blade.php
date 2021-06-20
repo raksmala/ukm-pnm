@@ -85,7 +85,8 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
-    @if ($errors->has("fotoKegiatanProker"+window.idTemp+""))
+    var id = window.idTemp;
+    @if ($errors->has("fotoKegiatanProker"+id+""))
         $.Notification.autoHideNotify('error', 'bottom right', '{{ $errors->first() }}');
     @endif
     $('.delete-proker').click(function(){
