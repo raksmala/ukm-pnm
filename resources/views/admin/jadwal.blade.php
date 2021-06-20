@@ -70,15 +70,15 @@
                                 <label class="control-label">Tanggal</label>
                                 <div class="input-daterange input-group" id="date-range" name="tanggalKegiatan" required>
                                     <input type="text" class="form-control" id="start" name="tanggalAwal">
-                                    @if ($errors->has('tanggalAwal'))
-                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
-                                    @endif
                                     <span class="input-group-addon bg-custom b-0 text-white">to</span>
                                     <input type="text" class="form-control" id="end" name="tanggalAkhir">
-                                    @if ($errors->has('tanggalAkhir'))
-                                        <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
-                                    @endif
                                 </div>
+                                @if ($errors->has('tanggalAwal'))
+                                    <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                @endif
+                                @if ($errors->has('tanggalAkhir'))
+                                    <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
