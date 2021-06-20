@@ -127,6 +127,17 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
+    @if ($errors->has('namaKegiatan') || $errors->has('tanggalAwal') || $errors->has('tanggalAkhir'))
+        $('#tambah-modal').modal('show');
+    @endif
+    @if ($errors->has('editNamaKegiatan') || $errors->has('editTanggalAwal') || $errors->has('editTanggalAkhir'))
+        $('#edit').click();
+    @endif
     function setEditForm(idJadwal, namaKegiatan, tanggalAwal, tanggalAkhir) {
         document.getElementById('editIdJadwal').value = idJadwal;
         document.getElementById('editNamaKegiatan').value = namaKegiatan;
