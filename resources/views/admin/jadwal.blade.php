@@ -58,6 +58,9 @@
                             <div class="form-group">
                                 <label class="control-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="namaKegiatan" name="namaKegiatan">
+                                @if ($errors->has('namaKegiatan'))
+                                    <strong style="color:white;">{{ $errors->first('namaKegiatan') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -67,8 +70,14 @@
                                 <label class="control-label">Tanggal</label>
                                 <div class="input-daterange input-group" id="date-range" name="tanggalKegiatan" required>
                                     <input type="text" class="form-control" id="start" name="tanggalAwal">
+                                    @if ($errors->has('tanggalAwal'))
+                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                    @endif
                                     <span class="input-group-addon bg-custom b-0 text-white">to</span>
                                     <input type="text" class="form-control" id="end" name="tanggalAkhir">
+                                    @if ($errors->has('tanggalAkhir'))
+                                        <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -100,6 +109,9 @@
                                 <input type="hidden" id="editIdJadwal" name="editIdJadwal">
                                 <label class="control-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="editNamaKegiatan" name="editNamaKegiatan">
+                                @if ($errors->has('editNamaKegiatan'))
+                                    <strong style="color:white;">{{ $errors->first('editNamaKegiatan') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -109,8 +121,14 @@
                                 <label class="control-label">Tanggal</label>
                                 <div class="input-daterange input-group datepick" id="editTanggalKegiatan" name="editTanggalKegiatan" required>
                                     <input type="text" class="form-control" id="editTanggalAwal" name="editTanggalAwal">
+                                    @if ($errors->has('editTanggalAwal'))
+                                        <strong style="color:white;">{{ $errors->first('editTanggalAwal') }}</strong>
+                                    @endif
                                     <span class="input-group-addon bg-custom b-0 text-white">to</span>
                                     <input type="text" class="form-control" id="editTanggalAkhir" name="editTanggalAkhir">
+                                    @if ($errors->has('editTanggalAkhir'))
+                                        <strong style="color:white;">{{ $errors->first('editTanggalAkhir') }}</strong>
+                                    @endif
                                 </div>
                             </div>
                         </div>
