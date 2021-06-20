@@ -28,7 +28,11 @@ class JadwalController extends Controller
     		'namaKegiatan' => 'required',
     		'tanggalAwal' => 'required',
     		'tanggalAkhir' => 'required'
-    	]);
+    	], [
+            'namaKegiatan.required' => 'Nama Kegiatan Wajib Diisi!',
+            'tanggalAwal.required' => 'Tanggal Awal Wajib Diisi!',
+            'tanggalAkhir.required' => 'Tanggal Akhir Wajib Diisi!'
+        ]);
 
         $tanggalAwal = explode('/', $request->tanggalAwal);
         $tanggalAkhir = explode('/', $request->tanggalAkhir);
@@ -40,7 +44,7 @@ class JadwalController extends Controller
     		'tanggalAkhir' => $tanggalAkhir[2]."-".$tanggalAkhir[0]."-".$tanggalAkhir[1],
     	]);
 
-        return redirect()->secure('admin/jadwal');
+        return back()->with('success', "Berhasil menambahkan kegiatan dengan nama " .$request->namaKegiatan. "");
     }
 
     public function update(Request $request)
@@ -50,7 +54,11 @@ class JadwalController extends Controller
     		'editNamaKegiatan' => 'required',
     		'editTanggalAwal' => 'required',
     		'editTanggalAkhir' => 'required'
-    	]);
+    	], [
+            'editNamaKegiatan.required' => 'Nama Kegiatan Wajib Diisi!',
+            'editTanggalAwal.required' => 'Tanggal Awal Wajib Diisi!',
+            'editTanggalAkhir.required' => 'Tanggal Akhir Wajib Diisi!'
+        ]);
         $tanggalAwal = explode('/', $request->editTanggalAwal);
         $tanggalAkhir = explode('/', $request->editTanggalAkhir);
 
@@ -59,13 +67,13 @@ class JadwalController extends Controller
         $jadwal->tanggalAwal = $tanggalAwal[2]."-".$tanggalAwal[0]."-".$tanggalAwal[1];
         $jadwal->tanggalAkhir = $tanggalAkhir[2]."-".$tanggalAkhir[0]."-".$tanggalAkhir[1];
         $jadwal->save();
-        return back()->with('success', "Data Jadwal dengan id " .$request->editIdJadwal. " terupdate");
+        return back()->with('success', "Data jadwal berhasil diupdate");
     }
 
     public function hapus($idJadwal)
     {
         Jadwal::find($idJadwal)->delete();
-        return back()->with('success', "Data Jadwal dengan id " .$idJadwal. " terhapus");
+        return back()->with('success', "Data jadwal berhasil dihapus");
     }
 
     public function detail($idJadwal)
