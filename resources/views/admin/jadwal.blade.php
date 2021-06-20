@@ -135,15 +135,29 @@
                                 <label class="control-label">Tanggal</label>
                                 <div class="input-daterange input-group datepick" id="editTanggalKegiatan" name="editTanggalKegiatan" required>
                                     <input type="text" class="form-control" id="editTanggalAwal" name="editTanggalAwal">
-                                    @if ($errors->has('editTanggalAwal'))
-                                        <strong style="color:white;">{{ $errors->first('editTanggalAwal') }}</strong>
-                                    @endif
                                     <span class="input-group-addon bg-custom b-0 text-white">to</span>
                                     <input type="text" class="form-control" id="editTanggalAkhir" name="editTanggalAkhir">
-                                    @if ($errors->has('editTanggalAkhir'))
-                                        <strong style="color:white;">{{ $errors->first('editTanggalAkhir') }}</strong>
-                                    @endif
                                 </div>
+                                @if ($errors->has('editTanggalAwal'))
+                                    @if ($errors->has('editTanggalAkhir'))
+                                        <div class="col-md-7">
+                                            <strong style="color:white;">{{ $errors->first('editTanggalAwal') }}</strong>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <strong style="color:white;">{{ $errors->first('editTanggalAkhir') }}</strong>
+                                        </div>
+                                    @else
+                                        <div class="col-md-7">
+                                            <strong style="color:white;">{{ $errors->first('editTanggalAwal') }}</strong>
+                                        </div>
+                                    @endif
+                                @else
+                                    <div class="col-md-7">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <strong style="color:white;">{{ $errors->first('editTanggalAkhir') }}</strong>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
