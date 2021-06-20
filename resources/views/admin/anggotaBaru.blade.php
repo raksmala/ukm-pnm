@@ -73,7 +73,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="prodi">Program Studi</label>
-                                <input type="text" id="editProgramStudiAnggota" name="editProgramStudiAnggota" required class="form-control">
+                                <input type="text" id="editProgramStudiAnggota" name="editProgramStudiAnggota" class="form-control">
                                 @if ($errors->has('editProgramStudiAnggota'))
                                     <strong style="color:white;">{{ $errors->first('editProgramStudiAnggota') }}</strong>
                                 @endif
