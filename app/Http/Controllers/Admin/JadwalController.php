@@ -18,7 +18,7 @@ class JadwalController extends Controller
     public function lama() 
     {
         $jadwal = Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', Auth()->user()->UKM_idUKM], ['tanggalAwal', '<', date('Y-m-d')]])->get();
-        $btnTambah = false;
+        $btnTambah = true;
         return view('/admin/jadwal', ['jadwal' => $jadwal, 'btnTambah' => $btnTambah]);
     }
     
