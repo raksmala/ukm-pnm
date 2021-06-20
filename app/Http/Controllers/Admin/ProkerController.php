@@ -24,7 +24,15 @@ class ProkerController extends Controller
     		'sasaranKegiatanProker' => 'required',
     		'tuKegiatanProker' => 'required',
     		'pjKegiatanProker' => 'required'
-    	]);
+    	], [
+            'namaKegiatanProker.required' => 'Nama Kegiatan Wajib Diisi!',
+            'tujuanKegiatanProker.required' => 'Tujuan Wajib Diisi!',
+            'tanggalKegiatanProker.required' => 'Tanggal Wajib Diisi!',
+            'lokasiKegiatanProker.required' => 'Lokasi Wajib Diisi!',
+            'sasaranKegiatanProker.required' => 'Sasaran Wajib Diisi!',
+            'tuKegiatanProker.required' => 'Tolak Ukur Kesuksesan Wajib Diisi!',
+            'pjKegiatanProker.required' => 'Penanggung Jawab Wajib Diisi!'
+        ]);
 
         $tanggalKegiatanProker = explode('/', $request->tanggalKegiatanProker);
 
@@ -40,7 +48,7 @@ class ProkerController extends Controller
             'keteranganKegiatanProker' => 'belumTerlaksana'
     	]);
 
-        return redirect()->secure('admin/proker');
+        return back()->with('success', "Berhasil menambahkan proker dengan nama " .$request->namaKegiatanProker. "");
     }
 
     public function update(Request $request)
@@ -55,7 +63,16 @@ class ProkerController extends Controller
     		'editTuKegiatanProker' => 'required',
     		'editPjKegiatanProker' => 'required',
     		'editKeteranganKegiatanProker' => 'required'
-    	]);
+    	], [
+            'editNamaKegiatanProker.required' => 'Nama Kegiatan Wajib Diisi!',
+            'editTujuanKegiatanProker.required' => 'Tujuan Wajib Diisi!',
+            'editTanggalKegiatanProker.required' => 'Tanggal Wajib Diisi!',
+            'editLokasiKegiatanProker.required' => 'Lokasi Wajib Diisi!',
+            'editSasaranKegiatanProker.required' => 'Sasaran Wajib Diisi!',
+            'editTuKegiatanProker.required' => 'Tolak Ukur Kesuksesan Wajib Diisi!',
+            'editPjKegiatanProker.required' => 'Penanggung Jawab Wajib Diisi!',
+    		'editKeteranganKegiatanProker.required' => 'Keterangan Wajib Diisi!'
+        ]);
 
         $tanggalKegiatanProker = explode('/', $request->editTanggalKegiatanProker);
 
@@ -69,12 +86,12 @@ class ProkerController extends Controller
         $proker->pjKegiatanProker = $request->editPjKegiatanProker;
         $proker->keteranganKegiatanProker = $request->editKeteranganKegiatanProker;
         $proker->save();
-        return back()->with('success', "Data Program Kerja dengan id " .$request->editIdProgramKerja. " terupdate");
+        return back()->with('success', "Data program kerja berhasil diupdate");
     }
 
     public function hapus($idProgramKerja)
     {
         Proker::find($idProgramKerja)->delete();
-        return back()->with('success', "Data Program Kerja dengan id " .$idProgramKerja. " terhapus");
+        return back()->with('success', "Data program kerja berhasil diupdate");
     }
 }

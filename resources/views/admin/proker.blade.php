@@ -39,7 +39,7 @@
                     <td>{{ $data->sasaranKegiatanProker }}</td>
                     <td>{{ $data->tuKegiatanProker }}</td>
                     <td>{{ $data->pjKegiatanProker }}</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idProgramKerja }}', '{{ $data->namaKegiatanProker }}', '{{ $data->tujuanKegiatanProker }}', '{{ $data->tanggalKegiatanProker }}', '{{ $data->lokasiKegiatanProker }}', '{{ $data->sasaranKegiatanProker }}', '{{ $data->tuKegiatanProker }}', '{{ $data->pjKegiatanProker }}', '{{ $data->keteranganKegiatanProker }}')"><i class='fa fa-pencil'></i></a>
+                    <td><a href='#' id="edit" class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idProgramKerja }}', '{{ $data->namaKegiatanProker }}', '{{ $data->tujuanKegiatanProker }}', '{{ $data->tanggalKegiatanProker }}', '{{ $data->lokasiKegiatanProker }}', '{{ $data->sasaranKegiatanProker }}', '{{ $data->tuKegiatanProker }}', '{{ $data->pjKegiatanProker }}', '{{ $data->keteranganKegiatanProker }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-proker' idProgramKerja="{{ $data->idProgramKerja }}" namaKegiatanProker="{{ $data->namaKegiatanProker }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>    
@@ -64,6 +64,9 @@
                             <div class="form-group">
                                 <label class="control-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="namaKegiatanProker" name="namaKegiatanProker">
+                                @if ($errors->has('namaKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('namaKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -72,6 +75,9 @@
                             <div class="form-group">
                                 <label class="control-label">Tujuan</label>
                                 <input type="text" class="form-control" id="tujuanKegiatanProker" name="tujuanKegiatanProker">
+                                @if ($errors->has('tujuanKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('tujuanKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -83,6 +89,9 @@
                                     <input type="text" class="form-control" id="datepicker" name="tanggalKegiatanProker">
                                     <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
                                 </div>
+                                @if ($errors->has('tanggalKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('tanggalKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -91,6 +100,9 @@
                             <div class="form-group">
                                 <label class="control-label">Lokasi</label>
                                 <input type="text" class="form-control" id="lokasiKegiatanProker" name="lokasiKegiatanProker">
+                                @if ($errors->has('lokasiKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('lokasiKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -99,6 +111,9 @@
                             <div class="form-group">
                                 <label class="control-label">Sasaran</label>
                                 <input type="text" class="form-control" id="sasaranKegiatanProker" name="sasaranKegiatanProker">
+                                @if ($errors->has('sasaranKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('sasaranKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -107,6 +122,9 @@
                             <div class="form-group">
                                 <label class="control-label">Tolak Ukur Kesuksesan</label>
                                 <input type="text" class="form-control" id="tuKegiatanProker" name="tuKegiatanProker">
+                                @if ($errors->has('tuKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('tuKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -115,6 +133,9 @@
                             <div class="form-group">
                                 <label class="control-label">Penanggung Jawab</label>
                                 <input type="text" class="form-control" id="pjKegiatanProker" name="pjKegiatanProker">
+                                @if ($errors->has('pjKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('pjKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -145,6 +166,9 @@
                                 <input type="hidden" id="editIdProgramKerja" name="editIdProgramKerja">
                                 <label class="control-label">Nama Kegiatan</label>
                                 <input type="text" class="form-control" id="editNamaKegiatanProker" name="editNamaKegiatanProker">
+                                @if ($errors->has('editNamaKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editNamaKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -153,6 +177,9 @@
                             <div class="form-group">
                                 <label class="control-label">Tujuan</label>
                                 <input type="text" class="form-control" id="editTujuanKegiatanProker" name="editTujuanKegiatanProker">
+                                @if ($errors->has('editTujuanKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editTujuanKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -164,6 +191,9 @@
                                     <input type="text" class="form-control datepick" id="editTanggalKegiatanProker" id="editTanggalKegiatanProker" name="editTanggalKegiatanProker">
                                     <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
                                 </div>
+                                @if ($errors->has('editTanggalKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editTanggalKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -172,6 +202,9 @@
                             <div class="form-group">
                                 <label class="control-label">Lokasi</label>
                                 <input type="text" class="form-control" id="editLokasiKegiatanProker" name="editLokasiKegiatanProker">
+                                @if ($errors->has('editLokasiKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editLokasiKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -180,6 +213,9 @@
                             <div class="form-group">
                                 <label class="control-label">Sasaran</label>
                                 <input type="text" class="form-control" id="editSasaranKegiatanProker" name="editSasaranKegiatanProker">
+                                @if ($errors->has('editSasaranKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editSasaranKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -188,6 +224,9 @@
                             <div class="form-group">
                                 <label class="control-label">Tolak Ukur Kesuksesan</label>
                                 <input type="text" class="form-control" id="editTuKegiatanProker" name="editTuKegiatanProker">
+                                @if ($errors->has('editTuKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editTuKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -196,6 +235,9 @@
                             <div class="form-group">
                                 <label class="control-label">Penanggung Jawab</label>
                                 <input type="text" class="form-control" id="editPjKegiatanProker" name="editPjKegiatanProker">
+                                @if ($errors->has('editPjKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editPjKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -208,6 +250,9 @@
                                     <option value="terlaksana">Terlaksana</option>
                                     <option value="tidakTerlaksana">Tidak Terlaksana</option>
                                 </select>
+                                @if ($errors->has('editKeteranganKegiatanProker'))
+                                    <strong style="color:white;">{{ $errors->first('editKeteranganKegiatanProker') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -223,6 +268,17 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
+    @if ($errors->has('namaKegiatanProker') || $errors->has('tujuanKegiatanProker') || $errors->has('tanggalKegiatanProker') || $errors->has('lokasiKegiatanProker') || $errors->has('sasaranKegiatanProker') || $errors->has('tuKegiatanProker') || $errors->has('pjKegiatanProker'))
+        $('#tambah-modal').modal('show');
+    @endif
+    @if ($errors->has('editNamaKegiatanProker') || $errors->has('editTujuanKegiatanProker') || $errors->has('editTanggalKegiatanProker') || $errors->has('editLokasiKegiatanProker') || $errors->has('editSasaranKegiatanProker') || $errors->has('editTuKegiatanProker') || $errors->has('editPjKegiatanProker'))
+        $('#edit').click();
+    @endif
     function setEditForm(idProgramKerja, namaKegiatanProker, tujuanKegiatanProker, tanggalKegiatanProker, lokasiKegiatanProker, sasaranKegiatanProker, tuKegiatanProker, pjKegiatanProker, keteranganKegiatanProker) {
         document.getElementById('editIdProgramKerja').value = idProgramKerja;
         document.getElementById('editNamaKegiatanProker').value = namaKegiatanProker;
