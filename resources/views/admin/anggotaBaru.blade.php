@@ -27,7 +27,7 @@
                     <td>{{ $data->namaAnggota }}</td>
                     <td>{{ $data->NIMAnggota }}</td>
                     <td>{{ $data->programStudiAnggota }}</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idAnggota }}', '{{ $data->NIMAnggota }}', '{{ $data->namaAnggota }}', '{{ $data->programStudiAnggota }}', '{{ $data->statusAnggota }}')"><i class='fa fa-pencil'></i></a>
+                    <td><a href='#' id="edit" class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idAnggota }}', '{{ $data->NIMAnggota }}', '{{ $data->namaAnggota }}', '{{ $data->programStudiAnggota }}', '{{ $data->statusAnggota }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-anggota' idAnggota="{{ $data->idAnggota }}" namaAnggota="{{ $data->namaAnggota }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>     
@@ -49,17 +49,23 @@
             {{ method_field('PUT') }}
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" id="editIdAnggota" name="editIdAnggota">
                                 <label class="control-label">NIM</label>
                                 <input type="text" class="form-control" id="editNIMAnggota" name="editNIMAnggota">
+                                @if ($errors->has('editNIMAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editNIMAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="editNamaAnggota" name="editNamaAnggota">
+                                @if ($errors->has('editNamaAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editNamaAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -68,6 +74,9 @@
                             <div class="form-group">
                                 <label for="prodi">Program Studi</label>
                                 <input type="text" id="editProgramStudiAnggota" name="editProgramStudiAnggota" required class="form-control">
+                                @if ($errors->has('editProgramStudiAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editProgramStudiAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -77,6 +86,9 @@
                                     <option value="baru">Baru</option>
                                     <option value="tetap">Tetap</option>
                                 </select>
+                                @if ($errors->has('editStatusAnggota'))
+                                    <strong style="color:white;">{{ $errors->first('editStatusAnggota') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -92,6 +104,14 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
+    @if ($errors->has('editNIMAnggota') || $errors->has('editNamaAnggota') || $errors->has('editJabatanAnggota') || $errors->has('editProgramStudiAnggota'))
+        $('#edit').click();
+    @endif
     function setEditForm(idAnggota, NIMAnggota, namaAnggota, programStudiAnggota, statusAnggota) {
         document.getElementById('editIdAnggota').value = idAnggota;
         document.getElementById('editNIMAnggota').value = NIMAnggota;
