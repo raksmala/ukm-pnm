@@ -82,10 +82,16 @@
                                             <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
                                         <div>
                                     @else
-                                        <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                        <div class="col-md-7">
+                                            <strong style="color:white;">{{ $errors->first('tanggalAwal') }}</strong>
+                                        <div>
                                     @endif
                                 @else
-                                    <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
+                                    <div class="col-md-7">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <strong style="color:white;">{{ $errors->first('tanggalAkhir') }}</strong>
+                                    </div>
                                 @endif
                             </div>
                         </div>
