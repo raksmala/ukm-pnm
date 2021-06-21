@@ -20,9 +20,15 @@ class ProfilController extends Controller
         $this->validate($request,[
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
-    		'editEmail' => 'required',
-    		'editUsername' => 'required'
-    	]);
+    		'editEmail' => 'required|unique:users,email',
+    		'editUsername' => 'required|unique:users,username'
+    	], [
+    		'editNamaUKM.required' => 'Nama Wajib Diisi!',
+    		'editEmail.required' => 'Email Wajib Diisi!',
+    		'editEmail.unique' => 'Email Sudah Digunakan!',
+    		'editUsername.required' => 'Username Wajib Diisi!',
+    		'editUsername.unique' => 'Username Sudah Digunakan!'
+        ]);
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;
         $user->email = $request->editEmail;
@@ -36,13 +42,16 @@ class ProfilController extends Controller
         $ukm = UKM::where([['idUKM', $request->editIdUKM]])->first();
         $ukm->namaUKM = $request->editNamaUKM;
         $ukm->save();
-        return redirect()->secure('admin/profil')->with('sukses', "Data Profil UKM " .$ukm->namaUKM. " terupdate");
+        return back()->with('success', "Data profil berhasil diupdate");
     }
     
     public function logo(Request $request) {
         $this->validate($request,[
-    		"uploadLogo" => 'required'
-    	]);
+    		"uploadLogo" => 'required|image'
+    	], [
+            "uploadLogo.required" => 'Logo Wajib Diupload!',
+            "uploadLogo.image" => 'Format Logo Tidak Valid!'
+        ]);
 
         $foto = $request->file("uploadLogo");
         $namaFoto = time().'-'.Auth()->user()->UKM_idUKM.'.'.$foto->getClientOriginalExtension();
@@ -53,6 +62,6 @@ class ProfilController extends Controller
         $user->foto = $namaFoto;
         $user->save();
 
-        return redirect()->secure('admin/profil')->with('sukses', "Logo UKM " .$user->name. " terupdate");
+        return back()->with('success', "Logo berhasil diupdate");
 	}
 }

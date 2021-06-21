@@ -22,7 +22,7 @@ class LaporanController extends Controller
     		$fotoProgramKerja => 'required|image'
     	], [
             $fotoProgramKerja.".required" => 'Foto Kegiatan Wajib Diupload!',
-            $fotoProgramKerja.".image" => 'Format foto tidak valid!'
+            $fotoProgramKerja.".image" => 'Format Foto Tidak Valid!'
         ]);
 
         $foto = $request->file("fotoKegiatanProker$idProgramKerja");

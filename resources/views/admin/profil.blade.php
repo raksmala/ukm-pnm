@@ -23,6 +23,9 @@
                             <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="document.getElementById('submitLogo').click();">
                         </div>
                         <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
+                        @if ($errors->has('uploadLogo'))
+                            <strong style="color:white;">{{ $errors->first('uploadLogo') }}</strong>
+                        @endif
                         <div style="display:none;">
                             <button type="submit" id="submitLogo" name="submitLogo"></button>
                         </div>
@@ -41,18 +44,27 @@
                     <div class="col-md-10">
                         <input type="hidden" id="editIdUKM" name="editIdUKM" value="{{ $ukm->idUKM }}">
                         <input type="text" class="form-control" id="editNamaUKM" name="editNamaUKM" value="{{ $ukm->namaUKM }}">
+                        @if ($errors->has('editNamaUKM'))
+                            <strong style="color:white;">{{ $errors->first('editNamaUKM') }}</strong>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Email</label>
                     <div class="col-md-10">
                         <input type="email" class="form-control" id="editEmail" name="editEmail" value="{{ $ukm->user->email }}">
+                        @if ($errors->has('editEmail'))
+                            <strong style="color:white;">{{ $errors->first('editEmail') }}</strong>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Username</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control" id="editUsername" name="editUsername" value="{{ $ukm->user->username }}">
+                        @if ($errors->has('editUsername'))
+                            <strong style="color:white;">{{ $errors->first('editUsername') }}</strong>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
@@ -72,10 +84,11 @@
 @section('scripts')
 @if(Session::has('sukses'))
   <script type="text/javascript">
-    $(document).ready(function(){
-        console.log("Berhasil edit profil ukm");
-      $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
-    });
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
   </script>
 @endif
 @endsection
