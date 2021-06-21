@@ -20,28 +20,28 @@
                         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                         <div class="form-group">
                             <label for="nama">NIM</label>
-                            <input type="text" id="NIM" name="NIM" required class="form-control">
+                            <input type="text" id="NIM" name="NIM" class="form-control">
                             @if ($errors->has('NIM'))
                                 <strong style="color:white;">{{ $errors->first('NIM') }}</strong>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" id="nama" name="nama" required onchange="setProgramStudi()" class="form-control">
+                            <input type="text" id="nama" name="nama" onchange="setProgramStudi()" class="form-control">
                             @if ($errors->has('nama'))
                                 <strong style="color:white;">{{ $errors->first('nama') }}</strong>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="nama">Program Studi</label>
-                            <input type="text" id="programStudi" name="programStudi" required class="form-control" readonly>
+                            <input type="text" id="programStudi" name="programStudi" class="form-control" readonly>
                             @if ($errors->has('programStudi'))
                                 <strong style="color:white;">{{ $errors->first('programStudi') }}</strong>
                             @endif
                         </div>
                         <div class="form-group">
                             <label for="kritik">Password</label>
-                            <input type="password" id="password" name="password" required class="form-control">
+                            <input type="password" id="password" name="password" class="form-control">
                             @if ($errors->has('password'))
                                 <strong style="color:white;">{{ $errors->first('password') }}</strong>
                             @endif

@@ -20,11 +20,11 @@
                         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                         <div class="form-group">
                             <label for="nama">NIM</label>
-                            <input type="text" id="NIM" name="NIM" required class="form-control">
+                            <input type="text" id="NIM" name="NIM" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="kritik">Password</label>
-                            <input type="password" id="password" name="password" required class="form-control">
+                            <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="akun">Belum memiliki akun? <a href="{{ secure_url('/register') }}">Daftar disini.</a></label>
