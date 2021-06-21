@@ -19,7 +19,10 @@ class KritikSaranController extends Controller
         $this->validate($request,[
             'idUKM' => 'required',
     		'isiKritikSaran' => 'required'
-    	]);
+    	], [
+            'idUKM' => 'Harus Memilih Salah Satu UKM!',
+            'isiKritikSaran' => 'Kritik dan Saran Wajib Diisi!'
+        ]);
 
         if($request->namaMahasiswa != null) {
             $namaMahasiswa = $request->namaMahasiswa;
@@ -33,6 +36,6 @@ class KritikSaranController extends Controller
     		'isiKritikSaran' => $request->isiKritikSaran
     	]);
 
-        return redirect()->secure('kritikSaran');
+        return redirect()->secure('kritikSaran')->with('success', 'Berhasil Mengirim Kritik dan Saran');
     }
 }

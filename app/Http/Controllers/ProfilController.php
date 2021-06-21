@@ -19,7 +19,11 @@ class ProfilController extends Controller
     		'NIM' => 'required',
     		'nama' => 'required',
     		'programStudi' => 'required'
-    	]);
+    	], [
+            'NIM.required' => 'NIM Wajib Diisi!',
+            'nama.required' => 'Nama Wajib Diisi!',
+            'programStudi.required' => 'Program Studi Wajib Diisi!'
+        ]);
         $mahasiswa = Mahasiswa::where([['NIM', $request->NIM]])->first();
         if($request->password != null) 
         {

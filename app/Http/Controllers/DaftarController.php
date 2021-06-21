@@ -21,6 +21,11 @@ class DaftarController extends Controller
             'NIM' => 'required',
             'namaMahasiswa' => 'required',
             'programStudi' => 'required'
+        ], [
+            'idUKM' => 'Harus Memilih Salah Satu UKM!',
+            'NIM' => 'NIM Wajib Diisi!',
+            'namaMahasiswa' => 'Nama Wajib Diisi!',
+            'programStudi' => 'Program Studi Wajib Diisi!'
         ]);
     
         Anggota::create([
@@ -31,6 +36,6 @@ class DaftarController extends Controller
             'statusAnggota' => 'baru'
         ]);
     
-        return redirect()->secure('/');
+        return redirect()->secure('/')->with('success', 'Daftar UKM Berhasil');
     }
 }

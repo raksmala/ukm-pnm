@@ -30,14 +30,23 @@
                         <div class="form-group">
                             <label for="nama">NIM</label>
                             <input type="text" id="NIM" name="NIM" required class="form-control" value="{{ Auth::guard('mahasiswa')->user()->NIM }}" readonly>
+                            @if ($errors->has('NIM'))
+                                <strong style="color:white;">{{ $errors->first('NIM') }}</strong>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" id="nama" name="nama" required onchange="setProgramStudi()" class="form-control" value="{{ Auth::guard('mahasiswa')->user()->name }}" readonly>
+                            @if ($errors->has('nama'))
+                                <strong style="color:white;">{{ $errors->first('nama') }}</strong>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="nama">Program Studi</label>
                             <input type="text" id="programStudi" name="programStudi" required class="form-control" value="{{ Auth::guard('mahasiswa')->user()->programStudi }}" readonly>
+                            @if ($errors->has('programStudi'))
+                                <strong style="color:white;">{{ $errors->first('programStudi') }}</strong>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="kritik">Password</label>
@@ -59,6 +68,11 @@
 @endsection
 @section('script')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
     function setProgramStudi(){
         var NIM = $('#NIM').val();
         var tahun = "20" +NIM.substr(0,2)+ "";
