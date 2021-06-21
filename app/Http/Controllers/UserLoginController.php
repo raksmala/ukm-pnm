@@ -37,7 +37,7 @@ class UserLoginController extends Controller
             return redirect()->secure('')->with('message', 'Anda Berhasil Login!');
         }
 
-        return redirect()->secure('login')->with('failLogin', 'NIM atau Password salah');
+        return redirect()->secure('login/user')->with('failLogin', 'NIM atau Password salah');
     }
 
     public function register(Request $request)
