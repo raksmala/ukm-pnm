@@ -20,14 +20,12 @@ class ProfilController extends Controller
         $this->validate($request,[
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
-    		'editEmail' => 'required|unique:users,email',
-    		'editUsername' => 'required|unique:users,username'
+    		'editEmail' => 'required',
+    		'editUsername' => 'required'
     	], [
     		'editNamaUKM.required' => 'Nama Wajib Diisi!',
     		'editEmail.required' => 'Email Wajib Diisi!',
-    		'editEmail.unique' => 'Email Sudah Digunakan!',
-    		'editUsername.required' => 'Username Wajib Diisi!',
-    		'editUsername.unique' => 'Username Sudah Digunakan!'
+    		'editUsername.required' => 'Username Wajib Diisi!'
         ]);
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;

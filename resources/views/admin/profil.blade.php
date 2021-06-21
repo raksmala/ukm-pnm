@@ -23,13 +23,13 @@
                             <input type="file" class="filestyle" id="uploadLogo" name="uploadLogo" style="display: none;" accept="image/*" onchange="document.getElementById('submitLogo').click();">
                         </div>
                         <button type="button" class="btn btn-primary btn-custom btn-rounded waves-effect waves-light" onclick="document.getElementById('uploadLogo').click();">Upload</button>
-                        @if ($errors->has('uploadLogo'))
-                            <strong style="color:white;">{{ $errors->first('uploadLogo') }}</strong>
-                        @endif
                         <div style="display:none;">
                             <button type="submit" id="submitLogo" name="submitLogo"></button>
                         </div>
                     </form>
+                    @if ($errors->has('uploadLogo'))
+                        <strong style="color:white;">{{ $errors->first('uploadLogo') }}</strong>
+                    @endif
                 </div>
             </div>
         </div>
