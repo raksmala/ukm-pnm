@@ -51,7 +51,9 @@
         });
     @endif
     @if(Session::has('failLogin'))
-        $.Notification.autoHideNotify('error', 'bottom right', "{!! Session::get('failLogin') !!}");
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('error', 'bottom right', "{!! Session::get('failLogin') !!}");
+        });
     @endif
 </script>
 @endsection
