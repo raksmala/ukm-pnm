@@ -43,3 +43,15 @@
   </div>
 </div>
 @endsection
+@section('scripts')
+<script type="text/javascript">
+    @if(Session::has('regisSukses'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('regisSukses') !!}");
+        });
+    @endif
+    @if(Session::has('failLogin'))
+        $.Notification.autoHideNotify('error', 'bottom right', "{!! Session::get('failLogin') !!}");
+    @endif
+</script>
+@endsection

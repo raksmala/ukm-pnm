@@ -37,16 +37,22 @@ class UserLoginController extends Controller
             return redirect()->secure('')->with('message', 'Anda Berhasil Login!');
         }
 
-        return redirect()->back()->withInput($request->only('NIM', 'remember'));
+        return redirect()->secure('login')->with('failLogin', 'NIM atau Password salah');
     }
 
     public function register(Request $request)
     {
         $this->validate($request, [
-            'NIM' => 'required',
+            'NIM' => 'required|unique:mahasiswas,NIM',
             'nama' => 'required',
             'programStudi' => 'required',
             'password' => 'required'
+        ], [
+            'NIM.required' => 'NIM Wajib Diisi!',
+            'NIM.unique' => 'NIM Sudah Terdaftar!',
+            'nama.required' => 'Nama Wajib Diisi!',
+            'programStudi.required' => 'Program Studi Wajib Diisi!',
+            'password.required' => 'Password Wajib Diisi!'
         ]);
 
         Mahasiswa::create([
@@ -56,6 +62,6 @@ class UserLoginController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
-        return redirect()->secure('login/user');
+        return redirect()->secure('login/user')->with('regisSukses', "Registrasi Akun Mahasiswa Berhasil");
     }
 }
