@@ -19,7 +19,9 @@ class UKMController extends Controller
     {
         $this->validate($request,[
     		'namaUKM' => 'required',
-    	]);
+    	], [
+            'namaUKM.required' => 'Nama UKM Wajib Diisi!'
+        ]);
 
         UKM::create([
     		'namaUKM' => $request->namaUKM
@@ -33,7 +35,7 @@ class UKMController extends Controller
             'status' => 'UKM'
         ]);
 
-        return redirect()->secure('bem/ukm');
+        return back()->with('success', "Berhasil menambahkan UKM dengan nama " .$request->namaUKM. "");
     }
 
     public function update(Request $request)
@@ -41,9 +43,18 @@ class UKMController extends Controller
         $this->validate($request,[
     		'editIdUKM' => 'required',
     		'editNamaUKM' => 'required',
-    		'editEmail' => 'required',
-    		'editUsername' => 'required'
-    	]);
+    		'editEmail' => 'required|unique:users,email',
+    		'editUsername' => 'required|unique:users,username',
+            'editFoto' => 'required|image'
+    	], [
+    		'editNamaUKM.required' => 'Nama UKM Wajib Diisi!',
+    		'editEmail.required' => 'Email Wajib Diisi!',
+            'editEmail.unique' => 'Email Sudah Digunakan!',
+    		'editUsername.required' => 'Username Wajib Diisi!',
+            'editUsername.unique' => 'Username Sudah Digunakan!',
+            'editFoto.required' => 'Logo Wajid Diupload!',
+            'editFoto.image' => 'Format Logo Tidak Valid!'
+        ]);
 
         $user = User::where([['UKM_idUKM', $request->editIdUKM]])->first();
         $user->name = $request->editNamaUKM;
@@ -61,12 +72,12 @@ class UKMController extends Controller
             $user->foto = $namaFoto;
         }
         $user->save();
-        return back()->with('success', "Data UKM dengan id " .$request->editIdUKM. " terupdate");
+        return back()->with('success', "Data UKM berhasil diupdate");
     }
 
     public function hapus($idUKM)
     {
         UKM::find($idUKM)->delete();
-        return back()->with('success', "Data UKM dengan id " .$idUKM. " terhapus");
+        return back()->with('success', "Data UKM berhasil dihapus");
     }
 }

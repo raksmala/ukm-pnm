@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->namaUKM }}</td>
-                    <td><a href='#' class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}', '{{ $data->user->email }}', '{{ $data->user->username }}', '{{ $data->user->foto }}')"><i class='fa fa-pencil'></i></a>
+                    <td><a href='#' id="edit" class='on-default edit-row btn btn-primary' data-toggle="modal" data-target="#edit-modal" onclick="setEditForm('{{ $data->idUKM }}', '{{ $data->namaUKM }}', '{{ $data->user->email }}', '{{ $data->user->username }}', '{{ $data->user->foto }}')"><i class='fa fa-pencil'></i></a>
                         <a href='#' class='on-default delete-row btn btn-danger delete-ukm' idUKM="{{ $data->idUKM }}" namaUKM="{{ $data->namaUKM }}"><i class='fa fa-trash'></i></a>
                     </td>
                 </tr>  
@@ -52,6 +52,9 @@
                             <div class="form-group">
                                 <label class="control-label">Nama UKM</label>
                                 <input type="text" class="form-control" id="namaUKM" name="namaUKM">
+                                @if ($errors->has('namaUKM'))
+                                    <strong style="color:white;">{{ $errors->first('namaUKM') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -82,6 +85,9 @@
                                 <input type="hidden" id="editIdUKM" name="editIdUKM">
                                 <label class="control-label">Nama UKM</label>
                                 <input type="text" class="form-control" id="editNamaUKM" name="editNamaUKM">
+                                @if ($errors->has('editNamaUKM'))
+                                    <strong style="color:white;">{{ $errors->first('editNamaUKM') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -98,6 +104,9 @@
                             <div class="form-group">
                                 <label class="control-label">Username</label>
                                 <input type="text" class="form-control" id="editUsername" name="editUsername">
+                                @if ($errors->has('editUsername'))
+                                    <strong style="color:white;">{{ $errors->first('editUsername') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -114,6 +123,9 @@
                             <div class="form-group">
                                 <label class="control-label">Foto</label>
                                 <input type="file" class="filestyle" id="editFoto" name="editFoto" data-buttontext="Unggah Logo" data-buttonname="btn-default" accept="image/x-png">
+                                @if ($errors->has('editFoto'))
+                                    <strong style="color:white;">{{ $errors->first('editFoto') }}</strong>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -130,6 +142,17 @@
 @endsection
 @section('scripts')
 <script type="text/javascript">
+    @if(Session::has('success'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('success') !!}");
+        });
+    @endif
+    @if ($errors->has('namaUKM'))
+        $('#tambah-modal').modal('show');
+    @endif
+    @if ($errors->has('editNamaUKM') || $errors->has('editEmail') || $errors->has('editUsername') || $errors->has('editFoto'))
+        $('#edit').click();
+    @endif
     function setEditForm(idUKM, namaUKM, email, username, foto) {
         document.getElementById('editIdUKM').value = idUKM;
         document.getElementById('editNamaUKM').value = namaUKM;
