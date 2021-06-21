@@ -50,14 +50,16 @@ class BerandaController extends Controller
     {
         $this->validate($request,[
     		'isiInformasi' => 'required'
-    	]);
+    	], [
+            'isiInformasi.required' => 'Deskripsi UKM tidak boleh kosong!'
+        ]);
 
         Informasi::create([
             'UKM_idUKM' => Auth()->user()->UKM_idUKM,
             'isiInformasi' => $request->isiInformasi
     	]);
 
-        return redirect()->secure('admin/beranda');
+        return back()->with('sukses', "Data deskripsi berhasil diupdate");
     }
 
     function update(Request $request) 
@@ -65,11 +67,13 @@ class BerandaController extends Controller
         $this->validate($request,[
             'idInformasi' => 'required',
     		'isiInformasi' => 'required'
-    	]);
+    	], [
+            'isiInformasi.required' => 'Deskripsi UKM tidak boleh kosong!'
+        ]);
 
         $informasi = Informasi::find($request->idInformasi);
         $informasi->isiInformasi = $request->isiInformasi;
         $informasi->save();
-        return back()->with('success', "Data Informasi UKM dengan id " .$request->idInformasi. " terupdate");
+        return back()->with('sukses', "Data deskripsi berhasil diupdate");
     }
 }

@@ -43,6 +43,9 @@
                 <div class="col-md-5">
                     <textarea class='form-control' id='isiInformasi' name='isiInformasi' rows='10'>{{ $informasi->isiInformasi }}</textarea>                        
                 </div>
+                @if ($errors->has('isiInformasi'))
+                    <strong style="color:white;">{{ $errors->first('isiInformasi') }}</strong>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -60,6 +63,9 @@
                 <div class="col-md-5">
                     <textarea class='form-control' id='isiInformasi' name='isiInformasi' rows='10'></textarea>                        
                 </div>
+                @if ($errors->has('isiInformasi'))
+                    <strong style="color:white;">{{ $errors->first('isiInformasi') }}</strong>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -73,6 +79,11 @@
 @section('scripts')
 @if(Session::has('message'))
   <script type="text/javascript">
+    @if(Session::has('sukses'))
+        $(document).ready(function(){
+            $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('sukses') !!}");
+        });
+    @endif
     $(document).ready(function(){
         console.log("Berhasil masuk ukm");
       $.Notification.autoHideNotify('success', 'bottom right', "{!! Session::get('message') !!}", "{{ Auth()->user()->name }}");
