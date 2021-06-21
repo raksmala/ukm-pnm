@@ -103,6 +103,6 @@
     <script src="{{ secure_asset('/assets/js/jquery.core.js') }}"></script>
     <script src="{{ secure_asset('/assets/js/jquery.app.js') }}"></script>
 
-    @yield('script')
+    @yield('scripts')
   </body>
 </html>
