@@ -19,7 +19,7 @@ class LaporanController extends Controller
     {
         $fotoProgramKerja = "fotoKegiatanProker".$idProgramKerja;
         $this->validate($request,[
-    		$fotoProgramKerja => 'required|image'
+    		$fotoProgramKerja => 'required|mimes:jpg,png,jpeg'
     	], [
             $fotoProgramKerja.".required" => 'Foto Kegiatan Wajib Diupload!',
             $fotoProgramKerja.".image" => 'Format Foto Tidak Valid!'
