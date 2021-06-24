@@ -63,7 +63,7 @@
   </div>
 </div>
 @endsection
-@section('script')
+@section('scripts')
 <script type="text/javascript">
     function setProgramStudi(){
         var NIM = $('#NIM').val();
