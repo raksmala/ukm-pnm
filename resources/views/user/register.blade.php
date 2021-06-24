@@ -89,6 +89,8 @@
             var prodi = "Teknik Perkeretaapian";
         } else {
             var prodi = "(Program Studi)";
+            var tahun = new Date();
+            tahun = tahun.getFullYear();
         }
         $('#programStudi').val(prodi+ " " +tahun);
     }
