@@ -14,7 +14,7 @@ class ApiController extends Controller
     public function get_all_jadwal(Request $request)
     {
         $UKM_idUKM = $request->UKM_idUKM;
-        return response()->json(Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', $UKM_idUKM], ['tanggalAwal', '>', date('Y-m-d', strtotime('-1 day'))]])->get(), 200);
+        return response()->json(Jadwal::where([['UKM_idUKM', '!=', '1'],  ['UKM_idUKM', $UKM_idUKM], ['tanggalAwal', '>', date('Y-m-d', strtotime('-1 day'))], ['tanggalAkhir', '>', date('Y-m-d', strtotime('-1 day'))]])->get(), 200);
     }
 
     public function tambah(Request $request)
